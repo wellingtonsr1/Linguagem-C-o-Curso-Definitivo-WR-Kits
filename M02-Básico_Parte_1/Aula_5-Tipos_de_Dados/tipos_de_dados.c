@@ -20,7 +20,7 @@
 /* Função Principal */
 int main(int argc, char *argv[]) {
 	
-        /* No linux, dá uma lerta para usar o '%ld' no luga de '%d' */	
+        /* No linux, dá um alerta para usar o '%ld' no luga de '%d' */	
 	printf("int ocupa %d byte (s)\n", sizeof(int));				/* Exibe quanto o int ocupa em bytes */
 	printf("short int ocupa %d byte (s)\n", sizeof(short));			/* Exibe quanto o short ocupa em bytes */
 	printf("long int ocupa %d byte (s)\n", sizeof(long));			/* Exibe quanto o long ocupa em bytes */

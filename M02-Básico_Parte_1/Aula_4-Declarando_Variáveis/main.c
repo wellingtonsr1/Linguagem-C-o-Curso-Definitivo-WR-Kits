@@ -1,27 +1,41 @@
-/* =================================================================================================
-	
-	Descrição: 
-	Autor: Wellington
-	Data: 07/11/2023
-	Atualização: --
-	
-================================================================================================== */
+/*
+   Declarando variáveis no código
+
+*/
 
 /* Bibliotecas */
 #include <stdio.h>
 #include <stdlib.h>
 
 
+
 /* Função Principal */
-int main(int argc, char *argv[]) {
-	
-	
-	
-	system("PAUSE");				/* Faz uma parada na execução do programa */
-		
-	return 0;					/* Retorna '0' se tudo  ocorrer bem na execução */
-	
-}  /* end main */
+main()
+{
+      
+   int  var_main;
+
+   int  a = 2,
+        b = 3,
+        c;
+        
+   c = a + b;
+   
+   printf("%d %d %d \n", a, b, c);
+   
+   printf("b antes = %d\n", b);   
+   printf("b depois = %d\n",b);
+   
+   printf("c= %d\n", c);
+      
+      
+      
+      
+  
+  system("PAUSE");	
+  return 0;
+} /* end main */
+
 
 
 

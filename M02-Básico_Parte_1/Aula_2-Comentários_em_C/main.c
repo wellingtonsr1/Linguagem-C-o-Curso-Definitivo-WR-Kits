@@ -1,28 +1,46 @@
-/* =================================================================================================
-	
-	Descrição: 
-	Autor: Wellington
-	Data: 07/11/2023
-	Atualização: --
-	
-================================================================================================== */
+/* ========================================================================
+   Programa em C para ilustrar o uso de comentários.
+   
+   Autor: Wagner Rambo
+   Data: Maio de 2021
+   Atualizado em: --
 
+========================================================================== */
+
+/* ========================================================================== */
 /* Bibliotecas */
 #include <stdio.h>
 #include <stdlib.h>
 
 
+/* ========================================================================== */
 /* Função Principal */
-int main(int argc, char *argv[]) {
-	
-	
-	
-	system("PAUSE");				/* Faz uma parada na execução do programa */
-		
-	return 0;					/* Retorna '0' se tudo  ocorrer bem na execução */
-	
-}  /* end main */
+main()
+{
+           
+  printf("Curso de C\n");                        /* imprime a frase no console */
+
+  system("PAUSE");	                             /* pausa a execução do programa e mostra o texto
+                                                    "Pressione qualquer tecla para continuar . . . */
+  return 0;                                      /* Retorna 0 ao final da execução da função principal */
+
+} /* end main */
 
 
-
-
+/* ========================================================================== */
+/* Final do Programa */
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

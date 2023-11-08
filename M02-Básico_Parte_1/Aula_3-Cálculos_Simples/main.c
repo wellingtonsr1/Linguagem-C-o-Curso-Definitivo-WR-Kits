@@ -1,27 +1,47 @@
-/* =================================================================================================
-	
-	Descrição: 
-	Autor: Wellington
-	Data: 07/11/2023
-	Atualização: --
-	
-================================================================================================== */
+/* =========================================================================
+   Alguns cálculos simples em linguagem C
+   
+   Autor: Eng. Wagner Rambo
+   Data: Maio de 2021
 
-/* Bibliotecas */
+========================================================================= */
+
+
+/* ====================================================================== */
+/*  Bibliotecas */
 #include <stdio.h>
 #include <stdlib.h>
 
 
-/* Função Principal */
-int main(int argc, char *argv[]) {
-	
-	
-	
-	system("PAUSE");				/* Faz uma parada na execução do programa */
-		
-	return 0;					/* Retorna '0' se tudo  ocorrer bem na execução */
-	
-}  /* end main */
+/* ====================================================================== */
+/*  Função Principal */
+main()
+{
+  
+  printf("Resultado = %d\n\n",   (25+5)*2 / 5   );
+  printf("Resultado = %d\n\n",  ((25+5)*2) / 5 );
+  
+  system("PAUSE");	
+  return 0;
+  
+} /* end main*/
+
+
+/* ====================================================================== */
+/*  Final do Programa */
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,9 +1,9 @@
 /* =================================================================================================
-	Módulo 4, Parte 
+	Módulo 4, Parte 3
 	Aula 0
-	Descrição: 
+	Descrição: operadores relacionais (programa salário)
 	Autor: Wellington
-	Data: 
+	Data: 09/11/2023
 	Atualização: --
 ================================================================================================== */
 
@@ -17,8 +17,29 @@
 int main(int argc, char *argv[]) {
 
     printf("----------------------------------------------\n");	        /* Cabeçaalho */
-    printf("\n");
+    printf("		Programa salario         			  \n");
     printf("----------------------------------------------\n");	
+    
+    float salario,
+    	  vendas,
+		  sal_10;
+    	  
+    printf("Informe o salario R$: ");
+    scanf("%f", &salario);
+    
+	printf("Informe o valor em vendas R$: ");
+    scanf("%f", &vendas);
+    
+    sal_10 = (salario / 100.0*10.0);
+    
+    if(vendas > 10000.0)
+    	salario = salario + sal_10;
+    
+    if(vendas > 20000.0)
+    	salario = salario + sal_10;
+    	
+    printf("O salario foi de R$: %.2f\n", salario);
+    
     
     printf("----------------------------------------------\n");	        /* Rodapé */
     

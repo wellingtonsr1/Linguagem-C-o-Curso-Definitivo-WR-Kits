@@ -1,9 +1,9 @@
 /* =================================================================================================
-	Módulo 4, Parte 
+	Módulo 4, Parte 3
 	Aula 0
-	Descrição: 
+	Descrição: verifica a temperatura
 	Autor: Wellington
-	Data: 
+	Data: 09/11/2023
 	Atualização: --
 ================================================================================================== */
 
@@ -16,10 +16,21 @@
 /* Função Principal */
 int main(int argc, char *argv[]) {
 
+	float temperatura;
+	
     printf("----------------------------------------------\n");	        /* Cabeçaalho */
-    printf("\n");
+    printf("		Verifica a temperatura				  \n");
     printf("----------------------------------------------\n");	
     
+    printf("Digite a temperatura em graus Celsius: ");
+    scanf("%f", &temperatura);
+    
+    if(temperatura >= 50)
+    	printf("Alerta, temperatura elevada.\n");
+    else
+    	printf("Temperatura normal.\n");
+    	
+    	
     printf("----------------------------------------------\n");	        /* Rodapé */
     
 	system("PAUSE"); 				        							/* Faz uma parada na execução do programa */

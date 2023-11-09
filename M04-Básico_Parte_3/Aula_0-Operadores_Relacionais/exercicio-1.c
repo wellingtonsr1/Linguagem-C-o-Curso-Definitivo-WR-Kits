@@ -1,9 +1,9 @@
 /* =================================================================================================
-	Módulo 4, Parte 
+	Módulo 4, Parte 3
 	Aula 0
-	Descrição: 
+	Descrição: operadores relacionais
 	Autor: Wellington
-	Data: 
+	Data: 09/11/2023
 	Atualização: --
 ================================================================================================== */
 
@@ -17,8 +17,20 @@
 int main(int argc, char *argv[]) {
 
     printf("----------------------------------------------\n");	        /* Cabeçaalho */
-    printf("\n");
+    printf("		Testes relacionais         			  \n");
     printf("----------------------------------------------\n");	
+    
+    int opA = 1,
+    	opB = 5;
+    
+    printf("	0 = falso; 1 = verdadeiro\n\n");
+    printf("%d == %d = %d\n", opA, opB, opA == opB);
+    printf("%d >  %d = %d\n", opA, opB, opA > opB);
+    printf("%d >= %d = %d\n", opA, opB, opA >= opB);
+    printf("%d <  %d = %d\n", opA, opB, opA < opB);
+    printf("%d <= %d = %d\n", opA, opB, opA <= opB);
+    printf("%d != %d = %d\n", opA, opB, opA != opB);
+    
     
     printf("----------------------------------------------\n");	        /* Rodapé */
     

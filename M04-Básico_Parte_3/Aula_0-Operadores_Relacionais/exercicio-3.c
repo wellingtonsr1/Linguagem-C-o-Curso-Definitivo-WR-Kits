@@ -29,31 +29,45 @@ int main(int argc, char *argv[]) {
 
 	float salario=0.0,
 		  vendas=0.0;
+	int perc=0;
 		  
-    printf("----------------------------------------------\n");	        /* Cabeçaalho */
+    printf("----------------------------------------------\n");	        				/* Cabeçaalho */
     printf("         Calcula bonus salario                \n");
     printf("----------------------------------------------\n");	
     
-    printf("Informe o salario R$: ");
+    printf("Informe o salario R$: ");													/* Entrada de dados */
     scanf("%f", &salario);
     
-	printf("Informe o valor em vendas R$: ");
+	printf("Informe o valor em vendas R$: ");											/* Entrada de dados */
     scanf("%f", &vendas);
     
-    if(vendas > 10000.00) 
-    	salario = salario*1.10;
-	else if(vendas > 20000.00) 
-		salario = salario*1.15;
-	else if(vendas > 30000.00) 
-		salario = salario*1.25;
-	
-	printf("Salario: %.2f\n", salario);
-	
-	
-    printf("----------------------------------------------\n");	        /* Rodapé */
-    
-	system("PAUSE"); 				        							/* Faz uma parada na execução do programa */
+	if(vendas > 10000.00) {
+		salario = salario*1.10;
+		perc = 10;
 		
-	return 0;															/* Retorna '0' se tudo ocorrer bem na execução */
+		if(vendas > 20000.00) {
+			salario = salario*1.15;
+			perc = 15;
+			
+			if(vendas > 30000.00) {																/* Faz verificações */
+    			salario = salario*1.25;
+    			perc = 25;
+    		}
+		}
+	}
+	
+	if(perc != 0)
+		printf("O salario com acrescimo de %d % : %.2f\n", perc, salario);				/* Exibe o resultado */
+	else
+		printf("O salario sem acrescimo: %.2f\n", salario);
+		
+		
+	
+    printf("----------------------------------------------\n");	        				/* Rodapé */
+    
+	system("PAUSE"); 				        											/* Faz uma parada na execução do programa */
+		
+	return 0;																			/* Retorna '0' se tudo ocorrer bem na execução */
+
 	
 }  /* end main */

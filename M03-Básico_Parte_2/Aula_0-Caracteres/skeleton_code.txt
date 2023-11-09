@@ -1,11 +1,11 @@
 /* ============================================================================
 
     Linguagem C, o curso definitivo
-    Módulo 3 Aula 1
-    Números Reais
+    Módulo N Aula N
+    Título da Aula
     
-    Autor: Dr. Eng. Wagner Rambo
-    Data:  Maio de 2021
+    Autor: 
+    Data: 
 
 ============================================================================ */
 
@@ -20,13 +20,7 @@
 /* --- Função Principal --- */
 main()
 {
-  float R1, R2, vin, vout;
-  R1 = 15.0E3;
-  R2 = 1.5E3;
-  vin = 20.0;
-  vout = vin*R2/(R2+R1);
-  printf("vout= %.2fV\n",vout);
-
+  
   
   
   system("PAUSE");	                             /* pausa excução (Pressione qualquer tecla para continuar . . .) */

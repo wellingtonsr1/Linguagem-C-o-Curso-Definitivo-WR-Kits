@@ -28,7 +28,7 @@
 
 /* Função Principal */
 int main(int argc, char *argv[]) {
-    int idade;										/* Declaração de variáveis */
+    int idade=0;										/* Declaração de variáveis */
     char tem_carro;
 
     printf("----------------------------------------------\n");	       			 /* Cabeçaalho */

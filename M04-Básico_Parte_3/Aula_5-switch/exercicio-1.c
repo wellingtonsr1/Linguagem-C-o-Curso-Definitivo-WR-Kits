@@ -31,23 +31,60 @@
 int main(int argc, char *argv[])
 {
 									
-
-	int idade=0;
-	char estado_civil;
-	
-    printf("----------------------------------------------\n");	        /* Cabeçaalho */
+    int idade=0;                                                                /* Declaração de variáveis */
+    char estado_civil;
+    
+    printf("----------------------------------------------\n");	                /* Cabeçaalho */
     printf("               Estado civil                   \n");   
     printf("----------------------------------------------\n");	
     
-    printf("Informe sua idade: ");
+    printf("Informe sua idade: ");                                              /* Entrada de dados */
+    scanf("%d", &idade);
+    
+    printf("\n");                                                               /* Linha em branco extra */
+    
+    printf("Qual seu estado civil? \n");                                        /* Menu */
+    printf(" Solteiro   (s/S)\n");                                        
+    printf(" Casado     (c/C)\n");                                        
+    printf(" Divorciado (d/D)\n");                                        
+    printf(" Viuvo      (v/V)\n\n");                                            /* Entrada de dados */
+    printf("Informe apenas a inicial: ");
+    scanf(" %c", &estado_civil);
+    
+    printf("\n");                                                               /* Linha em branco extra */
+    
+    switch(estado_civil)                                                        /* Faz as verificações e exibe o resultado */
+    {
+        case 's':
+        case 'S':
+            printf("O individuo tem %d anos e eh solteiro.\n", idade);
+        break;
+
+        case 'c':
+        case 'C':
+            printf("O individuo tem %d anos e eh casado.\n", idade);
+        break;
+
+        case 'd':
+        case 'D':
+            printf("O individuo tem %d anos e eh divorciado.\n", idade);
+        break;
+
+        case 'v':
+        case 'V':
+            printf("O individuo tem %d anos e eh viuvo.\n", idade);
+        break;
+
+        default:
+            printf("Opcao invalida.\n");
+
+    } /* end switch */       
+    
+    printf("----------------------------------------------\n");	                    /* Rodapé */
     
     
-    
-    printf("----------------------------------------------\n");	        /* Rodapé */
-    
-    
-	system("PAUSE"); 				        							/* Faz uma parada na execução do programa */
+/*	system("PAUSE"); 	*/			        		    /* Faz uma parada na execução do programa */
 		
-	return 0;															/* Retorna '0' se tudo ocorrer bem na execução */
+	return 0;								    /* Retorna '0' se tudo ocorrer bem na execução */
 	
 }  /* end main */

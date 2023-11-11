@@ -14,7 +14,8 @@
 
 
 /* Função Principal */
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) 
+{
 
     printf("----------------------------------------------\n");	        /* Cabeçaalho */
     printf("		Testes relacionais         			  \n");

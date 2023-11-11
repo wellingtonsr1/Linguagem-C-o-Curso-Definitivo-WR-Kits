@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
 	}
 	
 	if(perc != 0)
-		printf("O salario com acrescimo de %d % : %.2f\n", perc, salario);				/* Exibe o resultado */
+		printf("O salario com acrescimo de %d %  %.2f\n", perc, salario);				/* Exibe o resultado */
 	else
 		printf("O salario sem acrescimo: %.2f\n", salario);
 		
@@ -65,7 +65,7 @@ int main(int argc, char *argv[]) {
 	
     printf("----------------------------------------------\n");	        				/* Rodapé */
     
-	system("PAUSE"); 				        											/* Faz uma parada na execução do programa */
+/*	system("PAUSE"); */				        											/* Faz uma parada na execução do programa */
 		
 	return 0;																			/* Retorna '0' se tudo ocorrer bem na execução */
 

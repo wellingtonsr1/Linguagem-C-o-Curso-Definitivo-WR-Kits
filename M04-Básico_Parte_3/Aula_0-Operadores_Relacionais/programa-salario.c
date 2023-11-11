@@ -14,15 +14,14 @@
 
 
 /* Função Principal */
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) 
+{
 
-    printf("----------------------------------------------\n");	        /* Cabeçaalho */
+    printf("----------------------------------------------\n");	        /* Cabeçalho */
     printf("		Programa salario         			  \n");
     printf("----------------------------------------------\n");	
     
-    float salario,
-    	  vendas,
-		  sal_10;
+    float salario, vendas, sal_10;
     	  
     printf("Informe o salario R$: ");
     scanf("%f", &salario);

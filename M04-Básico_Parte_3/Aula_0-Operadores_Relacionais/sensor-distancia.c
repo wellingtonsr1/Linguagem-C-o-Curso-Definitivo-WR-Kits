@@ -14,10 +14,10 @@
 
 
 /* Função Principal */
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) 
+{
 
-	int distancia,														/* Declaração de variáveis */
-		temp=0;
+	int distancia, temp=0;												/* Declaração de variáveis */
 		
     printf("----------------------------------------------\n");	        /* Cabeçaalho */
     printf("	Sensor de distancia					      \n");
@@ -26,15 +26,17 @@ int main(int argc, char *argv[]) {
     printf("Entre com a temperatura em cm: ");							/* Entrada de dados */
     scanf("%d", &distancia);
     
-    if(distancia <= 25) {												/* Faz verificações */
+    if(distancia <= 25) 
+    {												/* Faz verificações */
     	printf("Robo desvia de obstaculo.\n");
     	temp = distancia;
-	}
+    	
+    } /* end if */
 	
-	if(temp != 0)														/* Faz verificações */
-		printf("O robo detectou na distancia de = %d cm\n", temp);
-	else
-		printf("O robo nao detectou obstaculos.\n");
+    if(temp != 0)														/* Faz verificações */
+	printf("O robo detectou na distancia de = %d cm\n", temp);
+    else
+	printf("O robo nao detectou obstaculos.\n");
 		
 	
     printf("----------------------------------------------\n");	        /* Rodapé */

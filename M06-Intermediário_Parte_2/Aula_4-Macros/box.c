@@ -21,143 +21,70 @@ int main(int argc, char *argv[])
 									
     setlocale(LC_ALL, "Portuguese_Brazil"); 
 
-	int linha, coluna, i,j;
-	
-    printf("----------------------------------------------\n");	                        /* Cabeçaalho */
-    printf("                  áção           \n");   
-    printf("----------------------------------------------\n");	
-    
-    
-   	for(linha=0; linha  < 5; linha++)  	
-    {
-    	for(coluna=0; coluna < 10; coluna++)
-    	{
-    		/* --------------- Topo e base ------------------ */
-    		if (linha == 0 || linha == 5 - 1) 
-			{
-    			printf("+");
-			}
-			
-			/* --------------- Lado esquerdo ------------------ */
-			if (linha == 1 && coluna == 0) 
-			{
-    			printf("|");
-			}
-			
-			if (linha == 2 && coluna == 0) 
-			{
-    			printf("|");
-			}
-			
-			if (linha == 3 && coluna == 0) 
-			{
-    			printf("|");
-			}
-			
-			/* --------------- centro ------------------ */
-			if(linha == 1) 
-			{
-    			printf(" ");
-			}
-		
-			if(linha == 2) 
-			{
-    			printf(" ");
-			}
-			
-			if(linha == 3)
-			{
-    			printf(" ");
-			}
-			
-			/* --------------- Lado direito  ------------------ */
-			if (linha == 1 && coluna == 7) 
-			{
-    			printf("|");
-			}
-		
-			
-			if (linha == 2 && coluna == 7) 
-			{
-    			printf("|");
-			}
-			
-			if (linha == 3 && coluna == 7) 
-			{
-    			printf("|");
-			}
-			
-		}
-	
-    	printf("\n");
-			
-	} /* end for internal */
-		
+    int linha, coluna, altura=5, largura=17, number;                                /* Declaração das variáveis */
+   
+    while(1)                                                                        /* Loop infinito */
+    {   
 
-    
-    printf("----------------------------------------------\n");         	        /* Rodapé */
-    
-    /*
-    
-    
-    
+        printf("\n");                                                               /* Linha em branco extra */
         
-  1  for(linha=4; linha < 5; linha++)
-    {
-    	for(coluna=0; coluna < 10; coluna++)  	
-    	{
-    		printf("*");
-    	}
-    }
-    	
-    	linha 0	**********
-    	linha 1	*bbbbbbbb*
-    	linha 2	*bbbbbbbb*
-    	linha 3	*bbbbbbbb*
-    	linha 4	
-    		
-    		
+        printf("----------------------------------------------\n");	            /* Cabeçaalho */
+        printf("                BOX                           \n");   
+        printf("----------------------------------------------\n");	
+        
+        printf("Digite um numero de 1 a 9 (0 para sair): ");                        /* Entrada de dados */
+        scanf("%d", &number);
+        
+        printf("\n");                                                               /* Linha em branco extra */
+    
+        if(!number)                                                                 /* Encerra o programa */
+        {
+            printf("Encerrando o programa...\n"); 
+            break;
+        }
+        
 
-    		
+        if(number > 9)                                                              /* Mensagem de dados invalidos */
+        { 
+            printf("Valor invalido!\n");
 
+        } /* end if external */
+        else
+        {
+            /* ---------- Trecho onde é desenhado o box ---------- */
+            
+            for(linha=0; linha  < altura; linha++)  	
+            {
+    	        for(coluna=0; coluna < largura; coluna++)
+    	        {
+    	            if (linha == 0 || linha == altura - 1) printf("+");             /* Desenha as bordas superior e inferior */
+            
+                    if(linha >= 1 && linha <= 3){                                   /* Desenha as demais linhas (2 a 3) */
+                        if(linha == 2)
+                        {
+                            printf("| N U M E R O %d |", number);                   /* Imprime o texto com o número informado */
+                            break;
+                        }
+                
+                        if(coluna == 0 || coluna == largura - 1) printf("|");       /* Desenha a coluna da esquerda e direita */
+                        if(coluna >= 1 && coluna <= largura - 1) printf(" ");       /* Deixa o interior do box 'vazio' */
+                    }
+			
+	        } /* end for internal */
+	        printf("\n");
+
+            } /* end for external */
+            
+            /* ------------------- end trecho -------------------- */
+
+        } /* end else external */
+
+    } /* end while */
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    */
-    
-    system("PAUSE");               							/* Faz uma parada na execução do programa */
+
+    printf("----------------------------------------------\n");         	        /* Rodapé */
+     
+    /* system("PAUSE"); */               						/* Faz uma parada na execução do programa */
 		
     return 0;		        							/* Retorna '0' se tudo ocorrer bem na execução */
 	

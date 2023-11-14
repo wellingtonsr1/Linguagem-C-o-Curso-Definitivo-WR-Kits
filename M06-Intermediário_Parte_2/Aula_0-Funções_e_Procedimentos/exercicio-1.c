@@ -31,13 +31,15 @@
     +++++++++++++++++
 */
 
-/* Bibliotecas */
+/* ----- Bibliotecas ----- */
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h> 
 
+/* ----- Macros ----- */
 
-/* --------------- Protótipos das funções ---------------- */ 
+
+/* ----- Protótipos das funções ----- */ 
 
 void display_box_1();
 void display_box_2();
@@ -49,16 +51,16 @@ void display_box_7();
 void display_box_8();
 void display_box_9();
 void display_box_10();
+int exit_();
 
 
-
-/* Função Principal */
+/* ----- Função Principal ----- */
 int main(int argc, char *argv[])
 {
 									
     /* setlocale(LC_CTYPE, "Portuguese"); */ 
 
-    int number=0;                                                           /* Declaração de variáveis */
+    int number;                                                           /* Declaração de variáveis */
 
     do
     { 
@@ -83,9 +85,7 @@ int main(int argc, char *argv[])
             case 8: display_box_8(); break;
             case 9: display_box_9(); break;
             case 10: display_box_10(); break;
-            case 0:
-                printf("Encerrando o programa...\n");
-                break;
+            case 0: exit_();         break;
             default:
                 printf("Valor invalido\n");
 
@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
 }  /* end main */
 
 
-/* --------------- Desenvolvimento das funções ---------------- */ 
+/* ----- Desenvolvimento das funções ----- */ 
 
 void display_box_1()
 {
@@ -206,3 +206,10 @@ void display_box_10()
     printf("+++++++++++++++++\n");
 
 } /* end box 10 */
+
+int exit_()
+{
+    printf("Encerrando o programa...\n");
+    return 0;
+
+} /* end _exit */

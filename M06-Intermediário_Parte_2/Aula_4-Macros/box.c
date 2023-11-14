@@ -15,7 +15,7 @@
 #include <locale.h> 
 
 /* ---------- Protótipos das funções ---------- */
-void draw_box(int number);
+void display_box(int n);
 
 
 /* Função Principal */
@@ -28,10 +28,7 @@ int main(int argc, char *argv[])
 
     while(1)                                                                        /* Loop infinito */
     {   
-
-        printf("\n");                                                               /* Linha em branco extra */
-        
-        printf("----------------------------------------------\n");	            /* Cabeçaalho */
+        printf("\n----------------------------------------------\n");	            /* Cabeçaalho */
         printf("                BOX                           \n");   
         printf("----------------------------------------------\n");	
         
@@ -47,7 +44,7 @@ int main(int argc, char *argv[])
 
         } /* end if*/
         
-        number > 9 ? printf("Valor invalido!\n") : draw_box(number);
+        number > 9 ? printf("Valor invalido!\n") : display_box(number);
 
     } /* end while */
     
@@ -62,7 +59,7 @@ int main(int argc, char *argv[])
 
 
 /* Desenvolvimentos das funções */
-void draw_box(int number)
+void display_box(int n)
 {
     
     int linha, coluna, altura=5, largura=17;                                /* Declaração das variáveis */
@@ -77,7 +74,7 @@ void draw_box(int number)
             if(linha >= 1 && linha <= 3){                                               /* Desenha as demais linhas (2 a 3) */
                 if(linha == 2)
                 {
-                    printf("| N U M E R O %d |", number);                               /* Imprime o texto com o número informado */
+                    printf("| N U M E R O %d |", n);                               /* Imprime o texto com o número informado */
                     break;
 
                 } /* end if internal */
@@ -92,6 +89,6 @@ void draw_box(int number)
     } /* end for external */        
     /* ------------------- end trecho -------------------- */
 
-} /* end draw_box */
+} /* end display_box */
 
 

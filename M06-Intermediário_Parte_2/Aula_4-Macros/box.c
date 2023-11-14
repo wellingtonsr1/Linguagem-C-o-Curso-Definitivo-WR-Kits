@@ -14,6 +14,9 @@
 #include <stdlib.h>
 #include <locale.h> 
 
+/* ---------- Protótipos das funções ---------- */
+void draw_box(int number);
+
 
 /* Função Principal */
 int main(int argc, char *argv[])
@@ -21,8 +24,8 @@ int main(int argc, char *argv[])
 									
     setlocale(LC_ALL, "Portuguese_Brazil"); 
 
-    int linha, coluna, altura=5, largura=17, number;                                /* Declaração das variáveis */
-   
+    int number;
+
     while(1)                                                                        /* Loop infinito */
     {   
 
@@ -41,51 +44,54 @@ int main(int argc, char *argv[])
         {
             printf("Encerrando o programa...\n"); 
             break;
-        }
+
+        } /* end if*/
         
-
-        if(number > 9)                                                              /* Mensagem de dados invalidos */
-        { 
-            printf("Valor invalido!\n");
-
-        } /* end if external */
-        else
-        {
-            /* ---------- Trecho onde é desenhado o box ---------- */
-            
-            for(linha=0; linha  < altura; linha++)  	
-            {
-    	        for(coluna=0; coluna < largura; coluna++)
-    	        {
-    	            if (linha == 0 || linha == altura - 1) printf("+");             /* Desenha as bordas superior e inferior */
-            
-                    if(linha >= 1 && linha <= 3){                                   /* Desenha as demais linhas (2 a 3) */
-                        if(linha == 2)
-                        {
-                            printf("| N U M E R O %d |", number);                   /* Imprime o texto com o número informado */
-                            break;
-                        }
-                
-                        if(coluna == 0 || coluna == largura - 1) printf("|");       /* Desenha a coluna da esquerda e direita */
-                        if(coluna >= 1 && coluna <= largura - 1) printf(" ");       /* Deixa o interior do box 'vazio' */
-                    }
-			
-	        } /* end for internal */
-	        printf("\n");
-
-            } /* end for external */
-            
-            /* ------------------- end trecho -------------------- */
-
-        } /* end else external */
+        number > 9 ? printf("Valor invalido!\n") : draw_box(number);
 
     } /* end while */
     
 
-    printf("----------------------------------------------\n");         	        /* Rodapé */
+    printf("----------------------------------------------\n");         	                /* Rodapé */
      
-    /* system("PAUSE"); */               						/* Faz uma parada na execução do programa */
+    /* system("PAUSE"); */               					                /* Faz uma parada na execução do programa */
 		
-    return 0;		        							/* Retorna '0' se tudo ocorrer bem na execução */
+    return 0;		        						                /* Retorna '0' se tudo ocorrer bem na execução */
 	
 }  /* end main */
+
+
+/* Desenvolvimentos das funções */
+void draw_box(int number)
+{
+    
+    int linha, coluna, altura=5, largura=17;                                /* Declaração das variáveis */
+    
+    /* ---------- Trecho onde é desenhado o box ---------- */        
+    for(linha=0; linha  < altura; linha++)  	
+    {
+        for(coluna=0; coluna < largura; coluna++)
+    	{
+    	    if(linha == 0 || linha == altura - 1) printf("+");                         /* Desenha as bordas superior e inferior */
+            
+            if(linha >= 1 && linha <= 3){                                               /* Desenha as demais linhas (2 a 3) */
+                if(linha == 2)
+                {
+                    printf("| N U M E R O %d |", number);                               /* Imprime o texto com o número informado */
+                    break;
+
+                } /* end if internal */
+                
+                coluna == 0 || coluna == largura - 1 ? printf("|") : printf(" ");       /* Desenha a coluna da esquerda e direita */
+                    
+            } /* end if external */
+			
+	} /* end for internal */
+	printf("\n");
+
+    } /* end for external */        
+    /* ------------------- end trecho -------------------- */
+
+} /* end draw_box */
+
+

@@ -28,11 +28,11 @@ int main(int argc, char *argv[])
 
     while(1)                                                                        /* Loop infinito */
     {   
-        printf("\n----------------------------------------------\n");	            /* Cabeçaalho */
+        printf("----------------------------------------------\n");	                /* Cabeçaalho */
         printf("                BOX                           \n");   
         printf("----------------------------------------------\n");	
         
-        printf("Digite um numero de 1 a 9 (0 para sair): ");                        /* Entrada de dados */
+        printf("Digite um número de 1 a 9 (0 para sair): ");                        /* Entrada de dados */
         scanf("%d", &number);
         
         printf("\n");                                                               /* Linha em branco extra */
@@ -49,11 +49,11 @@ int main(int argc, char *argv[])
     } /* end while */
     
 
-    printf("----------------------------------------------\n");         	                /* Rodapé */
+    printf("----------------------------------------------\n");         	         /* Rodapé */
      
-    /* system("PAUSE"); */               					                /* Faz uma parada na execução do programa */
-		
-    return 0;		        						                /* Retorna '0' se tudo ocorrer bem na execução */
+    system("PAUSE");               					                                 /* Faz uma parada na execução do programa */
+	
+    return 0;		        						                                 /* Retorna '0' se tudo ocorrer bem na execução */
 	
 }  /* end main */
 
@@ -62,24 +62,24 @@ int main(int argc, char *argv[])
 void display_box(int n)
 {
     
-    int linha, coluna, altura=5, largura=17;                                /* Declaração das variáveis */
+    int linha, coluna, altura=5, largura=17;                                         /* Declaração das variáveis */
     
     /* ---------- Trecho onde é desenhado o box ---------- */        
     for(linha=0; linha  < altura; linha++)  	
     {
         for(coluna=0; coluna < largura; coluna++)
     	{
-    	    if(linha == 0 || linha == altura - 1) printf("+");                         /* Desenha as bordas superior e inferior */
+    	    if(linha == 0 || linha == altura - 1) printf("+");                       /* Desenha as bordas superior e inferior */
             
-            if(linha >= 1 && linha <= 3){                                               /* Desenha as demais linhas (2 a 3) */
+            if(linha >= 1 && linha <= 3){                                            /* Desenha as demais linhas (2 a 3) */
                 if(linha == 2)
                 {
-                    printf("| N U M E R O %d |", n);                               /* Imprime o texto com o número informado */
+                    printf("| N Ú M E R O %d |", n);                                 /* Imprime o texto com o número informado */
                     break;
 
                 } /* end if internal */
                 
-                coluna == 0 || coluna == largura - 1 ? printf("|") : printf(" ");       /* Desenha a coluna da esquerda e direita */
+                coluna == 0 || coluna == largura - 1 ? printf("|") : printf(" ");    /* Desenha a coluna da esquerda e direita */
                     
             } /* end if external */
 			

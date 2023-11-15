@@ -71,7 +71,7 @@ void inserir_dados()
     float total=0.0, subtotal[N]={0.0}, ativos[N] = {0},
               ativo=0.0, aporte=0.0, total_aporte=0.0;
         
-    printf("----------------------------------------------\n");	                        /* Cabeçaalho */
+    printf("----------------------------------------------\n");	                        /* Cabeçalho */
     printf("             Calcula aporte                   \n");   
     printf("----------------------------------------------\n");	
     

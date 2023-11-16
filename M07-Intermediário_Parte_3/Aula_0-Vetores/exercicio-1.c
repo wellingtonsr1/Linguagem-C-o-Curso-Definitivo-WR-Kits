@@ -57,11 +57,11 @@ int main(int argc, char *argv[])
     
         } /* end switch */
     
-    }while(opcao != 'n' && opcao != 'N'); /* end do..while */
+    }while(opcao != 'n' && opcao != 'N'); /* end do...while */
     
-    /* system("PAUSE");               							    /* Faz uma parada na execução do programa */
+    /* system("PAUSE");               							                             /* Faz uma parada na execução do programa */
 		
-    return 0;		        							    /* Retorna '0' se tudo ocorrer bem na execução */
+    return 0;		        							                                     /* Retorna '0' se tudo ocorrer bem na execução */
 	
 }  /* end main */
 
@@ -70,7 +70,6 @@ int main(int argc, char *argv[])
 
 void entrada_dados()
 {
-
     register int i;                                                                         /* Declaração de variáveis */
     int quantidades[N] = {0}, quantidade=0;                                              
     float total=0.0, subtotal[N]={0.0}, ativos[N] = {0.0},
@@ -111,6 +110,7 @@ void realizar_calculo(int quantidades[], float ativos[], float aporte)
     register int i;                                                                         /* Declaração das variáveis */
     float total=0.0, subtotal[N]={0.0};
 
+
     for(i=0; i < N; i++)                                                                    /* Realiza os cálculos */
     {
         subtotal[i] = quantidades[i] * ativos[i]; 
@@ -136,18 +136,18 @@ void exibir_relatorio(float ativos[], int quantidades[], float subtotal[], float
 
     printf("                Relatorio                      \n");                            /* Cabeçalho */
     printf("...............................................\n");
-    printf(" Cod.   Ativo($)   Quantidade   Subtotal($)\n");
+    printf(" Cod.     Ativo($)     Quantidade    Subtotal($)\n");
 
     for(i=0; i < N; i++)                                                                    /* Impressão dos dados */
     {
         /*printf(" Ativo %d....$: %.2f Quantidade %d: %d Subtotal $: %.2f\n", \
                         i + 1, ativos[i], i + 1, quantidades[i], subtotal[i]);*/
         
-        printf("  %d      %.2f           %d            %.2f\n", \
+        printf("  %d      %9.2f           %3d      %9.2f\n", \
                     i + 1, ativos[i], quantidades[i], subtotal[i]);
 
     } /* end for */ 
-    printf("                            Total $: %.2f\n", total);
+    printf("                            Total $: %9.2f\n", total);
     printf("...............................................\n\n");                          /* Rodapé */
 
 } /* end exibir_relatorio */

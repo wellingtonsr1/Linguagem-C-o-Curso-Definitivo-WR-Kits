@@ -83,7 +83,7 @@ void entrada_dados()
     printf(" - Qual o valor do aporte ($) ? ");                                             /* Entrada de dados */
     scanf("%f", &aporte);
         
-    printf("\n");                                                                           /* Linha em branco extra */
+    putchar('\n');                                                                           /* Linha em branco extra */
 
     for(i=0; i < N; i++)                                                                    /* Armazena os dados em vetores */
     {
@@ -95,7 +95,7 @@ void entrada_dados()
         scanf("%d", &quantidade);
         quantidades[i] = quantidade; 
          
-        printf("\n");                                                                       /* Linha em branco extra */
+        putchar('\n');                                                                       /* Linha em branco extra */
 
     } /* end for */
 

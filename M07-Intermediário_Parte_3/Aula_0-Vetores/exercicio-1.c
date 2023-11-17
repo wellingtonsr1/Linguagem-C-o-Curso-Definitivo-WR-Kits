@@ -17,6 +17,12 @@
 #define TAM_VETOR 5
 
 
+/* ---------- Macros ---------- */
+#define alerta puts(" ...................................."); \
+               puts(" *   Atencao! Valor insuficiente    *"); \
+               puts(" ....................................") 
+
+
 /* ---------- Protótipo das funções ---------- */
 
 void entrada_dados();
@@ -121,13 +127,10 @@ void realizar_calculo(int quantidades[], float ativos[], float aporte, int tam_v
     
     } /* end for */
 
-    if(aporte < total){                                                                     /* Compara total com valor do aporte */
-        puts(" ....................................");
-        puts("   - Atencao! Valor insuficiente     ");
-        puts(" ....................................");
-        putchar('\n');
-   
-    } /* end if */
+    if(aporte < total) 
+        alerta;                                                                     /* Compara total com valor do aporte */
+    
+    putchar('\n');
  
     exibir_relatorio(ativos, quantidades, subtotal, total, tam_vetor);                      /* Chama a função para exibir o relatório */
     

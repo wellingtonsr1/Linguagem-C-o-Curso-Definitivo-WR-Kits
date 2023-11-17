@@ -14,14 +14,14 @@
 #include <stdlib.h>
 #include <locale.h> 
 
-#define N 5
+#define TAM_VETOR 5
 
 
 /* ---------- Protótipo das funções ---------- */
 
 void entrada_dados();
-void exibir_relatorio(float ativos[], int quantidades[], float subtotal[], float total);
-void realizar_calculo(int quantidades[], float ativos[], float aporte);
+void exibir_relatorio(float ativos[], int quantidades[], float subtotal[], float total, int tam_vetor);
+void realizar_calculo(int quantidades[], float ativos[], float aporte, int tam_vetor);
 
 
 /* Função Principal */
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 
     do                                                                                      /* Pergunta se quer terminar o programa ou continuar usando */
     {
-        printf("Deseja calcular novamente?\n");
+        puts("Deseja calcular novamente?");
         printf("(s) sim | (n) nao ==> ");
         scanf(" %c", &opcao);
 
@@ -44,7 +44,8 @@ int main(int argc, char *argv[])
         {
             case 'n':
             case 'N':
-                printf("\n - Encerrando o programa...\n");
+                putchar('\n');
+                puts(" - Encerrando o programa...");
                 break;
             
             case 's':
@@ -53,8 +54,10 @@ int main(int argc, char *argv[])
                 break;
 
             default:
-                printf("\n - Opção incorreta.\n\n");
-    
+                putchar('\n');
+                puts(" - Opção incorreta.");
+                putchar('\n');
+
         } /* end switch */
     
     }while(opcao != 'n' && opcao != 'N'); /* end do...while */
@@ -71,20 +74,20 @@ int main(int argc, char *argv[])
 void entrada_dados()
 {
     register int i;                                                                         /* Declaração de variáveis */
-    int quantidades[N] = {0}, quantidade=0;                                              
-    float total=0.0, subtotal[N]={0.0}, ativos[N] = {0.0},
+    int quantidades[TAM_VETOR] = {0}, quantidade=0;                                              
+    float total=0.0, ativos[TAM_VETOR]={0.0},
               ativo=0.0, aporte=0.0, total_aporte=0.0;
         
-    printf("----------------------------------------------\n");	                            /* Cabeçalho */
-    printf("             Calcula aporte                   \n");   
-    printf("----------------------------------------------\n");	
+    puts("----------------------------------------------");	                            /* Cabeçalho */
+    puts("             Calcula aporte                   ");   
+    puts("----------------------------------------------");	
     
     printf(" - Qual o valor do aporte ($) ? ");                                             /* Entrada de dados */
     scanf("%f", &aporte);
         
     putchar('\n');                                                                           /* Linha em branco extra */
 
-    for(i=0; i < N; i++)                                                                    /* Armazena os dados em vetores */
+    for(i=0; i < TAM_VETOR; i++)                                                                    /* Armazena os dados em vetores */
     {
         printf(" - Ativo %d....$: ", i + 1);
         scanf("%f", &ativo);
@@ -98,20 +101,20 @@ void entrada_dados()
 
     } /* end for */
 
-    realizar_calculo(quantidades, ativos, aporte);                                          /* Chama a função para imprimir o relatório */
+    realizar_calculo(quantidades, ativos, aporte, TAM_VETOR);                                          /* Chama a função para imprimir o relatório */
        
-    printf("\n----------------------------------------------\n");                           /* Rodapé */
+    puts("----------------------------------------------");                           /* Rodapé */
 
 } /* end inserir_dados */
 
 
-void realizar_calculo(int quantidades[], float ativos[], float aporte)
+void realizar_calculo(int quantidades[], float ativos[], float aporte, int tam_vetor)
 {
     register int i;                                                                         /* Declaração das variáveis */
-    float total=0.0, subtotal[N]={0.0};
+    float total=0.0, subtotal[tam_vetor];
 
 
-    for(i=0; i < N; i++)                                                                    /* Realiza os cálculos */
+    for(i=0; i < tam_vetor; i++)                                                                    /* Realiza os cálculos */
     {
         subtotal[i] = quantidades[i] * ativos[i]; 
         total += subtotal[i];
@@ -119,35 +122,40 @@ void realizar_calculo(int quantidades[], float ativos[], float aporte)
     } /* end for */
 
     if(aporte < total){                                                                     /* Compara total com valor do aporte */
-        printf(" ....................................\n");
-        printf("   - Atencao! Valor insuficiente      \n");
-        printf(" ....................................\n\n");
-    
+        puts(" ....................................");
+        puts("   - Atencao! Valor insuficiente     ");
+        puts(" ....................................");
+        putchar('\n');
+   
     } /* end if */
  
-    exibir_relatorio(ativos, quantidades, subtotal, total);                                 /* Chama a função para exibir o relatório */
+    exibir_relatorio(ativos, quantidades, subtotal, total, tam_vetor);                                 /* Chama a função para exibir o relatório */
     
 } /* end realizar_calculo */
 
 
-void exibir_relatorio(float ativos[], int quantidades[], float subtotal[], float total)
+void exibir_relatorio(float ativos[], int quantidades[], float subtotal[], float total, int tam_vetor)
 {
     register int i;                                                                                  /* Declaração das variáveis */
 
-    printf("                Relatorio                      \n");                            /* Cabeçalho */
-    printf("...............................................\n");
-    printf(" Cod.     Ativo($)     Quantidade    Subtotal($)\n");
+    puts("                 Relatorio                       ");                            /* Cabeçalho */
+    puts(".................................................");
+    puts(" Cod.     Ativo($)    Quantidade     Subtotal($) ");
+    puts(".................................................");
 
-    for(i=0; i < N; i++)                                                                    /* Impressão dos dados */
+    for(i=0; i < tam_vetor; i++)                                                                    /* Impressão dos dados */
     {
         /*printf(" Ativo %d....$: %.2f Quantidade %d: %d Subtotal $: %.2f\n", \
                         i + 1, ativos[i], i + 1, quantidades[i], subtotal[i]);*/
         
-        printf("  %d      %9.2f           %3d      %9.2f\n", \
+        printf(" %3d   %9.2f         %3d         %9.2f\n", \
                     i + 1, ativos[i], quantidades[i], subtotal[i]);
 
     } /* end for */ 
-    printf("                            Total $: %9.2f\n", total);
-    printf("...............................................\n\n");                          /* Rodapé */
+
+    putchar('\n');
+    printf("                             Total $:%9.2f\n", total);
+    puts(".................................................");
+    putchar('\n');
 
 } /* end exibir_relatorio */

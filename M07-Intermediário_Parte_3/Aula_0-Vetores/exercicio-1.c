@@ -62,9 +62,9 @@ int main(int argc, char *argv[])
     
     }while(opcao != 'n' && opcao != 'N'); /* end do...while */
     
-    /* system("PAUSE");               							                             /* Faz uma parada na execução do programa */
+    /* system("PAUSE");               							    /* Faz uma parada na execução do programa */
 		
-    return 0;		        							                                     /* Retorna '0' se tudo ocorrer bem na execução */
+    return 0;		        							    /* Retorna '0' se tudo ocorrer bem na execução */
 	
 }  /* end main */
 
@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 void entrada_dados()
 {
     register int i;                                                                         /* Declaração de variáveis */
-    int quantidades[TAM_VETOR] = {0}, quantidade=0;                                              
+    int quantidades[TAM_VETOR]={0}, quantidade=0;                                              
     float total=0.0, ativos[TAM_VETOR]={0.0},
               ativo=0.0, aporte=0.0, total_aporte=0.0;
         
@@ -85,9 +85,9 @@ void entrada_dados()
     printf(" - Qual o valor do aporte ($) ? ");                                             /* Entrada de dados */
     scanf("%f", &aporte);
         
-    putchar('\n');                                                                           /* Linha em branco extra */
+    putchar('\n');                                                                          /* Linha em branco extra */
 
-    for(i=0; i < TAM_VETOR; i++)                                                                    /* Armazena os dados em vetores */
+    for(i=0; i < TAM_VETOR; i++)                                                            /* Armazena os dados em vetores */
     {
         printf(" - Ativo %d....$: ", i + 1);
         scanf("%f", &ativo);
@@ -101,9 +101,9 @@ void entrada_dados()
 
     } /* end for */
 
-    realizar_calculo(quantidades, ativos, aporte, TAM_VETOR);                                          /* Chama a função para imprimir o relatório */
+    realizar_calculo(quantidades, ativos, aporte, TAM_VETOR);                               /* Chama a função para imprimir o relatório */
        
-    puts("----------------------------------------------");                           /* Rodapé */
+    puts("----------------------------------------------");                                 /* Rodapé */
 
 } /* end inserir_dados */
 
@@ -114,7 +114,7 @@ void realizar_calculo(int quantidades[], float ativos[], float aporte, int tam_v
     float total=0.0, subtotal[tam_vetor];
 
 
-    for(i=0; i < tam_vetor; i++)                                                                    /* Realiza os cálculos */
+    for(i=0; i < tam_vetor; i++)                                                            /* Realiza os cálculos */
     {
         subtotal[i] = quantidades[i] * ativos[i]; 
         total += subtotal[i];
@@ -129,7 +129,7 @@ void realizar_calculo(int quantidades[], float ativos[], float aporte, int tam_v
    
     } /* end if */
  
-    exibir_relatorio(ativos, quantidades, subtotal, total, tam_vetor);                                 /* Chama a função para exibir o relatório */
+    exibir_relatorio(ativos, quantidades, subtotal, total, tam_vetor);                      /* Chama a função para exibir o relatório */
     
 } /* end realizar_calculo */
 
@@ -138,12 +138,12 @@ void exibir_relatorio(float ativos[], int quantidades[], float subtotal[], float
 {
     register int i;                                                                                  /* Declaração das variáveis */
 
-    puts("                 Relatorio                       ");                            /* Cabeçalho */
+    puts("                 Relatorio                       ");                               /* Cabeçalho */
     puts(".................................................");
     puts(" Cod.     Ativo($)    Quantidade     Subtotal($) ");
     puts(".................................................");
 
-    for(i=0; i < tam_vetor; i++)                                                                    /* Impressão dos dados */
+    for(i=0; i < tam_vetor; i++)                                                             /* Impressão dos dados */
     {
         /*printf(" Ativo %d....$: %.2f Quantidade %d: %d Subtotal $: %.2f\n", \
                         i + 1, ativos[i], i + 1, quantidades[i], subtotal[i]);*/

@@ -1,9 +1,9 @@
 /* =================================================================================================
-	Módulo 
-	Aula 
-	Descrição: 
+	Módulo 7 
+	Aula 1
+	Descrição: Exercício 1
 	Autor: Wellington
-	Data: 
+	Data: 18/11/2023
 	Atualização: --
 ================================================================================================== */
 
@@ -35,7 +35,8 @@
 /* ---------- Protótipo das funções ---------- */
 
 unsigned char acao(unsigned char bytes, int i, char op);
-void exibe_resultado(unsigned char b_orig[], unsigned char b_cript[], unsigned char b_desc[], int tam_vetor);
+void exibe_resultado(unsigned char b_orig[], unsigned char b_cript[], 
+                                unsigned char b_desc[], int tam_vetor);
 
 
 /* Função Principal */
@@ -44,18 +45,18 @@ int main(int argc, char *argv[])
 									
     /* setlocale(LC_ALL, "Portuguese_Brazil"); */ 
 
-    unsigned char bytes_orig[TAM_VETOR] = {0}, 
+    unsigned char bytes_orig[TAM_VETOR] = {0},                                                          /* Declaração das variáveis */ 
                   bytes_cript[TAM_VETOR] = {0}, 
                   bytes_desc[TAM_VETOR] = {0}, valor;
 
     register int i;
 
-    puts("----------------------------------------------");
-    puts("             CONVERSAO DE BYTES               ");	                        /* Cabeçalho */
+    puts("----------------------------------------------");                                             /* Cabeçalho */
+    puts("             CONVERSAO DE BYTES               ");	                        
     puts("   Ex.: 0xA0, 0x73, 0x25, 0xD3, 0xCA, 0xFE    ");   
     puts("----------------------------------------------");	
     
-    for(i=0 ; i < TAM_VETOR; i++)
+    for(i=0 ; i < TAM_VETOR; i++)                                                                       /* Entrada de dados */
     {
         printf("Informe o %d valor: ", i + 1);
         scanf("%hhx", &valor);
@@ -64,22 +65,22 @@ int main(int argc, char *argv[])
 
     } /* end for */
      
-    for(i=0; i < TAM_VETOR; i++)
+    for(i=0; i < TAM_VETOR; i++)                                                                        /* Converte os dados */
     {
         bytes_cript[i] = acao(bytes_orig[i], i, 'c');
         bytes_desc[i] = acao(bytes_cript[i], i, 'd'); 
     
     } /* end for */
 
-    exibe_resultado(bytes_orig, bytes_cript, bytes_desc, TAM_VETOR);
+    exibe_resultado(bytes_orig, bytes_cript, bytes_desc, TAM_VETOR);                                    /* Exibe o resultado */
 
     
-    puts("----------------------------------------------");         	        /* Rodapé */
+    puts("----------------------------------------------");         	                                /* Rodapé */
     
     
-    /* system("PAUSiE");               							/* Faz uma parada na execução do programa */
+    /* system("PAUSiE");               							                /* Faz uma parada na execução do programa */
 		
-    return 0;		        							/* Retorna '0' se tudo ocorrer bem na execução */
+    return 0;		        							                /* Retorna '0' se tudo ocorrer bem na execução */
 	
 }  /* end main */
 
@@ -88,9 +89,9 @@ int main(int argc, char *argv[])
 
 unsigned char acao(unsigned char bytes, int i, char tipo_acao)
 {
-    unsigned char resultado = 0;
+    unsigned char resultado = 0;                                                                        /* Declaração das variáveis */
  
-    switch(tipo_acao)
+    switch(tipo_acao)                                                                                   /* Criptogra e descriptografa os dados */
     {
         case 'c':
             (i % 2) ? (resultado = bytes - 3) : (resultado = bytes + 5);
@@ -105,16 +106,17 @@ unsigned char acao(unsigned char bytes, int i, char tipo_acao)
 
 } /* end acao */
 
-void exibe_resultado(unsigned char b_orig[], unsigned char b_cript[], unsigned char b_desc[], int tam_vetor)
+void exibe_resultado(unsigned char b_orig[], unsigned char b_cript[], 
+                            unsigned char b_desc[], int tam_vetor)
 {
-    register int i;
+    register int i;                                                                                     /* Declaração das variáveis */
     
-    putchar('\n');
+    putchar('\n');                                                                                      /* Linha em branco extra */
 
-    puts("....................................................");
+    puts("....................................................");                                       /* Cabeçalho */
     puts("  ORIGINAL      CRIPTOGRAFADO     DESCRIPTOGRAFADO  ");
     puts("....................................................");
-    for(i=0; i < tam_vetor; i++)
+    for(i=0; i < tam_vetor; i++)                                                                        /* Mostra na tela */
         printf("   0x%X            Ox%X                 0x%X\n", b_orig[i], b_cript[i], b_desc[i]);
         
 } /* end exibe_resultado */

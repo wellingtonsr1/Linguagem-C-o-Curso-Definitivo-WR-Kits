@@ -1,15 +1,16 @@
-/* =================================================================================================
+/* ======================================================================================
 	Módulo 7
 	Aula 1
 	Descrição: Exercício 1
 	Autor: Wellington
 	Data: 19/11/2023
 	Atualização: --
-================================================================================================== */
+========================================================================================= */
 
 
 
-/* Bibliotecas */
+/* ====================================================================================== */
+/* ---------- Bibliotecas ---------- */
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h> 
@@ -17,9 +18,15 @@
 #define HEIGHT 4
 #define WIDTH 6
 
+
+/* ====================================================================================== */
 /* ---------- Protótipo das funções ---------- */
+
 void draw_grid(unsigned int mat[HEIGHT][WIDTH], int height, int width);
 
+
+
+/* ====================================================================================== */
 
 /* Função Principal */
 int main(int argc, char *argv[])
@@ -71,7 +78,12 @@ int main(int argc, char *argv[])
 }  /* end main */
 
 
+
+/* ====================================================================================== */
 /* ---------- Desenvolvimento das funções ---------- */
+
+
+/* Desenha a tabela */
 void draw_grid(unsigned int grid[HEIGHT][WIDTH], int heigth, int width)
 {
     register int i, line, column;                                                                       /* Declaração das variáveis */ 
@@ -106,4 +118,7 @@ void draw_grid(unsigned int grid[HEIGHT][WIDTH], int heigth, int width)
 
 } /* end draw_grade */
 
+
+/* ====================================================================================== */
+/* ---------- Fim do programa ---------- */
 

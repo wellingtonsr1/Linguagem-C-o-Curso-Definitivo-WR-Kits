@@ -1,9 +1,9 @@
 /* =================================================================================================
-	Módulo 
-	Aula 
-	Descrição: 
+	Módulo 7
+	Aula 1
+	Descrição: Exercício 1
 	Autor: Wellington
-	Data: 
+	Data: 19/11/2023
 	Atualização: --
 ================================================================================================== */
 
@@ -17,7 +17,7 @@
 #define HEIGHT 4
 #define WIDTH 6
 
-
+/* ---------- Protótipo das funções ---------- */
 void draw_grid(unsigned int mat[HEIGHT][WIDTH], int height, int width);
 
 
@@ -27,17 +27,17 @@ int main(int argc, char *argv[])
 									
     /* setlocale(LC_CTYPE, "Portuguese"); */ 
     
-    unsigned int mat[HEIGHT][WIDTH] = {{0, 0, 0, 0, 0, 0},
+    unsigned int grid[HEIGHT][WIDTH] = {{0, 0, 0, 0, 0, 0},                                              /* Declaração das variáveis */
                                        {0, 0, 0, 0, 0, 0},
                                        {0, 0, 0, 0, 0, 0},
                                        {0, 0, 0, 0, 0, 0}}, number;
     unsigned char line, column;
     
 
-    draw_grid(mat, HEIGHT, WIDTH);  
-    while(1) 
+    draw_grid(grid, HEIGHT, WIDTH);                                                                      /* Primeira chamada da função para desenhar a tabela */
+    while(1)                                                                                            /* Entrada de dados */
     {    
-        putchar('\n');
+        putchar('\n');                                                                                  /* Linha em branco extra */
 
         printf(">>> Linha : ");
         scanf("%hhd", &line);
@@ -48,50 +48,51 @@ int main(int argc, char *argv[])
         printf(">>> Valor : ");
         scanf("%d", &number);
 
-        if(number < 0 || number > 999)
+        if(number < 0 || number > 999)                                                                  /* Verifica se o valor informado está fora da faixa */
         { 
            puts("\n - Valor fora da faixa!");
  
         } /* end if */
-        else
+        else                                                                                            /* Verifica se linha e coluna estão na faixa */
         {
-            if(!(line > HEIGHT || column > WIDTH))
-                mat[line - 1][column - 1] = number;
+            if((line > 0 && line <= HEIGHT) && (column > 0 && column <= WIDTH))
+                grid[line - 1][column - 1] = number;                                                     /* Tudo certo, o valor é inserido na matriz */
 
-            draw_grid(mat, HEIGHT, WIDTH);
+            draw_grid(grid, HEIGHT, WIDTH);                                                              /* Chama da função que desenha a tabela */
 
         } /* end else */
 
     } /* end while */
               
-    /* system("PAUSE");               							/* Faz uma parada na execução do programa */
+    /* system("PAUSE");               							                /* Faz uma parada na execução do programa */
 		
-    return 0;		        							/* Retorna '0' se tudo ocorrer bem na execução */
+    return 0;		        							                /* Retorna '0' se tudo ocorrer bem na execução */
 	
 }  /* end main */
 
 
-void draw_grid(unsigned int mat[HEIGHT][WIDTH], int heigth, int width)
+/* ---------- Desenvolvimento das funções ---------- */
+void draw_grid(unsigned int grid[HEIGHT][WIDTH], int heigth, int width)
 {
-    register int i, line, column;
+    register int i, line, column;                                                                       /* Declaração das variáveis */ 
     
-    system("clear");
+    system("clear");                                                                                    /* Limpa a tela */
 
-    puts("---------------------------------------------------------------");
+    puts("---------------------------------------------------------------");                            /* Cabeçalho */
     printf("*                     TABELA  %d x %d                           *\n", HEIGHT, WIDTH);
     puts("---------------------------------------------------------------");
     
-    for(i=0; i < width; i++)
+    for(i=0; i < width; i++)                                                                            /* Exibe a numeração das colunas. Ex. C1, C2, CN */
         if(line == 0) printf("       C%d", i + 1);
-    putchar('\n');
+    putchar('\n');                                                                                  
     
-    for(line=0; line < heigth; line++)
+    for(line=0; line < heigth; line++)                                                                  /* Desenha a tabela */
     {
         puts("    -------------------------------------------------------");            
         printf(" L%d", line + 1);
         for(column=0; column < width; column++){
             if(column < width) printf(" |");
-            printf("   %3d ", mat[line][column]);
+            printf("   %3d ", grid[line][column]);
 
         } /* end for internal */
         puts(" |");
@@ -100,8 +101,8 @@ void draw_grid(unsigned int mat[HEIGHT][WIDTH], int heigth, int width)
 
     puts("    -------------------------------------------------------");            
 
-    puts("---------------------------------------------------------------");
-    puts("Informe valores na faixa de 0 a 999 (00 para sair)");
+    puts("---------------------------------------------------------------");                            /* Rodapé */
+    puts("Informe valores na faixa de 0 a 999");
 
 } /* end draw_grade */
 

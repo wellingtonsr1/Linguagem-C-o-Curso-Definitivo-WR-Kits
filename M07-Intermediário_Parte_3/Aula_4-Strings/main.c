@@ -1,28 +1,64 @@
-/* =================================================================================================
-	
-	Descrição: 
-	Autor: Wellington
-	Data: 07/11/2023
-	Atualização: --
-	
-================================================================================================== */
+/* ============================================================================
 
-/* Bibliotecas */
+    Linguagem C, o curso definitivo
+    Módulo 7 Aula 4
+    Strings
+    
+    Autor: Dr. Eng. Wagner Rambo
+    Data:  Junho de 2021
+
+============================================================================ */
+
+
+/* ========================================================================= */
+/* --- Bibliotecas --- */
 #include <stdio.h>
 #include <stdlib.h>
 
 
-/* Função Principal */
-int main(int argc, char *argv[]) {
-	
-	
-	
-	system("PAUSE");				/* Faz uma parada na execução do programa */
-		
-	return 0;					/* Retorna '0' se tudo  ocorrer bem na execução */
-	
-}  /* end main */
+/* ========================================================================= */
+/* --- Função Principal --- */
+main()
+{
+  char paises[100];
+   
+  while(1)
+  {
+    printf("Digite o pais: ");
+    gets(paises);
+    
+    if(paises[0] == '\0')
+      break;
+      
+    else
+      printf("Pais: %s\n", paises);
+  
+  
+  }
+  
+  system("PAUSE");	                             /* pausa execução (Pressione qualquer tecla para continuar . . .) */
+  return 0;                                      /* retorna 0, se main for executada corretamente */
+  
+} /* end main */
 
 
-
-
+/* ============================================================================  
+                                                              
+                                       _                      
+                                      / \                     
+                                     |oo >                    
+                                     _\=/_                    
+                    ___         #   /  _  \   #               
+                   /<> \         \\//|/.\|\\//                
+                 _|_____|_        \/  \_/  \/                 
+                | | === | |          |\ /|                    
+                |_|  0  |_|          \_ _/                    
+                 ||  0  ||           | | |                    
+                 ||__*__||           | | |                    
+                |* \___/ *|          []|[]                    
+                /=\ /=\ /=\          | | |                    
+________________[_]_[_]_[_]_________/_]_[_\_______________________________
+                                                              
+                                                              
+============================================================================ */
+/* --- Final do Programa --- */

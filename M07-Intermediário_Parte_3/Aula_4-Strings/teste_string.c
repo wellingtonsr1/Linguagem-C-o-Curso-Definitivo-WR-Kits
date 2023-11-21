@@ -26,8 +26,8 @@ char *strcopy(char str_orig[], char str_dest[]);
 char *strinvert(char str[]);
 char *strconcat(char str_orig[], char str_dest[]);
 int strcountc(char str[], char ch);
-int strcountd(char str[], char d);
-
+int strcountd(char str[]);
+int strisnull(char str[]);
 
 /* Função Principal */
 int main(int argc, char *argv[])
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 									
     setlocale(LC_CTYPE, "Portuguese"); 
 
-    char s1[] = "Teste de strings";
+    char s1[] = "t";
     char s2[] = "String";
     char ch = 's';
     
@@ -56,10 +56,14 @@ int main(int argc, char *argv[])
 	
 	/* printf("A string [ %s ] tem o [ %c ] repetido %d veze(s)\n", s1, ch, strcountc(s1, ch)); */
 	
+	/* printf("A string [ %s ] tem %d digitos\n", s1, strcountd(s1)); */
+	
+	printf("O teste retornou %d.\n", strisnull(s1));
+	
     putchar('\n');
-    system("PAUSE");               							               /* Faz uma parada na execução do programa */
+    system("PAUSE");               							                                                  /* Faz uma parada na execução do programa */
 		
-    return 0;		        							                   /* Retorna '0' se tudo ocorrer bem na execução */
+    return 0;		        							                                                      /* Retorna '0' se tudo ocorrer bem na execução */
 	
 }  /* end main */
 
@@ -153,20 +157,32 @@ int strcountc(char str[], char ch)
 	
 } /* end strcountc */
 
-int strcountd(char str[], char ch)
+
+int strcountd(char str[])
 {
 	int count;
 	register int i;
 	
 	for(i=count=0; str[i] != '\0'; i++)
 	{
-		if(ch == str[i])
+		/* if(isdigit(str[i])) */
+		
+		if(str[i] == '0' || str[i] == '1' || str[i] == '2' || str[i] == '3' 
+		|| str[i] == '4' || str[i] == '5' || str[i] == '6' || str[i] == '7' 
+		|| str[i] == '8' || str[i] == '9')
 			count++;
 	}
 	return count;
 	
 } /* end strcountd */
 
+
+int strisnull(char str[])
+{
+	/* Foi feito '(str[0] == '\0') ?  1 :  0'; , mas o próprio teste '(str[0] == '\0')' retorna 0(falso) ou 1(verdadeiro)*/
+	return (str[0] == '\0');
+	
+} /* end strisnull */
 
 
 

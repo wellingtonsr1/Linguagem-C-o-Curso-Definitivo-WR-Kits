@@ -22,32 +22,44 @@
 /* ---------- Protótipo das funções ---------- */
 
 int strlength(char str[]);
-char *strcopy(char str_ori[], char str_des[]);
-char *strconcat(char str[]);
-char *strinvert(char str_ori[], char str_inv[]);
-
+char *strcopy(char str_orig[], char str_dest[]);
+char *strinvert(char str[]);
+char *strconcat(char str_orig[], char str_dest[]);
+int strcountc(char str[], char ch);
+int strcountd(char str[], char d);
 
 
 /* Função Principal */
 int main(int argc, char *argv[])
 {
 									
-    /* setlocale(LC_CTYPE, "Portuguese"); */ 
+    setlocale(LC_CTYPE, "Portuguese"); 
 
-    char s[] = "Wellington";
-    char s_new[DIM];
+    char s1[] = "Teste de strings";
+    char s2[] = "String";
+    char ch = 's';
+    
+    //char s_new[DIM];
     
     //printf("A string %s tem %d de tamanho\n", s, strlength(s)); 
     /* printf("O vetor %s tem %d de tamanho\n", s, sizeof(s)); */
     
     /* printf("\nString copiada: %s.\n", strcopy(s, s_new)); */
     
-    printf("\nString original %s --> String invertida %s\n", s, strinvert(s, s_new));
-
+    putchar('\n');
     
-   /* system("PAUSE"); */              							/* Faz uma parada na execução do programa */
+    //printf("String original : %s\n", s); 
+	//printf("String invertida: %s\n", strinvert(s));
+
+	/* printf("String Orig  : %s %s\n", s1, s2);
+	printf("String concat: %s\n", strconcat(s1, s2)); */
+	
+	/* printf("A string [ %s ] tem o [ %c ] repetido %d veze(s)\n", s1, ch, strcountc(s1, ch)); */
+	
+    putchar('\n');
+    system("PAUSE");               							               /* Faz uma parada na execução do programa */
 		
-    return 0;		        							/* Retorna '0' se tudo ocorrer bem na execução */
+    return 0;		        							                   /* Retorna '0' se tudo ocorrer bem na execução */
 	
 }  /* end main */
 
@@ -83,34 +95,77 @@ char *strcopy(char str_ori[], char str_des[])
 
 
 
-char *strinvert(char str_ori[], char str_inv[])
+char *strinvert(char str[])
 {
     register int i=0;
-    int _length = strlength(str_ori);
-    char s[];
+    int _length = strlength(str) - 1;
+    char aux;
    
-    while(str_ori[i] != '\0')
+    while(i < _length)
     {
-        s[i] = str_ori[_length - 1];
+        aux = str[i];
+        str[i] = str[_length];
+        str[_length] = aux;
+        
         i++;
         _length--;
     }
-    s[i] = '\0';
-
-    return s;
+    return str;
 
 } /* end strinvert */
 
 
+char *strconcat(char str_orig[], char str_dest[])
+{
+	register int i=0, _lenght=strlength(str_dest);
+
+	/* Ex. 1 */
+    while(str_orig[i] != '\0')
+    {
+        str_dest[_lenght] = str_orig[i];
+        i++;
+        _lenght++;
+    }
+    str_dest[_lenght] = '\0';
 
 
+	/* Ex. 2 
+	while(str_dest[_lenght++] = str_orig[i++])
+				;
+			*/	
+			
+    return str_dest; 
+	
+} /* end strconcat */
 
 
+int strcountc(char str[], char ch)
+{
+	int count;
+	register int i;
+	
+	for(i=count=0; str[i] != '\0'; i++)
+	{
+		if(ch == str[i])
+			count++;
+	}
+	return count;
+	
+} /* end strcountc */
 
-
-
-
-
+int strcountd(char str[], char ch)
+{
+	int count;
+	register int i;
+	
+	for(i=count=0; str[i] != '\0'; i++)
+	{
+		if(ch == str[i])
+			count++;
+	}
+	return count;
+	
+} /* end strcountd */
 
 
 

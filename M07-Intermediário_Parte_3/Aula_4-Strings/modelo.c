@@ -9,33 +9,47 @@
 
 
 
+/*================================================================================================== */
 /* Bibliotecas */
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h> 
-#include <string.h>
+
+
+/*================================================================================================== */
+/* ---------- Protótipo das funções ---------- */
+
+int strlen(char str[]);
+int strcopy(char str[]);
+int strcat(char str[]);
+int strinvert(char str[]);
+
+
 
 /* Função Principal */
 int main(int argc, char *argv[])
 {
 									
-char nome_1[] = "Teste"; 
-char nome_2[11] = {0};
-char nome_3[] = {'T', 'e', 's', 't', 'e'};
-char nome_4[] = "Teste";
+    /* setlocale(LC_CTYPE, "Portuguese"); */ 
 
-//memset(nome_1, 0, sizeof(nome_1));
-//memset(nome_2, 0, sizeof(nome_2));
-
-puts(nome_1);
-puts(nome_2);
+	
+    printf("----------------------------------------------\n");	                        /* Cabeçaalho */
+    printf("                             \n");   
+    printf("----------------------------------------------\n");	
     
-printf("Tamanho de %s 1 = %ld\n", nome_1, strlen(nome_1));  
-printf("Tamanho de %s 2 = %ld\n", nome_2, strlen(nome_2));  
-
-
-printf("Tamanho de %s 3 = %ld\n", nome_3, strlen(nome_3));  
-printf("Tamanho de %s 4 = %ld\n", nome_4, strlen(nome_4));  
+    
+    
+    
+    
+    printf("----------------------------------------------\n");         	        /* Rodapé */
+    
+    
+    system("PAUSE");               							/* Faz uma parada na execução do programa */
+		
     return 0;		        							/* Retorna '0' se tudo ocorrer bem na execução */
 	
 }  /* end main */
+
+
+/*================================================================================================== */
+/* ---------- Fim do programa ---------- */

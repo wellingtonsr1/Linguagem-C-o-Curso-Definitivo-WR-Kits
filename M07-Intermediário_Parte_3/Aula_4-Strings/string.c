@@ -29,7 +29,7 @@ int strcountd(char str[]);
 int isnull(char str[]);
 int indchar(char str[], char ch);
 int strpal(char str[]);
-int strcmp(char str1[], char str2[]);
+char *strcmp(char str1[], char str2[]);
 char strpad(char str[]);
 char *strdelc(char str[], char ch);
 
@@ -38,21 +38,21 @@ char *strdelc(char str[], char ch);
 int main(int argc, char *argv[])
 {
 									
-    /* setlocale(LC_CTYPE, "Portuguese"); */ 
+    setlocale(LC_CTYPE, "Portuguese"); 
 
-    char s1[] = "string";
-    char s2[] = "String";
-    char ch = 's';
+    char s1[] = "testes";
+    char s2[] = "testes.";
+    char ch = 'm';
     
     //char s_new[DIM];
     
-    //printf("A string %s tem %d de tamanho\n", s, strlen(s)); 
+    /* printf("A string %s tem %d de tamanho\n", s, strlen(s)); */
     /* printf("O vetor %s tem %d de tamanho\n", s, sizeof(s)); */
     
     /* printf("\nString copiada: %s.\n", strcpy(s1, s2)); */ 
     
-    //printf("String original : %s\n", s); 
-	//printf("String invertida: %s\n", strvert(s));
+    /* printf("String original : %s\n", s); 
+	printf("String invertida: %s\n", strvert(s)); */
 
 	/* printf("String Orig  : %s %s\n", s1, s2);
 	printf("String concat: %s\n", strcat(s1, s2)); */
@@ -63,15 +63,20 @@ int main(int argc, char *argv[])
 	
 	/* printf("O teste retornou %d.\n", isnull(s1)); */
 
-        /* printf("O indice onde o caracter esta na string %s e %d\n", s1, indchar(s1, ch)); */
+    /* printf("O indice onde o caracter esta na string %s e %d\n", s1, indchar(s1, ch)); */
         
-        //printf("String atual [ %s ]\n", s1);
-        printf("string nova [ %s ] sem o caracter [ %c ]\n", strdelc(s1, ch), ch);
-	
+    //printf("String atual [ %s ]\n", s1);
+    
+    /* printf("string nova [ %s ] sem o caracter [ %c ]\n", strdelc(s1, ch), ch); */
+    
+    
+	printf("As strings são %s\n", strcmp(s1, s2)); 
     putchar('\n');
-    /* system("PAUSE");  */             							                                                  /* Faz uma parada na execução do programa */
+    
+    
+    system("PAUSE");              							                                                  /* Faz uma parada na execução do programa */
 		
-    return 0;		        							                                                      /* Retorna '0' se tudo ocorrer bem na execução */
+    return 0;		        							                                                              /* Retorna '0' se tudo ocorrer bem na execução */
 	
 }  /* end main */
 
@@ -102,7 +107,6 @@ char *strcpy(char str_ori[], char str_des[])
     return str_des;
 
 } /* end strcpy */
-
 
 
 char *strvert(char str[])
@@ -202,11 +206,16 @@ int strpal(char str[])
 }
 */
 
-/*
-int strcmp(char str1[], char str2[])
+char *strcmp(char str1[], char str2[])
 {
-}
-*/
+	int i, j;
+	for(i=j=0; (str1[i] != '\0' || str2[j] != '\0'); i++, j++) 
+		if(str1[i] != str2[i]) return "diferentes"; /* ou 0 se for diferente */
+		
+	return "iguais"; /* ou 1 se for igual */
+	
+} /* end strcmp */
+
 
 /*
 char *strpad(char str[])
@@ -216,21 +225,115 @@ char *strpad(char str[])
 
 char *strdelc(char str[], char ch)
 {
-    register int i;
-    char aux;
+    register int i, j;
 
-    for(i=0; str[i] != '\0'; i++)
-    {
-        if(str[i] == ch) 
-        {
-            aux = str[i];
-            str[i] = str[i+1];
-            str[i] = aux;
-        }
-    }
+    for(i=j=0; str[i] != '\0'; i++)
+        if(str[i] != ch) 
+        	str[j++] = str[i];
+    str[j] = '\0';
+    
     return str;
-}
+    
+} /* end strdelc */
 
+
+
+/*
+    str: "programming"
+    ch: 'm'
+    
+    0 1 2 3 4 5 6 7 8 9 10
+	p r o g r a m m i n g
+	
+	------- Início -------
+	
+    for(i=j=0; str[i] != '\0'; i++)
+    {
+        if(str[i] != ch) 
+        	str[j++] = str[i];	
+    }
+    str[j] = '\0';
+    
+    return str;
+    
+    ------- fim -------
+    
+  i=0
+  j=0
+  str[i] => str[0] tem o valor p que é diferente de m(ch), entra no if e str[j++] que é str[0] recebe str[i] que é str[0] (p)
+  str = p
+  incrementa i e j
+  
+  i=1
+  j=1
+  str[i] => str[1] tem o valor r que é diferente de m(ch), entra no if e str[j++] que é str[1] recebe str[i] que é str[1] (r)
+  str = pr
+  incrementa i e j
+  
+  i=2
+  j=2
+  str[i] => str[2] tem o valor o que é diferente de m(ch), entra no if e str[j++] que é str[2] recebe str[i] que é str[2] (o)
+  str = pro
+  incrementa i e j
+  
+  i=3
+  j=3
+  str[i] => str[3] tem o valor g que é diferente de m(ch), entra no if e str[j++] que é str[3] recebe str[i] que é str[3] (g)
+  str = prog
+  incrementa i e j
+  
+  i=4
+  j=4
+  str[i] => str[4] tem o valor r que é diferente de m(ch), entra no if e str[j++] que é str[4] recebe str[i] que é str[4] (r)
+  str = progr
+  incrementa i e j
+  
+  i=5
+  j=5
+  str[i] => str[5] tem o valor a que é diferente de m(ch), entra no if e str[j++] que é str[5] recebe str[i] que é str[5] (a)
+  str = progra
+  incrementa i e j
+  
+  i=6
+  j=6
+  str[i] => str[6] tem o valor m que é igual a m(ch), não entra no if e str[j++] que é str[6] permanece str[6] e não recebe valor
+  str = progra?
+  incrementa i e não incremnta j
+  
+  i=7
+  j=6
+  str[i] => str[7] tem o valor m que é igual a m(ch), não entra no if e str[j++] que é str[6] permanece str[6] e não recebe valor
+  str = progra?
+  incrementa i e não incremnta j
+  
+  i=8
+  j=6
+  str[i] => str[8] tem o valor i que é diferente de m(ch), entra no if e str[j++] que é str[6] recebe str[i] que é str[8] (i)
+  str = prograi
+  incrementa i e j
+  
+  i=9
+  j=7
+  str[i] => str[9] tem o valor n que é diferente de m(ch), entra no if e str[j++] que é str[7] recebe str[i] que é str[9] (n)
+  str = prograin
+  incrementa i e j
+  
+  i=10
+  j=8
+  str[i] => str[10] tem o valor g que é diferente de m(ch), entra no if e str[j++] que é str[7] recebe str[i] que é str[9] (g)
+  str = prograing
+  incrementa i e j
+  
+  i=11
+  j=9
+  str[i] => str[11] tem o valor '\0' que é diferente de m(ch) e é condição de parada do laço, sai do for e str[j++] que é str[9] recebe o '\0'
+  str = prograing\0
+  
+  */  
+    
+    
+    
+    
 
 
 

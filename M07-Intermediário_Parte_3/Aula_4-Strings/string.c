@@ -27,6 +27,12 @@ char *strcat(char str_orig[], char str_dest[]);
 int strcountc(char str[], char ch);
 int strcountd(char str[]);
 int isnull(char str[]);
+int indchar(char str[], char ch);
+int strpal(char str[]);
+int strcmp(char str1[], char str2[]);
+char strpad(char str[]);
+char strdelc(char str[], char ch);
+
 
 /* Função Principal */
 int main(int argc, char *argv[])

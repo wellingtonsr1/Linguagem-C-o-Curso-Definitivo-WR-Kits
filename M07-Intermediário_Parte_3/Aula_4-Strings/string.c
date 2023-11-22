@@ -31,7 +31,7 @@ int indchar(char str[], char ch);
 int strpal(char str[]);
 int strcmp(char str1[], char str2[]);
 char strpad(char str[]);
-char strdelc(char str[], char ch);
+char *strdelc(char str[], char ch);
 
 
 /* Função Principal */
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 									
     /* setlocale(LC_CTYPE, "Portuguese"); */ 
 
-    char s1[] = "t";
+    char s1[] = "string";
     char s2[] = "String";
     char ch = 's';
     
@@ -49,9 +49,7 @@ int main(int argc, char *argv[])
     //printf("A string %s tem %d de tamanho\n", s, strlen(s)); 
     /* printf("O vetor %s tem %d de tamanho\n", s, sizeof(s)); */
     
-    /* printf("\nString copiada: %s.\n", strcpy(s, s_new)); */
-    
-    putchar('\n');
+    /* printf("\nString copiada: %s.\n", strcpy(s1, s2)); */ 
     
     //printf("String original : %s\n", s); 
 	//printf("String invertida: %s\n", strvert(s));
@@ -63,7 +61,12 @@ int main(int argc, char *argv[])
 	
 	/* printf("A string [ %s ] tem %d digitos\n", s1, strcountd(s1)); */
 	
-	printf("O teste retornou %d.\n", isnull(s1));
+	/* printf("O teste retornou %d.\n", isnull(s1)); */
+
+        /* printf("O indice onde o caracter esta na string %s e %d\n", s1, indchar(s1, ch)); */
+        
+        //printf("String atual [ %s ]\n", s1);
+        printf("string nova [ %s ] sem o caracter [ %c ]\n", strdelc(s1, ch), ch);
 	
     putchar('\n');
     /* system("PAUSE");  */             							                                                  /* Faz uma parada na execução do programa */
@@ -90,16 +93,14 @@ long unsigned int strlen(char str[])
 
 char *strcpy(char str_ori[], char str_des[])
 {
-    register int i=0;
+    register int i;
 
-    while(str_ori[i] != '\0')
-    {
+    for(i=0; str_ori[i] != '\0'; i++)
         str_des[i] = str_ori[i];
-        i++;
-    }
     str_des[i] = '\0';
 
     return str_des;
+
 } /* end strcpy */
 
 
@@ -148,16 +149,12 @@ char *strcat(char str_orig[], char str_dest[])
 } /* end strcat */
 
 
-int strcount(char str[], char ch)
+int strcountc(char str[], char ch)
 {
-	int count;
-	register int i;
+	register int i, count;
 	
 	for(i=count=0; str[i] != '\0'; i++)
-	{
-		if(ch == str[i])
-			count++;
-	}
+		if(ch == str[i]) count++;
 	return count;
 	
 } /* end strcount */
@@ -165,8 +162,7 @@ int strcount(char str[], char ch)
 
 int strcountd(char str[])
 {
-	int count;
-	register int i;
+	register int i, count;
 	
 	for(i=count=0; str[i] != '\0'; i++)
 	{
@@ -188,6 +184,53 @@ int isnull(char str[])
 	return (str[0] == '\0');
 	
 } /* end isnull */
+
+
+int indchar(char str[], char ch)
+{
+    register int i;
+
+    for(i=0; str[i] != '\0'; i++)
+        if(str[i] == ch) break;        
+    return i;
+
+} /* end indchar */
+
+/*
+int strpal(char str[])
+{
+}
+*/
+
+/*
+int strcmp(char str1[], char str2[])
+{
+}
+*/
+
+/*
+char *strpad(char str[])
+{
+}
+*/
+
+char *strdelc(char str[], char ch)
+{
+    register int i;
+    char aux;
+
+    for(i=0; str[i] != '\0'; i++)
+    {
+        if(str[i] == ch) 
+        {
+            aux = str[i];
+            str[i] = str[i+1];
+            str[i] = aux;
+        }
+    }
+    return str;
+}
+
 
 
 

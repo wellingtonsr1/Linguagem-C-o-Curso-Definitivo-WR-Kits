@@ -20,11 +20,11 @@
 /* ================================================================================================== */
 /* Protótipo da funções */
 
-void txt(char s[]);
-void run(char s[], int r);
+void txt(char *s);
+void run(char *s, int r);
 int rep(int r);
 void clear();
-void clearall(char s[], int r);
+void clearall(char *s, int *r);
 void help();
 
 
@@ -35,29 +35,21 @@ int main(int argc, char *argv[])
 									
     setlocale(LC_CTYPE, "Portuguese"); 
 
-	char opcao[DIM] = "", str[DIM] = "- - - -";
+	char opcao[DIM], str[DIM] = "- - - -";
 	int r=0;
 	
 	
     while(1)
-    {
-    	/* clear(); 
-    	
-    	printf("----------------------------------------------\n");	                       
-    	printf("            COMMAND INTERPRETER               \n");   
-    	printf("----------------------------------------------\n");
-    	
-    	*/
-    	
+    { 	
     	printf("INPUT COMMAND: ");
-    	gets(opcao);
-	
+    	scanf("%s", opcao);
+		getchar();
 		
     	if(!strcmp(opcao, "TXT")) txt(str);
     	if(!strcmp(opcao, "RUN")) run(str, r);
     	if(!strcmp(opcao, "REP")) r=rep(r);
     	if(!strcmp(opcao, "CLEAR")) clear();
-    	if(!strcmp(opcao, "CLEAR ALL")) clearall(str, r);
+    	if(!strcmp(opcao, "CALL")) clearall(str, &r);
     	if(!strcmp(opcao, "HELP")) help();
 	}
     
@@ -73,33 +65,33 @@ int main(int argc, char *argv[])
 
 /* ================================================================================================== */
 /* Desenvolvimento da funções */
-void txt(char s[])
+void txt(char *s)
 {
 	printf(" %16c", '_');
 	gets(s);
-		
+	
 } /* end txt */
 
 
-void run(char s[], int r)
+void run(char *s, int r)
 {
 	int i;
-
-    for(i=0; i < r; i++)
+	if(r != 0)
+    	for(i=0; i < r; i++) printf("%20s\n", s);
+	else
 		printf("%20s\n", s);
-			
+				
 } /* end run */
-
 
 int rep(int r)
 {
 	printf(" %16c", '_');
 	scanf("%3d", &r);
+	getchar();
 	
 	return r;
 	
 } /* end rep */
-
 
 void clear()
 {
@@ -107,17 +99,14 @@ void clear()
 	
 } /* end clear */
 
-
-void clearall(char s[], int r)
+void clearall(char *s, int *r)
 {
 	clear();
 	s = "- - - -";
-	r = 0;
-	
-	run(s, r);
-	
-} /* end clearall */
+	*r = 0;
 
+	//run(s, r);
+} /* end clearall */
 
 void help()
 {

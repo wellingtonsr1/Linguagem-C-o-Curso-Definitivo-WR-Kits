@@ -26,7 +26,7 @@ int rep(int r);
 void clear();
 void clearall(char *s, int *r);
 void help();
-
+void my_exit();
 
 /* ================================================================================================== */
 /* Função Principal */
@@ -45,12 +45,22 @@ int main(int argc, char *argv[])
     	scanf("%s", opcao);
 		getchar();
 		
-    	if(!strcmp(opcao, "TXT")) txt(str);
-    	if(!strcmp(opcao, "RUN")) run(str, &r);
-    	if(!strcmp(opcao, "REP")) r=rep(r);
-    	if(!strcmp(opcao, "CLEAR")) clear();
-    	if(!strcmp(opcao, "CALL")) clearall(str, &r);
-    	if(!strcmp(opcao, "HELP")) help();
+    	if(!strcmp(opcao, "TXT")) 
+			txt(str);
+    	else if(!strcmp(opcao, "RUN")) 
+			run(str, &r);
+    	else if(!strcmp(opcao, "REP")) 
+			r=rep(r);
+    	else if(!strcmp(opcao, "CLEAR")) 
+			clear();
+    	else if(!strcmp(opcao, "CALL")) 
+			clearall(str, &r);
+    	else if(!strcmp(opcao, "HELP")) 
+			help();
+    	else if(!strcmp(opcao, "EXIT")) 
+			my_exit();
+		else
+			puts("Syntax error");
 	}
     
     printf("----------------------------------------------\n");         	                               /* Rodapé */
@@ -79,7 +89,7 @@ void run(char *s, int *r)
 	
     for(i=0; i < *r; i++) 
 		printf("%20s\n", s);
-		
+				
 } /* end run */
 
 int rep(int r)
@@ -103,8 +113,6 @@ void clearall(char *s, int *r)
 	clear();
 	s = "- - - -";
 	*r = 0;
-
-	//run(s, r);
 	
 } /* end clearall */
 
@@ -123,7 +131,9 @@ void help()
 	
 } /* end help */
 
-
-
+void my_exit()
+{
+	exit(1);
+}
 /* ================================================================================================== */
 /* Fim do programa */

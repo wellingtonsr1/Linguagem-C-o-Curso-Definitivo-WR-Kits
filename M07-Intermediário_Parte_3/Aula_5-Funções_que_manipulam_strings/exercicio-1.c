@@ -15,102 +15,127 @@
 #include <locale.h> 
 #include <string.h>
 
+#define DIM 20
 
+/* ================================================================================================== */
+/* Protótipo da funções */
+
+void txt(char *s);
+void run(char *s, int *r);
+int rep(int r);
+void clear();
+void clearall(char *s, int *r);
 void help();
-void clearall();
-void _exit();
-char *txt(char s);
-int rep();
-void run(char s, int n);
+void my_exit();
 
+/* ================================================================================================== */
 /* Função Principal */
 int main(int argc, char *argv[])
 {
 									
-    /* setlocale(LC_CTYPE, "Portuguese"); */ 
-    //system("clear");
-     
-    char opcao[20], txt[10];
-    int r=0;
+    setlocale(LC_CTYPE, "Portuguese"); 
 
-    printf("----------------------------------------------\n");	                        /* Cabeçaalho */
-    printf("            COMMAND INTERPRETER               \n");   
-    printf("----------------------------------------------\n");	
-    
-    printf("Input command: ");
-    scanf("%s", opcao);
-
- 
-    if(!strcmp(opcao, "HELP"))    
-        help();
-    else if(!strcmp(opcao, "EXIT"))
-        exit(1);
-    else if(!strcmp(opcao, "CLEAR"))
-        system("clear");
-    //if(!strcmp(opcao, "CLEAR ALL"))
-      //  clearall();
-    else if(!strcmp(opcao, "REP"))
-        r=rep();
-    else if(!strcmp(opcao, "TXT"))
-        txt(txt);
-    else if(!strcmp(opcao, "RUN"))
-        run(txt, r);
-    printf("----------------------------------------------\n");         	        /* Rodapé */
-    
-    
-/*    system("PAUSE"); */               							/* Faz uma parada na execução do programa */
+	char opcao[] = "", str[DIM] = "- - - -";
+	int r=0;
+	
+	
+    while(1)
+    { 	
+    	printf("INPUT COMMAND: ");
+    	gets(opcao);
+		//getchar();
 		
-    return 0;		        							/* Retorna '0' se tudo ocorrer bem na execução */
+    	if(!strcmp(opcao, "TXT")) 
+			txt(str);
+    	else if(!strcmp(opcao, "RUN")) 
+			run(str, &r);
+    	else if(!strcmp(opcao, "REP")) 
+			r=rep(r);
+    	else if(!strcmp(opcao, "CLEAR")) 
+			clear();
+    	else if(!strcmp(opcao, "CLEAR ALL")) 
+			clearall(str, &r);
+    	else if(!strcmp(opcao, "HELP")) 
+			help();
+    	else if(!strcmp(opcao, "EXIT")) 
+			my_exit();
+		else
+			puts("Syntax error.");
+	}
+    
+    printf("----------------------------------------------\n");         	                               /* Rodapé */
+    
+    
+    system("PAUSE");               							                                               /* Faz uma parada na execução do programa */
+		
+    return 0;		        							                                                   /* Retorna '0' se tudo ocorrer bem na execução */
 	
 }  /* end main */
 
 
+/* ================================================================================================== */
+/* Desenvolvimento da funções */
+void txt(char *s)
+{
+	printf(" %16c", '_');
+	gets(s);
+	
+} /* end txt */
+
+
+void run(char *s, int *r)
+{
+	int i;
+	
+    for(i=0; i < *r; i++) 
+		printf("%20s\n", s);
+				
+} /* end run */
+
+int rep(int r)
+{
+	printf(" %16c", '_');
+	scanf("%3d", &r);
+	getchar();
+	
+	return r;
+	
+} /* end rep */
+
+void clear()
+{
+	system("CLS");
+	
+} /* end clear */
+
+void clearall(char *s, int *r)
+{
+	clear();
+	s = "- - - -";
+	*r = 0;
+	
+} /* end clearall */
+
 void help()
 {
-    puts("RUN ¿ rodar o interpretador.");
-    puts("RUN SOUND ¿ rodar o interpretador com ¿bips¿.");
-    puts("REP ¿ define o número de repetições de uma frase salva previamente com o comando TXT.");
-    puts("Recebe como argumento o número de repetições desejadas.");
-    puts("TXT ¿ comando para entrada de nova frase. O argumento é a frase-texto que o usuário quiser");
-    puts("que o interpretador rode pelo número de repetições definido.");
-    puts("CLEAR ¿ limpa a tela do console.");
-    puts("CLEAR ALL ¿ limpa a tela e restaura variáveis.");
-            puts("EXIT ¿ encerra o interpretador.");
-    puts("HELP ¿ apresenta a versão atual do interpretador e breve explicação sobre os seus comandos.");
-}
+	putchar('\n');
+	puts("       COMMANDS: ");
+	puts("       RUN         Rodar o interpretador.");
+	puts("       RUN SOUND   Rodar o interpretador com “bips”.");
+	puts("       REP         Número de repetições, arg: 000 a 999");
+	puts("       TXT         Atualiza o texto, arg: o texto que você quiser.");
+	puts("       CLEAR       Limpa a tela do console sem perder o último dado");
+	puts("       CLEAR ALL   Limpa a tela e restaura variáveis.");
+	puts("       EXIT        Encerra o interpretador.");
+	
+	putchar('\n');
+	
+} /* end help */
 
-/*
-void clearall()
+void my_exit()
 {
-    system("CLEAR");
-}
-*/
-
-
-char *txt(char s)
-{
-    printf("TXT")
-    scanf("%s", s);
-
-    return s;
-}
-
-int rep()
-{
-    int number=0;
-
-    printf("%16s", "_");
-    scanf("%d", &number);
-    
-    return number;
-}
-
-void run(char s, int n)
-{
-    int i;
-    for(i=0; i < n; i++)
-    {
-        printf("a");
-    }
-}
-
+	exit(1);
+	
+} /* end my_exit */
+/* ================================================================================================== */
+/* Fim do programa */

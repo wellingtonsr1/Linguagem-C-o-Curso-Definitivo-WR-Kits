@@ -42,8 +42,8 @@ int main(int argc, char *argv[])
     while(1)
     { 	
     	printf("INPUT COMMAND: ");
-    	scanf("%s", opcao);
-		getchar();
+    	gets(opcao);
+		//getchar();
 		
     	if(!strcmp(opcao, "TXT")) 
 			txt(str);
@@ -53,14 +53,14 @@ int main(int argc, char *argv[])
 			r=rep(r);
     	else if(!strcmp(opcao, "CLEAR")) 
 			clear();
-    	else if(!strcmp(opcao, "CALL")) 
+    	else if(!strcmp(opcao, "CLEAR ALL")) 
 			clearall(str, &r);
     	else if(!strcmp(opcao, "HELP")) 
 			help();
     	else if(!strcmp(opcao, "EXIT")) 
 			my_exit();
 		else
-			puts("Syntax error");
+			puts("Syntax error.");
 	}
     
     printf("----------------------------------------------\n");         	                               /* Rodapé */
@@ -118,14 +118,15 @@ void clearall(char *s, int *r)
 
 void help()
 {
-	puts("COMMANDS: ");
-	puts("          RUN  Rodar o interpretador.");
-	puts("          RUN SOUND    Rodar o interpretador com “bips”.");
-	puts("          REP Número de repetições, arg: 000 a 999");
-	puts("          TXT Atualiza o texto, arg: o texto que você quiser.");
-	puts("          CLEAR Limpa a tela do console sem perder o último dado");
-	puts("          CLEAR ALL Limpa a tela e restaura variáveis.");
-	puts("          EXIT Encerra o interpretador.");
+	putchar('\n');
+	puts("       COMMANDS: ");
+	puts("       RUN         Rodar o interpretador.");
+	puts("       RUN SOUND   Rodar o interpretador com “bips”.");
+	puts("       REP         Número de repetições, arg: 000 a 999");
+	puts("       TXT         Atualiza o texto, arg: o texto que você quiser.");
+	puts("       CLEAR       Limpa a tela do console sem perder o último dado");
+	puts("       CLEAR ALL   Limpa a tela e restaura variáveis.");
+	puts("       EXIT        Encerra o interpretador.");
 	
 	putchar('\n');
 	
@@ -134,6 +135,7 @@ void help()
 void my_exit()
 {
 	exit(1);
-}
+	
+} /* end my_exit */
 /* ================================================================================================== */
 /* Fim do programa */

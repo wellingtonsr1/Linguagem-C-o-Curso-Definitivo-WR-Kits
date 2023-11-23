@@ -21,7 +21,7 @@
 /* Protótipo da funções */
 
 void txt(char *s);
-void run(char *s, int r);
+void run(char *s, int *r);
 int rep(int r);
 void clear();
 void clearall(char *s, int *r);
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 									
     setlocale(LC_CTYPE, "Portuguese"); 
 
-	char opcao[DIM], str[DIM] = "- - - -";
+	char opcao[] = "", str[DIM] = "- - - -";
 	int r=0;
 	
 	
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 		getchar();
 		
     	if(!strcmp(opcao, "TXT")) txt(str);
-    	if(!strcmp(opcao, "RUN")) run(str, r);
+    	if(!strcmp(opcao, "RUN")) run(str, &r);
     	if(!strcmp(opcao, "REP")) r=rep(r);
     	if(!strcmp(opcao, "CLEAR")) clear();
     	if(!strcmp(opcao, "CALL")) clearall(str, &r);
@@ -73,14 +73,13 @@ void txt(char *s)
 } /* end txt */
 
 
-void run(char *s, int r)
+void run(char *s, int *r)
 {
 	int i;
-	if(r != 0)
-    	for(i=0; i < r; i++) printf("%20s\n", s);
-	else
+	
+    for(i=0; i < *r; i++) 
 		printf("%20s\n", s);
-				
+		
 } /* end run */
 
 int rep(int r)
@@ -106,6 +105,7 @@ void clearall(char *s, int *r)
 	*r = 0;
 
 	//run(s, r);
+	
 } /* end clearall */
 
 void help()

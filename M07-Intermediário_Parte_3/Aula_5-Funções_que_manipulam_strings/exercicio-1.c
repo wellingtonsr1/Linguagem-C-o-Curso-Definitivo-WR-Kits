@@ -21,7 +21,7 @@
 /* Protótipo da funções */
 
 void txt(char *s);
-void run(char *s, int *r);
+void run(char *s, int r);
 int rep(int r);
 void clear();
 void clearall(char *s, int *r);
@@ -35,32 +35,33 @@ int main(int argc, char *argv[])
 									
     setlocale(LC_CTYPE, "Portuguese"); 
 
-	char opcao[] = "", str[DIM] = "- - - -";
+	char opcao[DIM], str[DIM];
 	int r=0;
 	
 	
     while(1)
     { 	
     	printf("INPUT COMMAND: ");
-    	gets(opcao);
-		//getchar();
-		
-    	if(!strcmp(opcao, "TXT")) 
-			txt(str);
+        fgets(opcao, sizeof(opcao), stdin);
+	opcao[strlen(opcao)-1] = '\0'; 
+        //scanf("%[^\n]%*c", opcao);
+    	
+        if(!strcmp(opcao, "TXT")) 
+	    txt(str);
     	else if(!strcmp(opcao, "RUN")) 
-			run(str, &r);
+	    run(str, r);
     	else if(!strcmp(opcao, "REP")) 
-			r=rep(r);
+	    r = rep(r);
     	else if(!strcmp(opcao, "CLEAR")) 
-			clear();
+	    clear();
     	else if(!strcmp(opcao, "CLEAR ALL")) 
-			clearall(str, &r);
+	    clearall(str, &r);
     	else if(!strcmp(opcao, "HELP")) 
-			help();
+	    help();
     	else if(!strcmp(opcao, "EXIT")) 
-			my_exit();
-		else
-			puts("Syntax error.");
+	    my_exit();
+        else
+            puts("Syntax error.");
 	}
     
     printf("----------------------------------------------\n");         	                               /* Rodapé */
@@ -78,23 +79,26 @@ int main(int argc, char *argv[])
 void txt(char *s)
 {
 	printf(" %16c", '_');
-	gets(s);
+        scanf("%[^\n]%*c", s);
 	
 } /* end txt */
 
 
-void run(char *s, int *r)
+void run(char *s, int r)
 {
-	int i;
-	
-    for(i=0; i < *r; i++) 
-		printf("%20s\n", s);
+    register int i;
+
+    if(!strlen(s))
+        puts("- - - -");
+    else
+        for(i=0; i < r; i++) 
+            printf("%20s\n", s);
 				
 } /* end run */
 
 int rep(int r)
 {
-	printf(" %16c", '_');
+	printf("%16c", '_');
 	scanf("%3d", &r);
 	getchar();
 	
@@ -111,7 +115,7 @@ void clear()
 void clearall(char *s, int *r)
 {
 	clear();
-	s = "- - - -";
+        *s = '\0';
 	*r = 0;
 	
 } /* end clearall */
@@ -137,5 +141,8 @@ void my_exit()
 	exit(1);
 	
 } /* end my_exit */
+
+
+
 /* ================================================================================================== */
 /* Fim do programa */

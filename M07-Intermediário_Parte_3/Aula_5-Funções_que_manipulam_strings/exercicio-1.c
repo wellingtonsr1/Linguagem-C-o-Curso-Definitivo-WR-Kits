@@ -1,9 +1,9 @@
 /* =================================================================================================
-	Módulo 
-	Aula 
-	Descrição: 
+	Módulo 7
+	Aula 5
+	Descrição: Exercício 1
 	Autor: Wellington
-	Data: 
+	Data: 24/11/2023
 	Atualização: --
 ================================================================================================== */
 
@@ -27,15 +27,17 @@ void clear();
 void clearall(char *s, int *r);
 void help();
 void my_exit();
+void runsound();
+
 
 /* ================================================================================================== */
 /* Função Principal */
 int main(int argc, char *argv[])
 {
 									
-    setlocale(LC_CTYPE, "Portuguese"); 
+    setlocale(LC_ALL, "Portuguese_Brazil"); 
 
-	char opcao[DIM], str[DIM];
+	char opcao[DIM], str[DIM] = {0};
 	int r=0;
 	
 	
@@ -47,29 +49,31 @@ int main(int argc, char *argv[])
         //scanf("%[^\n]%*c", opcao);
     	
         if(!strcmp(opcao, "TXT")) 
-	    txt(str);
+	    	txt(str);
     	else if(!strcmp(opcao, "RUN")) 
-	    run(str, r);
+	    	run(str, r);
+	    else if(!strcmp(opcao, "RUN SOUND")) 
+	    	runsound();
     	else if(!strcmp(opcao, "REP")) 
-	    r = rep(r);
+	    	r = rep(r);
     	else if(!strcmp(opcao, "CLEAR")) 
-	    clear();
+	    	clear();
     	else if(!strcmp(opcao, "CLEAR ALL")) 
-	    clearall(str, &r);
+	    	clearall(str, &r);
     	else if(!strcmp(opcao, "HELP")) 
-	    help();
+	    	help();
     	else if(!strcmp(opcao, "EXIT")) 
-	    my_exit();
+	    	my_exit();
         else
             puts("Syntax error.");
 	}
     
-    printf("----------------------------------------------\n");         	                               /* Rodapé */
+    printf("----------------------------------------------\n");         	                               
     
     
-    system("PAUSE");               							                                               /* Faz uma parada na execução do programa */
+    system("PAUSE");               							                                               
 		
-    return 0;		        							                                                   /* Retorna '0' se tudo ocorrer bem na execução */
+    return 0;		        							                                                   
 	
 }  /* end main */
 
@@ -79,7 +83,7 @@ int main(int argc, char *argv[])
 void txt(char *s)
 {
 	printf(" %16c", '_');
-        scanf("%[^\n]%*c", s);
+    scanf("%[^\n]%*c", s);
 	
 } /* end txt */
 
@@ -131,16 +135,23 @@ void help()
 	puts("       CLEAR       Limpa a tela do console sem perder o último dado");
 	puts("       CLEAR ALL   Limpa a tela e restaura variáveis.");
 	puts("       EXIT        Encerra o interpretador.");
-	
 	putchar('\n');
 	
 } /* end help */
 
 void my_exit()
 {
+	puts("Encerrando o programa...");
 	exit(1);
 	
 } /* end my_exit */
+
+void runsound()
+{	
+	puts("\a");
+	
+} /* end runsound */
+
 
 
 

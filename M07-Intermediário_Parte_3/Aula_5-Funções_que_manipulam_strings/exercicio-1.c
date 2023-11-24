@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     { 	
     	printf("INPUT COMMAND: ");
         fgets(opcao, sizeof(opcao), stdin);
-	opcao[strlen(opcao)-1] = '\0'; 
+		opcao[strlen(opcao)-1] = '\0'; 
         //scanf("%[^\n]%*c", opcao);
     	
         if(!strcmp(opcao, "TXT")) 
@@ -115,7 +115,7 @@ void clear()
 void clearall(char *s, int *r)
 {
 	clear();
-        *s = '\0';
+    *s = '\0';
 	*r = 0;
 	
 } /* end clearall */

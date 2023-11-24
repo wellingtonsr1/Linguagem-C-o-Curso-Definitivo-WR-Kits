@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 									
     setlocale(LC_CTYPE, "Portuguese"); 
 
-	char opcao[DIM] = "", str[DIM] = "- - - -";
+	char opcao[DIM], str[DIM];
 	int r=0;
 	
 	
@@ -79,8 +79,6 @@ int main(int argc, char *argv[])
 void txt(char *s)
 {
 	printf(" %16c", '_');
-    	/* fgets(s, sizeof(s), stdin);
-	s[strlen(s)-1] = '\0'; */
         scanf("%[^\n]%*c", s);
 	
 } /* end txt */
@@ -88,8 +86,9 @@ void txt(char *s)
 
 void run(char *s, int r)
 {
-    int i;
-    if(r == 0)
+    register int i;
+
+    if(!strlen(s))
         puts("- - - -");
     else
         for(i=0; i < r; i++) 
@@ -116,8 +115,7 @@ void clear()
 void clearall(char *s, int *r)
 {
 	clear();
-	//*s = '\0';
-        s = "- - - -";
+        *s = '\0';
 	*r = 0;
 	
 } /* end clearall */

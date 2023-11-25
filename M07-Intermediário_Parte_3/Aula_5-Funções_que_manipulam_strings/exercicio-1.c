@@ -1,9 +1,9 @@
 /* =================================================================================================
-	Módulo 
-	Aula 
-	Descrição: 
+	Módulo 7
+	Aula 5
+	Descrição: Exercício 1
 	Autor: Wellington
-	Data: 
+	Data: 24/11/2023
 	Atualização: --
 ================================================================================================== */
 
@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h> 
-#include <string.h>
+#include <string.h> 
 
 #define DIM 20
 
@@ -27,15 +27,17 @@ void clear();
 void clearall(char *s, int *r);
 void help();
 void my_exit();
+void runsound();
+
 
 /* ================================================================================================== */
 /* Função Principal */
 int main(int argc, char *argv[])
 {
 									
-    setlocale(LC_CTYPE, "Portuguese"); 
+    setlocale(LC_ALL, "Portuguese_Brazil"); 
 
-	char opcao[DIM], str[DIM];
+	char opcao[DIM], str[DIM] = {0};
 	int r=0;
 	
 	
@@ -43,33 +45,35 @@ int main(int argc, char *argv[])
     { 	
     	printf("INPUT COMMAND: ");
         fgets(opcao, sizeof(opcao), stdin);
-	opcao[strlen(opcao)-1] = '\0'; 
+		opcao[strlen(opcao)-1] = '\0'; 
         //scanf("%[^\n]%*c", opcao);
     	
         if(!strcmp(opcao, "TXT")) 
-	    txt(str);
+	    	txt(str);
     	else if(!strcmp(opcao, "RUN")) 
-	    run(str, r);
+	    	run(str, r);
+	    else if(!strcmp(opcao, "RUN SOUND")) 
+	    	runsound();
     	else if(!strcmp(opcao, "REP")) 
-	    r = rep(r);
+	    	r = rep(r);
     	else if(!strcmp(opcao, "CLEAR")) 
-	    clear();
+	    	clear();
     	else if(!strcmp(opcao, "CLEAR ALL")) 
-	    clearall(str, &r);
+	    	clearall(str, &r);
     	else if(!strcmp(opcao, "HELP")) 
-	    help();
+	    	help();
     	else if(!strcmp(opcao, "EXIT")) 
-	    my_exit();
+	    	my_exit();
         else
             puts("Syntax error.");
 	}
     
-    printf("----------------------------------------------\n");         	                               /* Rodapé */
+    printf("----------------------------------------------\n");         	                               
     
     
-    system("PAUSE");               							                                               /* Faz uma parada na execução do programa */
+    system("PAUSE");               							                                               
 		
-    return 0;		        							                                                   /* Retorna '0' se tudo ocorrer bem na execução */
+    return 0;		        							                                                   
 	
 }  /* end main */
 
@@ -115,7 +119,7 @@ void clear()
 void clearall(char *s, int *r)
 {
 	clear();
-        *s = '\0';
+    *s = '\0';
 	*r = 0;
 	
 } /* end clearall */
@@ -125,24 +129,31 @@ void help()
 	putchar('\n');
 	puts("       COMMANDS: ");
 	puts("       RUN         Rodar o interpretador.");
-	puts("       RUN SOUND   Rodar o interpretador com “bips”.");
+	puts("       RUN SOUND   Rodar o interpretador com ¿bips¿.");
 	puts("       REP         Número de repetições, arg: 000 a 999");
 	puts("       TXT         Atualiza o texto, arg: o texto que você quiser.");
 	puts("       CLEAR       Limpa a tela do console sem perder o último dado");
 	puts("       CLEAR ALL   Limpa a tela e restaura variáveis.");
 	puts("       EXIT        Encerra o interpretador.");
-	
 	putchar('\n');
 	
 } /* end help */
 
-void my_exit()
+voi my_exit()
 {
-	exit(1);
+	exit;
 	
 } /* end my_exit */
+
+void runsound()
+{	
+	puts("\a");
+	
+} /* end runsound */
 
 
 
 /* ================================================================================================== */
 /* Fim do programa */
+
+

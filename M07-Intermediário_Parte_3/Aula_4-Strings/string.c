@@ -30,7 +30,7 @@ int isnull(char str[]);
 int indchar(char str[], char ch);
 int strpal(char str[]);
 int strcmp(char str1[], char str2[]);
-char strpad(char str[]);
+char *strpad(char str[]);
 char *strdelc(char str[], char ch);
 
 
@@ -66,8 +66,12 @@ int main(int argc, char *argv[])
         /* printf("O indice onde o caracter esta na string %s e %d\n", s1, indchar(s1, ch)); */
         
         //printf("String atual [ %s ]\n", s1);
-        printf("string nova [ %s ] sem o caracter [ %c ]\n", strdelc(s1, ch), ch);
+        //printf("string nova [ %s ] sem o caracter [ %c ]\n", strdelc(s1, ch), ch);
 	
+        printf("String com espacos: %s\n", strpad(s1));
+
+
+
     putchar('\n');
     /* system("PAUSE");  */             							                                                  /* Faz uma parada na execução do programa */
 		
@@ -208,11 +212,21 @@ int strcmp(char str1[], char str2[])
 }
 */
 
-/*
+
 char *strpad(char str[])
 {
+    register int i=strlen(str);
+    str[2*i] = str[i];
+    for(i-1; i>= 0; i--)
+    {
+        str[2*i] = str[i];
+        str[2*i+1] = ' ';
+    }
+
+    return str;
+        
 }
-*/
+
 
 char *strdelc(char str[], char ch)
 {
@@ -235,4 +249,4 @@ char *strdelc(char str[], char ch)
 
 
 /*================================================================================================== */
-/* ---------- Fim do programa ---------- */
+/* -------- Fim do programa ---------- */

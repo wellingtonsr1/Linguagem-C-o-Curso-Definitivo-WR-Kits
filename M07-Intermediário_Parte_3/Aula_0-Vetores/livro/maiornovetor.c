@@ -7,7 +7,7 @@
 /*==========================================================*/
 /* ----- Constantes ----- */
 
-#define num 5
+#define num 4
 
 
 /*==========================================================*/
@@ -21,9 +21,9 @@ float max(float *v, int n);
 
 int main()
 {
-    float vet[num] = {93.0, 8.9, 100.9, 0.6, 98.7};
+    float vet[] = {93.0, 8.9, 10.9, 100.6, 98.7};
     
-    printf("O maior eh: %.2f\n", max(vet, num));
+    printf("O maior entre os %d valores eh: %.2f\n", num, max(vet, num));
     return 0;
 
 } /* end main */

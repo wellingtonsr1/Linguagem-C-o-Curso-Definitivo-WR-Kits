@@ -1,5 +1,6 @@
 /*=================================================================*/
 /* ----- Bibliotecas ----- */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -7,9 +8,10 @@
 
 /*=================================================================*/
 /* ----- Constantes ----- */
-#define NUMS 49
-#define MIN_APOSTA 6
-#define NUM_LIN 7
+
+#define NUMS 25
+#define MIN_APOSTA 15
+#define NUM_LIN 5
 
 
 /*=================================================================*/

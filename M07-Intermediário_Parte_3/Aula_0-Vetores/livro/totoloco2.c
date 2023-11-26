@@ -71,7 +71,7 @@ void inic(int v[])
 {
     int i;
     for(i=0; i < NUMS; i++)
-        v[i]  = 0;
+        v[i] = 0;
 
 } /* end inic */
 

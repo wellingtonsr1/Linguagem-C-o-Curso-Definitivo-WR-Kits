@@ -18,7 +18,7 @@ int my_ult_ind_str(char *s, char ch);
 int main()
 {
 	char str[] = "Teste";
-	char ch = 'T';
+	char ch = 'S';
 	
 	if(my_ult_ind_str(str, ch) >= 0)
 		printf("O caracter \'%c\' esta no indice %d da string \'%s\'\n", ch, my_ult_ind_str(str, ch), str);                        
@@ -36,19 +36,13 @@ int main()
 
 int my_ult_ind_str(char *s, char ch)
 {
-	register int i, r, aux = -1;
+	register int i, r = -1;
 	
 	for(i=0; s[i] != '\0'; i++)
-		if(s[i] == ch) 
-			aux = r = i;
-		else
-			r = -1;
-	
-	//if(aux != -2) return aux; 
+		if(s[i] == ch) r = i;
 	
 	return r;	
-		
-		
+				
 } /* end my_ult_ind_str */
 
 /*

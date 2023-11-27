@@ -9,9 +9,9 @@
 /*=================================================================*/
 /* ----- Constantes ----- */
 
-#define NUMS 25
-#define MIN_APOSTA 15
-#define NUM_LIN 5
+#define NUMS 49
+#define MIN_APOSTA 6
+#define NUM_LIN 7
 
 
 /*=================================================================*/

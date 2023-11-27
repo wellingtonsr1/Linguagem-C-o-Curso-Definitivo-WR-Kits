@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h> 
-#include <string.h>
+#include <string.h> 
 
 #define DIM 20
 
@@ -129,7 +129,7 @@ void help()
 	putchar('\n');
 	puts("       COMMANDS: ");
 	puts("       RUN         Rodar o interpretador.");
-	puts("       RUN SOUND   Rodar o interpretador com “bips”.");
+	puts("       RUN SOUND   Rodar o interpretador com ¿bips¿.");
 	puts("       REP         Número de repetições, arg: 000 a 999");
 	puts("       TXT         Atualiza o texto, arg: o texto que você quiser.");
 	puts("       CLEAR       Limpa a tela do console sem perder o último dado");
@@ -139,10 +139,14 @@ void help()
 	
 } /* end help */
 
-void my_exit()
+voi my_exit()
 {
+<<<<<<< HEAD
 	puts("Encerrando o programa...");
 	exit(1);
+=======
+	exit;
+>>>>>>> 86e6cdf96ab96a5935e83eb9dfe5536f5f79514c
 	
 } /* end my_exit */
 
@@ -152,8 +156,13 @@ void runsound()
 	
 } /* end runsound */
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 86e6cdf96ab96a5935e83eb9dfe5536f5f79514c
 
 
 /* ================================================================================================== */
 /* Fim do programa */
+
+

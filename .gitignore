@@ -4,4 +4,4 @@ teste*
 .*
 *.o
 *.dev
-
+[a-zA-Z]

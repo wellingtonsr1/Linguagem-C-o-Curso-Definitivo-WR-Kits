@@ -4,4 +4,5 @@ teste*
 .*
 *.o
 *.dev
-[a-zA-Z]
+*.win
+[a-zA-Z]{1,}

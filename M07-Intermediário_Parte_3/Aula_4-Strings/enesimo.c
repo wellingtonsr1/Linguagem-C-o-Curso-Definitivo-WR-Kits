@@ -6,8 +6,8 @@ char e_nesimo(char *s, int n);
 
 int main() {
    	
-   	char str[] = "teste";
-   	int n = 6;
+   	char str[] = "EraUmaVez";
+   	int n = 3;
    	
 	printf("O e-nesimo \'%d\' de '\%s\' eh '\%c\'\n", n, str, e_nesimo(str, n));
     
@@ -23,7 +23,7 @@ char e_nesimo(char *s, int n)
 	/* if(n > strlen(s)) n = strlen(s) - 1; */
 	
 	for(i=0; s[i] != '\0'; i++)
-		if(i == n) break;
+		if(i + 1 == n) break;
 	
 	return s[i];
 }

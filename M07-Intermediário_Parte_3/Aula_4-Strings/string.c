@@ -29,13 +29,8 @@ int strcountd(char str[]);
 int isnull(char str[]);
 int indchar(char str[], char ch);
 int strpal(char str[]);
-<<<<<<< HEAD
 char *strcmp(char str1[], char str2[]);
 char strpad(char str[]);
-=======
-int strcmp(char str1[], char str2[]);
-char *strpad(char str[]);
->>>>>>> 86e6cdf96ab96a5935e83eb9dfe5536f5f79514c
 char *strdelc(char str[], char ch);
 
 
@@ -70,14 +65,14 @@ int main(int argc, char *argv[])
 
     /* printf("O indice onde o caracter esta na string %s e %d\n", s1, indchar(s1, ch)); */
         
-<<<<<<< HEAD
+
     //printf("String atual [ %s ]\n", s1);
     
     /* printf("string nova [ %s ] sem o caracter [ %c ]\n", strdelc(s1, ch), ch); */
     
     
 	printf("As strings são %s\n", strcmp(s1, s2)); 
-=======
+
         //printf("String atual [ %s ]\n", s1);
         //printf("string nova [ %s ] sem o caracter [ %c ]\n", strdelc(s1, ch), ch);
 	
@@ -85,7 +80,6 @@ int main(int argc, char *argv[])
 
 
 
->>>>>>> 86e6cdf96ab96a5935e83eb9dfe5536f5f79514c
     putchar('\n');
     
     
@@ -228,6 +222,13 @@ char *strcmp(char str1[], char str2[])
 		if(str1[i] != str2[i]) return "diferentes"; /* ou 0 se for diferente */
 		
 	return "iguais"; /* ou 1 se for igual */
+	
+	/*
+		while(s1[i] == s2[i] && s1[i] != '\0')
+            		i++;
+ 
+        	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+	*/
 	
 } /* end strcmp */
 

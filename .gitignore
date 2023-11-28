@@ -2,4 +2,6 @@
 teste*
 *.swp
 .*
+*.o
+*.dev
 

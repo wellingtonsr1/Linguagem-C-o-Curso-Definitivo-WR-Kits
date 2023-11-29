@@ -8,7 +8,7 @@
 /*======================================================================*/
 /* ----- Protótipos das funções ----- */
 
-char *my_entremeador(char *s, int n);
+char *my_xspace(char *s);
 
 
 /*======================================================================*/
@@ -16,12 +16,12 @@ char *my_entremeador(char *s, int n);
 
 int main()
 {
-    char str[] = "ABCDEFGHIJLMN";
+    char str[] = "Era_Uma_vez";
 	int n = 3;
 	
     puts("--------------------------------------------------------");
     printf("String informada: %s\n", str);
-    printf("String retornada: %s\n", my_entremeador(str, n));
+    printf("String retornada: %s\n", my_xspace(str));
     puts("--------------------------------------------------------");
 
     return 0;
@@ -32,32 +32,34 @@ int main()
 /*======================================================================*/
 /* ----- Desenvolvimento das funções ----- */
 
-char *my_entremeador(char *s, int n)
+char *my_xspace(char *s)
 {
     register int i, j;						/* Declaração das variáaveis */					
  	
 
 	for(i=0; s[i] != '\0'; i++)				/* for para percorrer a string */
 		for(j=i; s[j] != '\0'; j++)			/* for para rearranjar a string */																																									
-    		s[j+1] = s[j+n+1];				/* a posição j+1 recebe o valor da posição j+n+1 */
+    		s[j+1] = '_';				/* a posição j+1 recebe o valor da posição j+n+1 */
  	s[i] = '\0';							/* Colocar o caracter nulo \0 no fim da string*/
 
 	return s;								/* Retornar a string */
     
-} /* end my_entremeador */
+} /* end my_xspace */
 
 
 
 /*======================================================================*/
 /* ----- Fim do programa ----- */
 
+
 /*
 
-ABCDEFGHIJLMN com n = 0, retorna ABCDEFGHIJLMN
-ABCDEFGHIJLMN com n = 1, retorna ACEGILN
-ABCDEFGHIJLMN com n = 3, retorna AEIN
+012345678910
+Era_Uma_vez -> s[0+1] = 
+
+
+
+
 
 */
-
-
 

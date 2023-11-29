@@ -16,12 +16,15 @@ char *my_xspace(char *s);
 
 int main()
 {
-    char str[] = "Era_Uma_vez";
-	int n = 3;
+    char str1[] = "Era_Uma_vez";
+   int len = (strlen(str1) * 2);
+   printf("%d\n", len);
+//	char str2[len] = {0};
+
 	
     puts("--------------------------------------------------------");
-    printf("String informada: %s\n", str);
-    printf("String retornada: %s\n", my_xspace(str));
+    //printf("String informada: %d\n", strlen(str2));
+    //printf("String retornada: %s\n", my_xspace(str1));
     puts("--------------------------------------------------------");
 
     return 0;
@@ -54,8 +57,11 @@ char *my_xspace(char *s)
 
 /*
 
-012345678910
-Era_Uma_vez -> s[0+1] = 
+i=0
+
+012345678910 11 12 13 14 15 16 17 18 19 20 
+Era_Uma_vez -> s[0+1] = '_'
+E_ra_Uma_vez
 
 
 

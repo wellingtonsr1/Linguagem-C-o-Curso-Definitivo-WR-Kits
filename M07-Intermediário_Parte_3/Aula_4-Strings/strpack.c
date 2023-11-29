@@ -6,13 +6,13 @@
 
 
 /*======================================================================*/
-/* ----- Prot√≥tipos das fun√ß√µes ----- */
+/* ----- ProtÛtipos das funÁıes ----- */
 
 char *my_strpack(char *s);
 
 
 /*======================================================================*/
-/* ----- Fun√ß√£o principal ----- */
+/* ----- FunÁ„o principal ----- */
 
 int main()
 {
@@ -23,36 +23,36 @@ int main()
     printf("String retornada: %s\n", my_strpack(str));
     puts("--------------------------------------------------------");
 
-
     return 0;
 
 } /* end main */
 
 
 /*======================================================================*/
-/* ----- Desenvolvimento das fun√ß√µes ----- */
+/* ----- Desenvolvimento das funÁıes ----- */
 
 char *my_strpack(char *s)
 {
-    register int i, j;
+    register int i, j;							/* DeclaraÁ„o da vari·veis */
  
-    for(i=0; s[i] != '\0'; i++)
+    for(i=0; s[i] != '\0'; i++)					/* Percorrer a string atÈ encontrar o caracter nulo: \0 */
     {
-        if(s[i] == s[i+1])
+        if(s[i] == s[i+1])						/* Se o caracter na posiÁ„o i for igual ao i + 1, entra no for interno */
         {
-            for(j=i; s[j] != '\0'; j++)
-                s[j] = s[j+1];
-            s[j] = '\0';
-            i--;      /* ---------------->      Depois de rearranjar a string, o i √© decrementado em 1. Ou seja, se i = 0, i fica com -1. 
+            for(j=i; s[j] != '\0'; j++)			/* for para reorganizar a string */
+                s[j] = s[j+1];					/* a posiÁ„o atual recebe o valor da posiÁ„o seguinte */
+            s[j] = '\0';						/* Colocar o caracter nulo na ˙ltima posiÁ„o da string */
+            i--;      /* ---------------->      Depois de rearranjar a string, o i È decrementado em 1. Ou seja, se i = 0, i fica com -1. 
                                                 Se em vez e i--, usar i=0; quando chegar no for, o i vai valer 1.
-                                                Sendo assim, n√£o vai t√° no in√≠cio da string, mas na segunda posi√ß√£o.
+                                                Sendo assim, n„o vai t·° no inÌcio da string, mas na segunda posiÁ„o.
                                                 Po isso, i-- sendo icrementado em 1 no for, ficando i=0 (inicio da string)*/
 
-        } /*end if */
+        } /* end if */
         
     } /* end for external */
 
     return s;
+    
 } /* end my_strpack */
 
 /*======================================================================*/

@@ -9,7 +9,7 @@
 /* ----- Protótipos das funções ----- */
 
 char *my_xspace(char *s);
-
+char *my_strcpy(char *str_dest, char *str_orig);
 
 /*======================================================================*/
 /* ----- Função principal ----- */
@@ -17,14 +17,12 @@ char *my_xspace(char *s);
 int main()
 {
     char str1[] = "Era_Uma_vez";
-   int len = (strlen(str1) * 2);
-   printf("%d\n", len);
-//	char str2[len] = {0};
+    char str2[strlen(str1) * 2];
 
-	
+    
     puts("--------------------------------------------------------");
-    //printf("String informada: %d\n", strlen(str2));
-    //printf("String retornada: %s\n", my_xspace(str1));
+    printf("String informada: %ld\n", strlen(my_strcpy(str2, str1)));
+    printf("String retornada: %s\n", my_xspace(my_strcpy(str2, str1)));
     puts("--------------------------------------------------------");
 
     return 0;
@@ -37,35 +35,31 @@ int main()
 
 char *my_xspace(char *s)
 {
-    register int i, j;						/* Declaração das variáaveis */					
- 	
+    register int i=strlen(s);						 	
 
-	for(i=0; s[i] != '\0'; i++)				/* for para percorrer a string */
-		for(j=i; s[j] != '\0'; j++)			/* for para rearranjar a string */																																									
-    		s[j+1] = '_';				/* a posição j+1 recebe o valor da posição j+n+1 */
- 	s[i] = '\0';							/* Colocar o caracter nulo \0 no fim da string*/
-
-	return s;								/* Retornar a string */
+    s[2 * i] = s[i];
+    for(i--; i >= 0; i--)
+    {			
+ 	s[2 * i] = s[i];
+        s[2 * i + 1] = '_';							
+    }
+    return s;								
     
 } /* end my_xspace */
 
 
 
+char *my_strcpy(char str_dest[], char str_orig[])
+{
+    register int i;
+    str_dest[strlen(str_orig)];
+    for(i=0; str_orig[i] != '\0'; i++)
+        str_dest[i] = str_orig[i];
+    str_dest[i] = '\0';
+
+    return str_dest;
+
+} /* end strcpy */
+
 /*======================================================================*/
 /* ----- Fim do programa ----- */
-
-
-/*
-
-i=0
-
-012345678910 11 12 13 14 15 16 17 18 19 20 
-Era_Uma_vez -> s[0+1] = '_'
-E_ra_Uma_vez
-
-
-
-
-
-*/
-

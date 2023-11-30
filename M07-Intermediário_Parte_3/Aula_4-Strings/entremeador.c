@@ -17,7 +17,7 @@ char *my_entremeador(char *s, int n);
 int main()
 {
     char str[] = "ABCDEFGHIJLMN";
-	int n = 3;
+    int n = 3;
 	
     puts("--------------------------------------------------------");
     printf("String informada: %s\n", str);
@@ -34,16 +34,27 @@ int main()
 
 char *my_entremeador(char *s, int n)
 {
-    register int i, j;						/* Declaração das variáaveis */					
- 	
+    register int i, j;					/* Declaração das variáaveis */					
+ 
 
-	for(i=0; s[i] != '\0'; i++)				/* for para percorrer a string */
-		for(j=i; s[j] != '\0'; j++)			/* for para rearranjar a string */																																									
-    		s[j+1] = s[j+n+1];				/* a posição j+1 recebe o valor da posição j+n+1 */
- 	s[i] = '\0';							/* Colocar o caracter nulo \0 no fim da string*/
-
-	return s;								/* Retornar a string */
+    for(i=0; s[i] != '\0'; i++) 			/* for para percorrer a string */
+        for(j=i; s[j] != '\0'; j++)			/* for para rearranjar a string */ 
+            s[j+1] = s[j+n+1];				/* a posição j+1 recebe o valor da posição j+n+1 */
+    s[j] = '\0';					/* Colocar o caracter nulo \0 no fim da string*/
     
+
+/* 
+	
+    int i, j, len = strlen(s);
+
+    if(n == 0) return s;
+
+    for(i=j=0; i < len; i+=n+1)
+        s[j++] = s[i];
+    s[j] = '\0';
+*/
+
+    return s;
 } /* end my_entremeador */
 
 

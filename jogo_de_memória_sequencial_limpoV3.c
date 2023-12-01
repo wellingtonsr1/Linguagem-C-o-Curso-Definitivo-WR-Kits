@@ -21,10 +21,9 @@
 /* ----- Estruturas ----- */
 typedef struct jogos
 {
-      char nomes[15];
-      int ponto;
-      
-        
+	char nomes[15 + 1];
+	int ponto;
+	    
 }Tjogo;
 
 /* ======================================================================================================= */
@@ -47,6 +46,7 @@ void apagar(void);
 void menu(void);
 void zerar(void);
 void clear_screen();
+
 /* ======================================================================================================= */
 /* ----- Função principal ----- */
 int main()
@@ -56,7 +56,6 @@ int main()
 		//setlocale(LC_ALL, "Portuguese_Brazil"); 
     //#endif
     
-   
     clear_screen();
     system("color 9f");//muda acor da tela de preto para azul 
     printf("\n\n\n\t\t\t\t  J");Sleep(100);printf("O");Sleep(100); printf("G"); Sleep(100);printf("O"); Sleep(100);
@@ -81,10 +80,9 @@ int main()
     Sleep(100);printf("A");Sleep(100);printf("D");Sleep(100);printf("O");Sleep(100);printf("S"); 
     Sleep(500);
     
-    
     menu();
         
-  return 0;
+	return 0;
   
 } /* end main */
 
@@ -95,16 +93,15 @@ int main()
 /* ----- Função permutar ----- */
 int permutar(void)//função para misturar os caracteres
 {
-   
 	int i, j, aux;
 	srand(time(NULL));
 
    	clear_screen();
    	system("color 9f"); 
   
-   	for(i = 0; i<14; i++)//For para misturar os caracteres
+   	for(i=0; i < 14; i++)//For para misturar os caracteres
    	{
-    	j = rand()%14;
+    	j = rand() % 14;
       	aux = tela[i];
       	tela[i] = tela[j];
       	tela[j] = aux;
@@ -117,7 +114,7 @@ int permutar(void)//função para misturar os caracteres
 
 /* ======================================================================================================= */
 /* ----- Função painel ----- */
-int painel( char tela[14])
+int painel(char tela[14])
 {
 	int i,j,x;
    	int n1[14] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -128,16 +125,17 @@ int painel( char tela[14])
    	clear_screen();
    
    	printf("\n\n\t\tDigite o seu nome para iniciar o jogo\n");
-   	printf("\n\t\t=> "); scanf("%s",&registro.nomes);
+   	printf("\n\t\t=> "); 
+	scanf("%15s", &registro.nomes);
    
-   	clear_screen();
+	clear_screen();
    	printf("\n");
    	Sleep(200);  
    	printf("\n\t\t\t* MEMORIZE ! *\n\n\n");
    	Sleep(400);
    
    	//For para imprimir os caracteres na tela  
-   	for(i = 0; i<14; i++)
+   	for(i=0; i < 14; i++)
    	{
     	printf("     ");
       	printf(" %c ", tela[i]);
@@ -150,9 +148,9 @@ int painel( char tela[14])
    	//imprime o tempo de visualização dos caracteres
    	printf("\n\n\n\n\t\t\t\t\t\t\t\t\t\t");
    	Sleep(200);  
-   	printf("\t\t\tTempo : ");
+   	printf("\tTempo : ");
    	Sleep(500);  
-   	for (x = 1; x <=5; x++)
+   	for (x=1; x <= 5; x++)
    	{
     	printf("%d ", x);
       	Sleep(1000);  
@@ -166,12 +164,12 @@ int painel( char tela[14])
         	clear_screen();
         	printf("\n\n\n\n\n");
         
-        	for(i = 0; i<14; i++)
+        	for(i=0; i < 14; i++)
         	{
            		if (acertos[i] == 1)
               		printf("     %c  ", tela[i]);
            		else
-              		printf("     %c%c ",219,219);
+              		printf("     %c%c ", 219, 219);
                 
            		if(i == 6) printf("\n\n\n\n"); 
            
@@ -181,22 +179,22 @@ int painel( char tela[14])
         	printf("\n\n\t\tN%cmero 1: ", 163);//163 é o valor de ú em decimal 
         	scanf("%d", &i);
     
-     	}while((i<=0)||(i>14)||(i == n1[0])||(i == n1[1])||(i == n1[2])
-     	||(i == n1[3])||(i == n1[4])||(i == n1[5])||(i == n1[6])||(i == n1[7])
-     	||(i == n1[8])||(i == n1[9])||(i == n1[10])||(i == n1[11])
-     	||(i == n1[12])||(i == n1[13])||(i == n1[14])); /* end do...while internal 1 */
+     	}while((i <= 0) || (i > 14) || (i == n1[0]) || (i == n1[1]) || (i == n1[2])
+     	|| (i == n1[3]) || (i == n1[4]) || (i == n1[5]) || (i == n1[6]) || (i == n1[7])
+     	|| (i == n1[8]) || (i == n1[9]) || (i == n1[10])||(i == n1[11])
+     	|| (i == n1[12]) || (i == n1[13]) || (i == n1[14])); /* end do...while internal 1 */
      
       	do
       	{
         	clear_screen();
         	printf("\n\n\n\n\n");
         
-        	for(j = 0; j<14; j++)
+        	for(j=0; j < 14; j++)
         	{
            		if (acertos[j] == 1)
               		printf("     %c  ", tela[j]);
            		else
-              		printf("     %c%c ",219,219);
+              		printf("     %c%c ", 219, 219);
                 
            		if(j == 6) printf("\n\n\n\n"); 
 
@@ -209,7 +207,7 @@ int painel( char tela[14])
         	printf("\t\tN%cmero 2: ", 163);//163 é o valor de ú em decimal 
         	scanf("%d", &j); 
        
-     	}while((j<=0)||(j>14)||(i==j)||(j == n1[0])||(j == n1[1])||(j == n1[2])
+     	}while((j <= 0) || (j > 14) || (i == j) || (j == n1[0])||(j == n1[1])||(j == n1[2])
      	||(j == n1[3])||(j == n1[4])||(j == n1[5])||(j == n1[6])
      	||(j == n1[7])||(j == n1[8])||(j == n1[9])||(j == n1[10])
      	||(j == n1[11])||(j == n1[12])||(j == n1[13])||(j == n1[14])); /* end do...while internal 2 */
@@ -238,35 +236,37 @@ int painel( char tela[14])
    		getchar();
    		getchar();
   
-   		if((contador==7)&&(cont > 0))
+   		if(contador == 7 && cont > 0)
    		{
         	clear_screen();
          	//130, 136, 135, 132 é o valor de é, ê, ç, ã respectivamente em decimal
-         	printf("\n\n\n\tParab%cns %s, voc%c ganhou e sua Pontua%c%co foi %d !!!!\n", 130, registro.nomes, 136, 135, 198,cont);
+         	printf("\n\n\n\tParab%cns %s, voc%c ganhou e sua Pontua%c%co foi %d !!!!\n", 130, registro.nomes, 136, 135, 198, cont);
          	gravar( cont, contador);//função para gravar os dados no arquivo
          	clear_screen();
          	printf("\n\n\n\t\t\tEscolha uma op%c%co :\n\t\t\t******************\n\n", 135, 198);//135 e 132 é o valor em decimal de ç e ã          
          	printf("\t\t\t< M > Para voltar ao menu.\n \t\t\t< S > Para sair.\n \t\t\t< J > Para jogar.\n");        
-         	printf("\n\t\t\t=> ");scanf("%c", &resp);
+         	printf("\n\t\t\t=> ");
+			scanf("%c", &resp);
          	//Neste trecho o jogador escolhe se quer acessar o menu, jogar novamente ou sair do jogo
-         	if((resp == 'm')||(resp == 'M')) 
+         	if(resp == 'm' || resp == 'M') 
          	{
             	zerar();//apos a escolha do jogador esta função é chamada para zerar o vetor acertos
             	menu();//após a escolha do jogador esta função menu é chamada
             
          	}  /* end if internal */
          
-         	if((resp == 'j')||(resp=='J'))
+         	if(resp == 'j' || resp=='J')
          	{
             	zerar();//apos a escolha do jogador esta função é chamada para zerar o vetor acertos
             	permutar();//após a escolha do jogador esta função é chamada
+            	
          	} /* end if internal */
         
-         	if((resp == 's')||(resp == 'S')) encerrar();//após a escolha do  jogador esta função é chamada para fechar o programa
+         	if(resp == 's' || resp == 'S') encerrar();//após a escolha do  jogador esta função é chamada para fechar o programa
          
-   		} /* end if */
+   		} /* end if external 1*/
    
-   		if((contador==7)&&(cont < 0))
+   		if(contador == 7 && cont < 0)
    		{
         	clear_screen();
          	printf("\n\n\n\t%s, voc%c acertou todos os desenhos, mas sua Pontuacao foi %d !!!!\n",registro.nomes,136,cont);
@@ -274,24 +274,26 @@ int painel( char tela[14])
          	clear_screen();
          	printf("\n\n\n\t\t\tEscolha uma op%c%co :\n\t\t\t******************\n\n", 135, 198);
          	printf("\t\t\t< M > Para voltar ao menu.\n \t\t\t< S > Para sair.\n \t\t\t< J > Para jogar.\n");
-         	printf("\n\t\t\t=> ");scanf("%c", &resp);
-         	if((resp == 'm')||(resp == 'M')) 
+         	printf("\n\t\t\t=> ");
+			scanf("%c", &resp);
+			
+         	if(resp == 'm' || resp == 'M') 
          	{
             	zerar();//apos a escolha do jogador esta função é chamada para zerar o vetor acertos
             	menu();//após a escolha do jogador esta função menu é chamada
             
          	}  /* end if */
          
-         	if((resp == 'j')||(resp=='J'))
+         	if(resp == 'j' || resp=='J')
          	{
             	zerar();//apos a escolha do jogador esta função é chamada para zerar o vetor acertos
             	permutar();//após a escolha do jogador esta função é chamada
             
          	} /* end if */
          
-         	if((resp == 's')||(resp == 'S')) encerrar();//após a escolha do  jogador esta função é chamada para fechar o programa
+         	if(resp == 's' || resp == 'S') encerrar();//após a escolha do  jogador esta função é chamada para fechar o programa
          
-   		} /* end if */
+   		} /* end if exteral 2*/
  
   	}while(contador != 7); 
  
@@ -305,19 +307,20 @@ int painel( char tela[14])
 void numeros(int cont)//inicío da função numeros
 {
 	register int  x;
- 
-   printf("\t\t\t\t\t\t\t\t\t\t\t%d Ponto(s)", cont);
+ 	
+ 	putchar('\n');
+   	printf("\t\t\t\t\t\t\t\t\t\t\t %d Ponto(s)", cont);
   
-   //for para apagar os números
-   for(x=0;x<14;x++){
-	  if(x%7 == 0) printf("\n\n\n");
+   	//for para apagar os números
+   	for(x=0; x < 14; x++){
+		if(x % 7 == 0) printf("\n\n\n");
       
-      if (acertos[x] == 1)
-        printf("        ");
-      else
-        printf("%7d ",x+1);
+      	if (acertos[x] == 1)
+        	printf("        ");
+      	else
+        	printf("%7d ", x+1);
         
-   } /* end for */
+   	} /* end for */
 
 } /* end numeros */
 
@@ -333,7 +336,7 @@ void encerrar(void)//início da função encerrar
    	{ 
     	system("cls");//limpa a tela
       	printf("\n\n\n\t\t\tO Jogo est%c sendo encerrado", 160);
-      	for (x = 1; x <= 3; x++)
+      	for (x=1; x <= 3; x++)
       	{
         	printf("%c ", p);
          	Sleep(200); 
@@ -341,7 +344,7 @@ void encerrar(void)//início da função encerrar
       	} /* end for */
       	i++; 
       
-   	}while(i <= 3 ); /* end do...while */
+   	}while(i <= 3); /* end do...while */
    
    	exit(0);
   
@@ -357,9 +360,9 @@ void gravar(int cont, int contador)//início da função gravar
   	registro.ponto=cont;
   	//registro.hora=system ("date");
   
-  	if((cfptr =fopen("arquivo.txt", "a"))==NULL)
+  	if((cfptr =fopen("arquivo.txt", "a")) == NULL)
   	{
-    	printf("aquivo n%co pode ser aberto\n",198);
+    	printf("aquivo n%co pode ser aberto\n", 198);
      	exit(1);
      
   	} /* end if */
@@ -388,7 +391,7 @@ void ler(int cont)//início da função ler
     else
     {
     	printf("\n\tNome: ""\t\t""Pontos: \n\n" );
-        fscanf(cfptr,"%s" "%d", &registro.nomes, &registro.ponto);
+        fscanf(cfptr,"%15s" "%d", &registro.nomes, &registro.ponto);
          
         while(!feof(cfptr))
         {                  
@@ -450,13 +453,13 @@ void menu(void)//início da função menu
     	clear_screen();
        	system("color 9f"); 
        	Sleep(300);  
-       	printf("\n\n\n\t\t\t\tMen%c",163);
+       	printf("\n\n\n\t\t\t\tMen%c", 163);
        	printf("\n\t\t\t\t####"); 
        	printf("\n\n\t\t\t1. Jogar");  
        	printf("\n\n\t\t\t2. Sair");  
-       	printf("\n\n\t\t\t3. Pontua%c%co",135,198);  
-       	printf("\n\n\t\t\t4. Excluir Pontua%c%co",135,198);
-       	printf("\n\n\n\t\t\tEscolha uma op%c%co: ",135,198);  
+       	printf("\n\n\t\t\t3. Pontua%c%co", 135, 198);  
+       	printf("\n\n\t\t\t4. Excluir Pontua%c%co", 135, 198);
+       	printf("\n\n\n\t\t\tEscolha uma op%c%co: ", 135, 198);  
        	scanf("%d", &opcao); 
                
        	switch (opcao)
@@ -483,7 +486,8 @@ void menu(void)//início da função menu
              	break;
           
        	}  /* end switch */
-	}while(1);
+       	
+	}while(1); /* end do...while */
   
     getchar();
     
@@ -496,8 +500,8 @@ void zerar(void)//início da função zerar
 {
 	register int i;
    
-   for(i=0; i < 14; i++)
-      acertos[i] = '\0';//vetor acertos é zerado
+   	for(i=0; i < 14; i++)
+    	acertos[i] = '\0';//vetor acertos é zerado
       
 } /* end zerar */
 

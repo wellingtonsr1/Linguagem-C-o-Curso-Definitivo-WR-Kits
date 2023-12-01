@@ -504,7 +504,22 @@ void zerar()                                                                    
    for(i=0; i < 14; i++) acertos[i] = '\0';                                                                                          /* vetor acertos é zerado */
       
 } /* end zerar */
+
  
+/* ======================================================================================================= */
+/* ----- Função clear_screnn ----- */
+
+void clear_screen()
+{
+    #ifdef __linux__
+        system("clear");
+    #elif _WIN32
+        system("CLS");
+    #else
+
+    #endif
+
+} /* end clear_screen */
 
 /* ======================================================================================================= */
 /* ----- Fim do programa ----- */

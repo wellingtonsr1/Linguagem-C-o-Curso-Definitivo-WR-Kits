@@ -148,7 +148,7 @@ int painel(char tela[14])
       	printf(" %c ", tela[i]);
       	Sleep(200);  
    
-      	if(i == 6) printf("\n\n\n\n");
+      	if(i == 6) {putchar('\n'); 	putchar('\n'); 	putchar('\n'); 	putchar('\n');}
         
    	} /* end for */
    
@@ -443,8 +443,10 @@ void apagar(void)//início da função apagar
    	} /* end else */
    
 	clear_screen();
-    printf("\n\n\n\n\t\tPontua%c%co exclu%cda com sucesso!\n", 135, 198, 161);
-    printf("\n\n\n\n\n\n\n\n\n\n\n\t\t\t\tPressione <enter> para retornar ao menu.\n");
+	putchar('\n'); putchar('\n');
+    printf("\tPontua%c%co exclu%cda com sucesso!\n", 135, 198, 161);
+    putchar('\n');
+    printf("%45s\n", "Pressione <enter> para retornar ao menu.");
     getchar(); 
     getchar(); 
       

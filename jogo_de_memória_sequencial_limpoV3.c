@@ -148,7 +148,7 @@ int painel(char tela[14])
       	printf(" %c ", tela[i]);
       	Sleep(200);  
    
-      	if(i == 6) {putchar('\n'); 	putchar('\n'); 	putchar('\n'); 	putchar('\n');}
+      	if(i == 6) {putchar('\n'); putchar('\n'); putchar('\n'); putchar('\n');}
         
    	} /* end for */
    
@@ -258,6 +258,13 @@ int painel(char tela[14])
          	printf("\t\t\t< M > Para voltar ao menu.\n \t\t\t< S > Para sair.\n \t\t\t< J > Para jogar.\n");        
          	printf("\n\t\t\t=> ");
 			scanf("%c", &resp);
+			
+			/*
+			printf("%30s", "< M > Para voltar ao menu."); 
+			printf("%30s", "< J > Para jogar."); 
+			printf("%30s", "< S > Para sair."); 
+			*/
+			
          	//Neste trecho o jogador escolhe se quer acessar o menu, jogar novamente ou sair do jogo
          	if(resp == 'm' || resp == 'M') 
          	{
@@ -401,7 +408,10 @@ void ler(int cont)//início da função ler
     } /* end if */
     else
     {
-    	printf("\n\tNome: ""\t\t""Pontos: \n\n" );
+    	putchar('\n');
+    	printf("%38s\n", "-----------------------------------");
+    	printf("%14s%18s\n", "Nome ", "Pontos ");
+    	printf("%38s\n", "-----------------------------------");
         fscanf(cfptr,"%15s" "%d", &registro.nomes, &registro.ponto);
          
         while(!feof(cfptr))

@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <windows.h>
+#include <locale.h>
 
 typedef struct jogos
 {
@@ -40,32 +42,34 @@ void zerar(void);
 int main()
 {
     
-    
+    #if _WIN32 
+		setlocale(LC_ALL, "Portuguese_Brazil"); 
+    #endif
     
    
     system("cls");//limpa a tela
     system("color 9f");//muda acor da tela de preto para azul 
-    printf("\n\n\n\t\t\t\t  J");sleep(100);printf("O");sleep(100); printf("G"); sleep(100);printf("O"); sleep(100);
-    printf(" ");sleep(100);printf("\n\n\t\t\t\t   D");sleep(100);printf("E");sleep(100);printf(" ");sleep(100); 
-    printf("\n\n\t\t\t\tM"); sleep(200);printf("E");sleep(200); printf("M");sleep(200); printf("%c",224);sleep(200);   
-    printf("R");sleep(100);printf("I");sleep(100);printf("A%c", 169);sleep(500); 
+    printf("\n\n\n\t\t\t\t  J");Sleep(100);printf("O");Sleep(100); printf("G"); Sleep(100);printf("O"); Sleep(100);
+    printf(" ");Sleep(100);printf("\n\n\t\t\t\t   D");Sleep(100);printf("E");Sleep(100);printf(" ");Sleep(100); 
+    printf("\n\n\t\t\t\tM"); Sleep(200);printf("E");Sleep(200); printf("M");Sleep(200); printf("%c",224);Sleep(200);   
+    printf("R");Sleep(100);printf("I");Sleep(100);printf("A%c", 169);Sleep(500); 
          
-    printf("\n\n\n\t\tD");sleep(100);printf("E");sleep(100); printf("S");sleep(100);printf("E");sleep(100);
-    printf("N");sleep(100);printf("V");sleep(100);printf("O");sleep(100);printf("L");sleep(100); printf("V"); 
-    printf("I");sleep(100);printf("D");sleep(100); printf("O");sleep(100);printf(" ");sleep(100);printf("P");   
-    sleep(100);printf("O");sleep(100);printf("R");sleep(100);printf(" ");sleep(100);printf("I");sleep(100);  
-    printf("N");sleep(100);printf("E");sleep(100);printf("I");sleep(100);printf("L");sleep(100);printf("T"); 
-    sleep(100);printf("O");sleep(100);printf("N");sleep(100);printf(" ");sleep(100);printf("E");sleep(100);
-    printf(" ");sleep(100);printf("W");sleep(100);printf("E");sleep(100);printf("L");sleep(100);printf("L"); 
-    sleep(100);printf("I");sleep(100);printf("N");sleep(100);printf("G");sleep(100);printf("T");sleep(100);
-    printf("O");sleep(100);printf("N");sleep(100);printf(" ");sleep(100);printf("\n\n\n\n\n\n\n\n\t\t\t\t\t\tT"); 
-    sleep(100);printf("O");sleep(100);printf("D");sleep(100);printf("O");sleep(100);printf("S");sleep(100);
-    printf(" ");sleep(100);printf("O");sleep(100);printf("S");sleep(100);printf(" ");sleep(100);printf("D"); 
-    sleep(100);printf("I");sleep(100);printf("R");sleep(100);printf("E");sleep(100);printf("I");sleep(100);
-    printf("T");sleep(100);printf("O");sleep(100);printf("S");sleep(100);printf(" ");sleep(100);printf("R"); 
-    sleep(100);printf("E"); printf("S");sleep(100);printf("E");sleep(100);printf("R");sleep(100);printf("V"); 
-    sleep(100);printf("A");sleep(100);printf("D");sleep(100);printf("O");sleep(100);printf("S"); 
-    sleep(500);
+    printf("\n\n\n\t\tD");Sleep(100);printf("E");Sleep(100); printf("S");Sleep(100);printf("E");Sleep(100);
+    printf("N");Sleep(100);printf("V");Sleep(100);printf("O");Sleep(100);printf("L");Sleep(100); printf("V"); 
+    printf("I");Sleep(100);printf("D");Sleep(100); printf("O");Sleep(100);printf(" ");Sleep(100);printf("P");   
+    Sleep(100);printf("O");Sleep(100);printf("R");Sleep(100);printf(" ");Sleep(100);printf("I");Sleep(100);  
+    printf("N");Sleep(100);printf("E");Sleep(100);printf("I");Sleep(100);printf("L");Sleep(100);printf("T"); 
+    Sleep(100);printf("O");Sleep(100);printf("N");Sleep(100);printf(" ");Sleep(100);printf("E");Sleep(100);
+    printf(" ");Sleep(100);printf("W");Sleep(100);printf("E");Sleep(100);printf("L");Sleep(100);printf("L"); 
+    Sleep(100);printf("I");Sleep(100);printf("N");Sleep(100);printf("G");Sleep(100);printf("T");Sleep(100);
+    printf("O");Sleep(100);printf("N");Sleep(100);printf(" ");Sleep(100);printf("\n\n\n\n\n\n\n\n\t\t\t\t\t\tT"); 
+    Sleep(100);printf("O");Sleep(100);printf("D");Sleep(100);printf("O");Sleep(100);printf("S");Sleep(100);
+    printf(" ");Sleep(100);printf("O");Sleep(100);printf("S");Sleep(100);printf(" ");Sleep(100);printf("D"); 
+    Sleep(100);printf("I");Sleep(100);printf("R");Sleep(100);printf("E");Sleep(100);printf("I");Sleep(100);
+    printf("T");Sleep(100);printf("O");Sleep(100);printf("S");Sleep(100);printf(" ");Sleep(100);printf("R"); 
+    Sleep(100);printf("E"); printf("S");Sleep(100);printf("E");Sleep(100);printf("R");Sleep(100);printf("V"); 
+    Sleep(100);printf("A");Sleep(100);printf("D");Sleep(100);printf("O");Sleep(100);printf("S"); 
+    Sleep(500);
     
     
     menu();//função menu
@@ -113,16 +117,16 @@ int painel( char tela[14])
    
    system("cls");
    printf("\n");
-   sleep(200);  
+   Sleep(200);  
    printf("\n\t\t\t* MEMORIZE ! *\n\n\n");
-   sleep(400);
+   Sleep(400);
    
    //For para imprimir os caracteres na tela  
    for(i = 0; i<14; i++)
    {
       printf("     ");
       printf(" %c ", tela[i]);
-      sleep(200);  
+      Sleep(200);  
    
       if(i == 6)
       {
@@ -133,13 +137,13 @@ int painel( char tela[14])
    
    //imprime o tempo de visualização dos caracteres
    printf("\n\n\n\n\t\t\t\t\t\t\t\t\t\t");
-   sleep(200);  
+   Sleep(200);  
    printf("\t\t\tTempo : ");
-   sleep(500);  
+   Sleep(500);  
    for (x = 1; x <=5; x++)
    {
       printf("%d ", x);
-      sleep(1000);  
+      Sleep(1000);  
    }
    
    do//recebe as escolhas dos números
@@ -329,7 +333,7 @@ void encerrar(void)//início da função encerrar
       for (x = 1; x <= 3; x++)
       {
          printf("%c ", p);
-         sleep(200); 
+         Sleep(200); 
       
       }
       i++; 
@@ -448,7 +452,7 @@ void menu(void)//início da função menu
        
        system("cls");//limpa a tela
        system("color 9f"); 
-       sleep(300);  
+       Sleep(300);  
        printf("\n\n\n\t\t\t\tMen%c",163);
        printf("\n\t\t\t\t####"); 
        printf("\n\n\t\t\t1. Jogar");  

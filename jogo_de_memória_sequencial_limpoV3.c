@@ -57,7 +57,7 @@ int main()
     //#endif
     
     clear_screen();
-    system("color 9f");//muda acor da tela de preto para azul 
+    /*system("color 9f");//muda acor da tela de preto para azul 
     printf("\n\n\n\t\t\t\t  J");Sleep(100);printf("O");Sleep(100); printf("G"); Sleep(100);printf("O"); Sleep(100);
     printf(" ");Sleep(100);printf("\n\n\t\t\t\t   D");Sleep(100);printf("E");Sleep(100);printf(" ");Sleep(100); 
     printf("\n\n\t\t\t\tM"); Sleep(200);printf("E");Sleep(200); printf("M");Sleep(200); printf("%c",224);Sleep(200);   
@@ -78,7 +78,7 @@ int main()
     printf("T");Sleep(100);printf("O");Sleep(100);printf("S");Sleep(100);printf(" ");Sleep(100);printf("R"); 
     Sleep(100);printf("E"); printf("S");Sleep(100);printf("E");Sleep(100);printf("R");Sleep(100);printf("V"); 
     Sleep(100);printf("A");Sleep(100);printf("D");Sleep(100);printf("O");Sleep(100);printf("S"); 
-    Sleep(500);
+    Sleep(500);*/
     
     menu();
         
@@ -124,14 +124,21 @@ int painel(char tela[14])
    
    	clear_screen();
    
-   	printf("\n\n\t\tDigite o seu nome para iniciar o jogo\n");
-   	printf("\n\t\t=> "); 
+   	putchar('\n');
+   	
+   	printf("%40s\n", "Digite o seu nome para iniciar o jogo");
+   	printf("%7s", ">>> "); 
 	scanf("%15s", &registro.nomes);
    
 	clear_screen();
    	printf("\n");
    	Sleep(200);  
-   	printf("\n\t\t\t* MEMORIZE ! *\n\n\n");
+   	putchar('\n');
+   	printf("%35s\n", "* MEMORIZE! *");
+   	
+   	putchar('\n');
+   	putchar('\n');
+   	
    	Sleep(400);
    
    	//For para imprimir os caracteres na tela  
@@ -146,9 +153,12 @@ int painel(char tela[14])
    	} /* end for */
    
    	//imprime o tempo de visualização dos caracteres
-   	printf("\n\n\n\n\t\t\t\t\t\t\t\t\t\t");
+   
+   	putchar('\n');
+   	putchar('\n');
+   	
    	Sleep(200);  
-   	printf("\tTempo : ");
+   	printf("%85s", "Tempo : ");
    	Sleep(500);  
    	for (x=1; x <= 5; x++)
    	{
@@ -162,8 +172,8 @@ int painel(char tela[14])
     	do
      	{       
         	clear_screen();
-        	printf("\n\n\n\n\n");
-        
+        	putchar('\n'); putchar('\n'); putchar('\n'); putchar('\n'); putchar('\n');
+        	
         	for(i=0; i < 14; i++)
         	{
            		if (acertos[i] == 1)
@@ -201,16 +211,17 @@ int painel(char tela[14])
         	} /* end for */
         
         	numeros(cont);
+        	
         	printf("\n\n\t\tN%cmero 1: %d", 163, i);//163 é o valor de ú em decimal 
         	printf("\n\t\tFigura %c \n", tela[i-1]); 
 
         	printf("\t\tN%cmero 2: ", 163);//163 é o valor de ú em decimal 
         	scanf("%d", &j); 
        
-     	}while((j <= 0) || (j > 14) || (i == j) || (j == n1[0])||(j == n1[1])||(j == n1[2])
-     	||(j == n1[3])||(j == n1[4])||(j == n1[5])||(j == n1[6])
-     	||(j == n1[7])||(j == n1[8])||(j == n1[9])||(j == n1[10])
-     	||(j == n1[11])||(j == n1[12])||(j == n1[13])||(j == n1[14])); /* end do...while internal 2 */
+     	}while((j <= 0)      || (j > 14)      || (i == j)     || (j == n1[0])  || (j == n1[1])  || 
+		 	   (j == n1[2])  || (j == n1[3])  || (j == n1[4]) || (j == n1[5])  || (j == n1[6])  || 
+			   (j == n1[7])  || (j == n1[8])  || (j == n1[9]) || (j == n1[10]) || (j == n1[11]) || 
+			   (j == n1[12]) || (j == n1[13]) || (j == n1[14])); /* end do...while internal 2 */
      
      
    		printf("\t\tFigura %c \n", tela[j-1]);
@@ -452,16 +463,21 @@ void menu(void)//início da função menu
     {
     	clear_screen();
        	system("color 9f"); 
-       	Sleep(300);  
-       	printf("\n\n\n\t\t\t\tMen%c", 163);
-       	printf("\n\t\t\t\t####"); 
-       	printf("\n\n\t\t\t1. Jogar");  
-       	printf("\n\n\t\t\t2. Sair");  
-       	printf("\n\n\t\t\t3. Pontua%c%co", 135, 198);  
-       	printf("\n\n\t\t\t4. Excluir Pontua%c%co", 135, 198);
-       	printf("\n\n\n\t\t\tEscolha uma op%c%co: ", 135, 198);  
+       	Sleep(300); 
+		printf("%29s\n", "----------------------");  
+       	printf("%20s\n", "Menu");
+       	printf("%29s\n", "----------------------"); 
+		putchar('\n'); 
+		
+       	printf("\t1. Jogar\n");  
+       	printf("\t2. Sair\n");  
+       	printf("\t3. Pontua%c%co\n", 135, 198);  
+       	printf("\t4. Excluir Pontua%c%co\n", 135, 198);
+       	putchar('\n'); 
+       	
+       	printf("\tEscolha uma op%c%co: ", 135, 198);  
        	scanf("%d", &opcao); 
-               
+           
        	switch (opcao)
        	{
         	case 1:

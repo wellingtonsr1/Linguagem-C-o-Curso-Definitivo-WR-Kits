@@ -33,6 +33,7 @@ char tela[14] = {'\1','\2','\3','\4','\5','\6','\14','\1','\2','\3','\4','\5','\
 Tjogo registro;
 FILE *cfptr;
 char resp;
+char *init_text = "Bem-Vindo ao JOGO DA MEM\xE0RIA!!!. Desenvolvido por Ineilton e Wellington. \n\t\t\tTodos os direitos reservados.";
 
 /* ======================================================================================================= */
 /* ----- Protótipo das funções ----- */ 
@@ -46,42 +47,32 @@ void apagar(void);
 void menu(void);
 void zerar(void);
 void clear_screen();
+void info();
 
 /* ======================================================================================================= */
 /* ----- Função principal ----- */
 int main()
 {
 	
-
-    
+	register int i;
+   
     //#if _WIN32 
 		//setlocale(LC_ALL, "Portuguese_Brazil"); 
     //#endif
     
     clear_screen();
-    /*system("color 9f");//muda acor da tela de preto para azul 
-    printf("\n\n\n\t\t\t\t  J");Sleep(100);printf("O");Sleep(100); printf("G"); Sleep(100);printf("O"); Sleep(100);
-    printf(" ");Sleep(100);printf("\n\n\t\t\t\t   D");Sleep(100);printf("E");Sleep(100);printf(" ");Sleep(100); 
-    printf("\n\n\t\t\t\tM"); Sleep(200);printf("E");Sleep(200); printf("M");Sleep(200); printf("%c",224);Sleep(200);   
-    printf("R");Sleep(100);printf("I");Sleep(100);printf("A%c", 169);Sleep(500); 
-         
-    printf("\n\n\n\t\tD");Sleep(100);printf("E");Sleep(100); printf("S");Sleep(100);printf("E");Sleep(100);
-    printf("N");Sleep(100);printf("V");Sleep(100);printf("O");Sleep(100);printf("L");Sleep(100); printf("V"); 
-    printf("I");Sleep(100);printf("D");Sleep(100); printf("O");Sleep(100);printf(" ");Sleep(100);printf("P");   
-    Sleep(100);printf("O");Sleep(100);printf("R");Sleep(100);printf(" ");Sleep(100);printf("I");Sleep(100);  
-    printf("N");Sleep(100);printf("E");Sleep(100);printf("I");Sleep(100);printf("L");Sleep(100);printf("T"); 
-    Sleep(100);printf("O");Sleep(100);printf("N");Sleep(100);printf(" ");Sleep(100);printf("E");Sleep(100);
-    printf(" ");Sleep(100);printf("W");Sleep(100);printf("E");Sleep(100);printf("L");Sleep(100);printf("L"); 
-    Sleep(100);printf("I");Sleep(100);printf("N");Sleep(100);printf("G");Sleep(100);printf("T");Sleep(100);
-    printf("O");Sleep(100);printf("N");Sleep(100);printf(" ");Sleep(100);printf("\n\n\n\n\n\n\n\n\t\t\t\t\t\tT"); 
-    Sleep(100);printf("O");Sleep(100);printf("D");Sleep(100);printf("O");Sleep(100);printf("S");Sleep(100);
-    printf(" ");Sleep(100);printf("O");Sleep(100);printf("S");Sleep(100);printf(" ");Sleep(100);printf("D"); 
-    Sleep(100);printf("I");Sleep(100);printf("R");Sleep(100);printf("E");Sleep(100);printf("I");Sleep(100);
-    printf("T");Sleep(100);printf("O");Sleep(100);printf("S");Sleep(100);printf(" ");Sleep(100);printf("R"); 
-    Sleep(100);printf("E"); printf("S");Sleep(100);printf("E");Sleep(100);printf("R");Sleep(100);printf("V"); 
-    Sleep(100);printf("A");Sleep(100);printf("D");Sleep(100);printf("O");Sleep(100);printf("S"); 
-    Sleep(500); */
-    
+    system("color 9f");
+    printf("\n\n%10s", " ");
+    for(i=0; init_text[i] != '\0'; i++)
+    {
+    	if(init_text[i] != '.')
+			printf("%c", init_text[i]);
+    	else 
+			printf("\n\n%5s", " ");
+		Sleep(60);
+	}
+	Sleep(800);	
+	
     menu();
         
 	return 0;
@@ -478,7 +469,7 @@ void apagar(void)//início da função apagar
 	putchar('\n'); putchar('\n');
     printf("%41s\n", "Pontua\x87\xC6o exclu\xA1 \bda com sucesso!"); /* aqui usei o \b backspace para juntar o da com parte excluída */
     putchar('\n');
-    printf("%45s\n", "Pressione <enter> para retornar ao menu.");
+    printf("%45s\n", "Pressione <ENTER> para retornar ao menu.");
     getchar(); 
     getchar(); 
       
@@ -506,6 +497,7 @@ void menu(void)//início da função menu
        	printf("%16s\n", "1. Jogar");  
        	printf("%20s\n", "2. Pontua\x87\xC6o");  
        	printf("%28s\n", "3. Excluir Pontua\x87\xC6o");
+       	printf("%15s\n", "4. Info");
        	printf("%15s\n", "0. Sair");  
        	putchar('\n'); 
        	printf("%27s", "Escolha uma op\x87\xC6o: ");  
@@ -530,6 +522,9 @@ void menu(void)//início da função menu
              	break;
             case 3:
             	apagar();
+             	break;
+            case 4:
+            	info();
              	break;
           	case 0:
              	encerrar();
@@ -570,6 +565,27 @@ void clear_screen()
 
 } /* end clear_screen */
 
+
+void info()
+{
+	clear_screen();
+	putchar('\n');
+	printf("%50s\n", "--------------------------------------------");
+	printf("%33s\n", "Informa\x87\xC6o");                                 /* \x87 é o 'ç',  \xC6 é o 'ã'             */
+	printf("%50s\n", "--------------------------------------------");
+    printf("%23s\n", "IESP FACULDADES");
+    printf("%39s\n", "CURSO DE SISTEMAS DE INFORMA\x80\xC7O");            /* \x80 é o 'Ç', \xC7 é o 'Ã'              */
+    printf("%46s\n", "DISCIPLINA: LINGUAGEM DE PROGRAMA\x80\xC7O I");     /* \x80 é o 'Ç', \xC7 é o 'Ã'              */
+    printf("%42s\n", "PROJETO DE CONCLUS\xC7O DO 2\xA7 PER\xD6ODO");      /* \xC70 é o 'Ã', \xA7 é 'º', \xD6 é o 'Í' */
+    printf("%23s\n", "JOGO DE MEM\xE0RIA");                               /* \xE0 é o 'Ó'                            */
+    printf("%37s\n", "ALUNOS: INEILTON E WELLINGTON");
+    printf("%50s\n", "--------------------------------------------");
+    putchar('\n');
+    printf("%48s", "Pressione <ENTER> para retornar ao menu.");
+    getchar();
+	getchar(); 
+	
+}
 /* ======================================================================================================= */
 /* ----- Fim do programa ----- */
  

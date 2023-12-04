@@ -4,22 +4,23 @@
 #include <locale.h> 
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
 /*=====================================================================*/
 /* ----- Protótipo das funções ----- */
 
-char *my_up_down(char *s);
+char *my_strijet(char *s, char ch, int ini, int term);
+
+
 /*=====================================================================*/
 /* ----- Função Principal ----- */
 
 int main()
 {
 
-	char str[] = "ALFABETO";  /* saída B9N1 */
+        int i=4, j=2;
+	char str[] = "ALFABETO";
 	
-	printf("Resultado : %s\n", my_up_down(str));
-	//printf("Resultado : %s\n", my_strupr(str));
+	printf("Resultado : %s\n", my_strijet(str, '@', i, j));
 	
 	
 	return 0;
@@ -30,15 +31,19 @@ int main()
 /*=====================================================================*/
 /* ----- Desenvolvimento das funções ----- */ 
 
-char *my_up_down(char *s)
+char *my_strijet(char *s, char ch, int ini, int term)
 {
     register int i;
-	
-    for(i=0; s[i] != '\0'; i++)
-        s[i] = (i % 2 == 0) ? toupper(s[i]) : tolower(s[i]);
+    
+    ini = (ini < 0) ? 0 : ini;
+
+    for(i=ini; i <= term && i < strlen(s); i++)
+        s[i] = ch;
+
     return s;
 	
 } /* end my_prox_char */
+
 
 /*=====================================================================*/
 /* ----- Fim do programa ----- */

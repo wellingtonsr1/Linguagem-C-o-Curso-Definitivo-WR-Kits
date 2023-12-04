@@ -9,20 +9,23 @@
 /*=====================================================================*/
 /* ----- Protótipo das funções ----- */
 
-char *my_up_down(char *s);
+int my_is_len_ok(char *s, int n);
+
 /*=====================================================================*/
 /* ----- Função Principal ----- */
 
 int main()
 {
 
-	char str[] = "ALFABETO";  /* saída B9N1 */
+    char str[] = "eRa  uMa VEZ";  /* saída B9N1 */
 	
-	printf("Resultado : %s\n", my_up_down(str));
-	//printf("Resultado : %s\n", my_strupr(str));
+    if(my_is_len_ok("OLA", 3))
+        printf("Verdade\n");
+    else
+        printf("Falso\n");	
 	
-	
-	return 0;
+
+    return 0;
 	
 } /* end main */
 
@@ -30,14 +33,15 @@ int main()
 /*=====================================================================*/
 /* ----- Desenvolvimento das funções ----- */ 
 
-char *my_up_down(char *s)
+int my_is_len_ok(char *s, int len)
 {
-    register int i;
+    register int i, r, count=0;
 	
-    for(i=0; s[i] != '\0'; i++)
-        s[i] = (i % 2 == 0) ? toupper(s[i]) : tolower(s[i]);
-    return s;
-	
+    //for(i=0; s[i] != '\0'; i++)
+      //  count++;    
+    
+    return r = (strlen(s) == len) ? 1 : 0;
+
 } /* end my_prox_char */
 
 /*=====================================================================*/

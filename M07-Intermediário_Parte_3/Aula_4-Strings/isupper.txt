@@ -1,0 +1,365 @@
+47	    for(i=j=0; s[i] != '\0'; i++)
+(gdb) print i
+$36 = 0
+(gdb) print j
+$37 = -8328
+(gdb) print s[i]
+$38 = 101 'e'
+(gdb) n
+48	        if(isupper(s[i]))
+(gdb) print i
+$39 = 0
+(gdb) print j
+$40 = 0
+(gdb) print s[i]
+$41 = 101 'e'
+(gdb) print s[j]
+$42 = 101 'e'
+(gdb) print s[j++]
+$43 = 101 'e'
+(gdb) n
+47	    for(i=j=0; s[i] != '\0'; i++)
+(gdb) print i
+$44 = 0
+(gdb) print j
+$45 = 1
+(gdb) print s[i]
+$46 = 101 'e'
+(gdb) print s[j]
+$47 = 82 'R'
+(gdb) print s[j++]
+$48 = 82 'R'
+(gdb) n
+48	        if(isupper(s[i]))
+(gdb) print i
+$49 = 1
+(gdb) print j
+$50 = 2
+(gdb) print s[i]
+$51 = 82 'R'
+(gdb) print s[j]
+$52 = 97 'a'
+(gdb) print s[j++]
+$53 = 97 'a'
+(gdb) n
+49		    s[j++] = s[i];
+(gdb) print i
+$54 = 1
+(gdb) print j
+$55 = 3
+(gdb) print s[i]
+$56 = 82 'R'
+(gdb) print s[j]
+$57 = 32 ' '
+(gdb) print s[j++]
+$58 = 32 ' '
+(gdb) n
+47	    for(i=j=0; s[i] != '\0'; i++)
+(gdb) print i
+$59 = 1
+(gdb) print j
+$60 = 4
+(gdb) print s[i]
+$61 = 82 'R'
+(gdb) print s[j]
+$62 = 117 'u'
+(gdb) print s[j++]
+$63 = 117 'u'
+(gdb) n
+48	        if(isupper(s[i]))
+(gdb) print i
+$64 = 2
+(gdb) print j
+$65 = 5
+(gdb) print s[i]
+$66 = 97 'a'
+(gdb) print s[j]
+$67 = 82 'R'
+(gdb) print s[j++]
+$68 = 82 'R'
+(gdb) n
+47	    for(i=j=0; s[i] != '\0'; i++)
+(gdb) print i
+$69 = 2
+(gdb) print j
+$70 = 6
+(gdb) print s[i]
+$71 = 97 'a'
+(gdb) print s[j]
+$72 = 97 'a'
+(gdb) print s[j++]
+$73 = 97 'a'
+(gdb) n
+48	        if(isupper(s[i]))
+(gdb) print i
+$74 = 3
+(gdb) print j
+$75 = 7
+(gdb) print s[i]
+$76 = 32 ' '
+(gdb) print s[j]
+$77 = 32 ' '
+(gdb) print s[j++]
+$78 = 32 ' '
+(gdb) n
+47	    for(i=j=0; s[i] != '\0'; i++)
+(gdb) print i
+$79 = 3
+(gdb) print j
+$80 = 8
+(gdb) print s[i]
+$81 = 32 ' '
+(gdb) print s[j]
+$82 = 86 'V'
+(gdb) print s[j++]
+$83 = 86 'V'
+(gdb) n
+48	        if(isupper(s[i]))
+(gdb) print i
+$84 = 4
+(gdb) print j
+$85 = 9
+(gdb) print s[i]
+$86 = 117 'u'
+(gdb) print s[j]
+$87 = 69 'E'
+(gdb) print s[j++]
+$88 = 69 'E'
+(gdb) n
+47	    for(i=j=0; s[i] != '\0'; i++)
+(gdb) print i
+$89 = 4
+(gdb) print j
+$90 = 10
+(gdb) print s[i]
+$91 = 117 'u'
+(gdb) print s[j]
+$92 = 90 'Z'
+(gdb) print s[j++]
+$93 = 90 'Z'
+(gdb) n
+48	        if(isupper(s[i]))
+(gdb) print i
+$94 = 5
+(gdb) print j
+$95 = 11
+(gdb) print s[i]
+$96 = 82 'R'
+(gdb) print s[j]
+$97 = 0 '\000'
+(gdb) print s[j++]
+$98 = 0 '\000'
+(gdb) n
+49		    s[j++] = s[i];
+(gdb) print i
+$99 = 5
+(gdb) print j
+$100 = 12
+(gdb) print s[i]
+$101 = 82 'R'
+(gdb) print s[j]
+$102 = 0 '\000'
+(gdb) print s[j++]
+$103 = 0 '\000'
+(gdb) n
+47	    for(i=j=0; s[i] != '\0'; i++)
+(gdb) print i
+$104 = 5
+(gdb) print j
+$105 = 13
+(gdb) print s[i]
+$106 = 82 'R'
+(gdb) print s[j]
+$107 = -109 '\223'
+(gdb) print s[j++]
+$108 = -109 '\223'
+(gdb) n
+48	        if(isupper(s[i]))
+(gdb) n
+47	    for(i=j=0; s[i] != '\0'; i++)
+(gdb) print i
+$109 = 6
+(gdb) print j
+$110 = 14
+(gdb) print s[i]
+$111 = 97 'a'
+(gdb) print s[j]
+$112 = 82 'R'
+(gdb) print s[j++]
+$113 = 82 'R'
+(gdb) n
+48	        if(isupper(s[i]))
+(gdb) print i
+$114 = 7
+(gdb) print j
+$115 = 15
+(gdb) print s[i]
+$116 = 32 ' '
+(gdb) print s[j]
+$117 = 69 'E'
+(gdb) print s[j++]
+$118 = 69 'E'
+(gdb) n
+47	    for(i=j=0; s[i] != '\0'; i++)
+(gdb) print i
+$119 = 7
+(gdb) print j
+$120 = 16
+(gdb) print s[i]
+$121 = 32 ' '
+(gdb) print s[j]
+$122 = -106 '\226'
+(gdb) print s[j++]
+$123 = -106 '\226'
+(gdb) n
+48	        if(isupper(s[i]))
+(gdb) print i
+$124 = 8
+(gdb) print j
+$125 = 17
+(gdb) print s[i]
+$126 = 86 'V'
+(gdb) print s[j]
+$127 = 37 '%'
+(gdb) print s[j++]
+$128 = 37 '%'
+(gdb) n
+49		    s[j++] = s[i];
+(gdb) print i
+$129 = 8
+(gdb) print j
+$130 = 18
+(gdb) print s[i]
+$131 = 86 'V'
+(gdb) print s[j]
+$132 = 101 'e'
+(gdb) print s[j++]
+$133 = 101 'e'
+(gdb) n
+47	    for(i=j=0; s[i] != '\0'; i++)
+(gdb) print i
+$134 = 8
+(gdb) print j
+$135 = 19
+(gdb) print s[i]
+$136 = 86 'V'
+(gdb) print s[j]
+$137 = 65 'A'
+(gdb) print s[j++]
+$138 = 65 'A'
+(gdb) n
+48	        if(isupper(s[i]))
+(gdb) print i
+$139 = 9
+(gdb) print j
+$140 = 20
+(gdb) print s[i]
+$141 = 69 'E'
+(gdb) print s[j]
+$142 = 86 'V'
+(gdb) print s[j++]
+$143 = 86 'V'
+(gdb) n
+49		    s[j++] = s[i];
+(gdb) print i
+$144 = 9
+(gdb) print j
+$145 = 21
+(gdb) print s[i]
+$146 = 69 'E'
+(gdb) print s[j]
+$147 = 0 '\000'
+(gdb) print s[j++]
+$148 = 0 '\000'
+(gdb) n
+47	    for(i=j=0; s[i] != '\0'; i++)
+(gdb) print i
+$149 = 9
+(gdb) print j
+$150 = 22
+(gdb) print s[i]
+$151 = 69 'E'
+(gdb) print s[j]
+$152 = 0 '\000'
+(gdb) print s[j++]
+$153 = 0 '\000'
+(gdb) n
+48	        if(isupper(s[i]))
+(gdb) print i
+$154 = 10
+(gdb) print j
+$155 = 23
+(gdb) print s[i]
+$156 = 90 'Z'
+(gdb) print s[j]
+$157 = 69 'E'
+(gdb) print s[j++]
+$158 = 69 'E'
+(gdb) n
+49		    s[j++] = s[i];
+(gdb) print i
+$159 = 10
+(gdb) print j
+$160 = 24
+(gdb) print s[i]
+$161 = 90 'Z'
+(gdb) print s[j]
+$162 = 0 '\000'
+(gdb) print s[j++]
+$163 = 0 '\000'
+(gdb) n
+47	    for(i=j=0; s[i] != '\0'; i++)
+(gdb) print i
+$164 = 10
+(gdb) print j
+$165 = 25
+(gdb) print s[i]
+$166 = 90 'Z'
+(gdb) print s[j]
+$167 = 0 '\000'
+(gdb) print s[j++]
+$168 = 0 '\000'
+(gdb) n
+50	    s[j]=0;
+(gdb) print i
+$169 = 11
+(gdb) print j
+$170 = 26
+(gdb) print s[i]
+$171 = 0 '\000'
+(gdb) print s[j]
+$172 = 90 'Z'
+(gdb) print s[j++]
+$173 = 90 'Z'
+(gdb) n
+52	    return s;
+(gdb) print i
+$174 = 11
+(gdb) print j
+$175 = 27
+(gdb) print s[i]
+$176 = 0 '\000'
+(gdb) print s[j]
+$177 = 0 '\000'
+(gdb) print s[j++]
+$178 = 0 '\000'
+(gdb) n
+55	} /* end my_prox_char */
+(gdb) print i
+$179 = 11
+(gdb) print j
+$180 = 28
+(gdb) print s[i]
+$181 = 0 '\000'
+(gdb) print s[j]
+$182 = -112 '\220'
+(gdb) print s[j++]
+$183 = -112 '\220'
+(gdb) n
+Resultado : eRa uRa VEZ
+main () at allbig.c:23
+23	    return 0;
+(gdb) print i
+No symbol "i" in current context.
+(gdb) 
+

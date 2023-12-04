@@ -44,7 +44,7 @@ char *my_strpack(char *s)
             s[j] = '\0';						/* Colocar o caracter nulo na última posição da string */
             i--;      /* ---------------->      Depois de rearranjar a string, o i é decrementado em 1. Ou seja, se i = 0, i fica com -1. 
                                                 Se em vez e i--, usar i=0; quando chegar no for, o i vai valer 1.
-                                                Sendo assim, não vai tá¡ no início da string, mas na segunda posição.
+                                                Sendo assim, não vai tá no início da string, mas na segunda posição.
                                                 Po isso, i-- sendo icrementado em 1 no for, ficando i=0 (inicio da string)*/
 
         } /* end if */

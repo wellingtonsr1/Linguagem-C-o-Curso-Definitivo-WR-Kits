@@ -9,20 +9,19 @@
 /*=====================================================================*/
 /* ----- Protótipo das funções ----- */
 
-char *my_up_down(char *s);
+char *my_atoi(char *s);
+
 /*=====================================================================*/
 /* ----- Função Principal ----- */
 
 int main()
 {
 
-	char str[] = "ALFABETO";  /* saída B9N1 */
+    char str[] = "ALFABETO32";  /* saída B9N1 */
 	
-	printf("Resultado : %s\n", my_up_down(str));
-	//printf("Resultado : %s\n", my_strupr(str));
+    printf("Resultado : %s ", my_atoi(str));
 	
-	
-	return 0;
+    return 0;
 	
 } /* end main */
 
@@ -30,14 +29,17 @@ int main()
 /*=====================================================================*/
 /* ----- Desenvolvimento das funções ----- */ 
 
-char *my_up_down(char *s)
+char *my_atoi(char *s)
 {
-    register int i;
-	
+    register int i, d;
+    
     for(i=0; s[i] != '\0'; i++)
-        s[i] = (i % 2 == 0) ? toupper(s[i]) : tolower(s[i]);
-    return s;
-	
+    {    
+        if(isdigit(s[i]))
+            //putchar(s[i]);
+            s[i+1] = s[i];
+        return s;
+    }
 } /* end my_prox_char */
 
 /*=====================================================================*/

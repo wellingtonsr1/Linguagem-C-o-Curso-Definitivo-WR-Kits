@@ -4,22 +4,21 @@
 #include <locale.h> 
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
 /*=====================================================================*/
 /* ----- Protótipo das funções ----- */
 
-char *my_up_down(char *s);
+char *my_str_duplica(char *s);
+
+char *my_str_cat(char *dest, char *orig);
 /*=====================================================================*/
 /* ----- Função Principal ----- */
 
 int main()
 {
-
-	char str[] = "ALFABETO";  /* saída B9N1 */
+	char str[] = "ALFABETO";
 	
-	printf("Resultado : %s\n", my_up_down(str));
-	//printf("Resultado : %s\n", my_strupr(str));
+	printf("Resultado: %s\n", my_str_duplica(str));
 	
 	
 	return 0;
@@ -30,15 +29,19 @@ int main()
 /*=====================================================================*/
 /* ----- Desenvolvimento das funções ----- */ 
 
-char *my_up_down(char *s)
+char *my_str_duplica(char *s)
 {
-    register int i;
-	
-    for(i=0; s[i] != '\0'; i++)
-        s[i] = (i % 2 == 0) ? toupper(s[i]) : tolower(s[i]);
+    register int i=0, len = strlen(s);
+
+    for(i=0; i < len; i++)
+        s[len + i] = s[i];
+    s[len + i] = '\0';
+
     return s;
 	
 } /* end my_prox_char */
+
+
 
 /*=====================================================================*/
 /* ----- Fim do programa ----- */

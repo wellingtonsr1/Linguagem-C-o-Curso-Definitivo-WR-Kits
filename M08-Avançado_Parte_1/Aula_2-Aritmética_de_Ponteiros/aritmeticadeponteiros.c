@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 
 	
     printf("----------------------------------------------------------\n");	                    /* Cabeçaalho */
-    printf("%38s\n", "Ponteiros e Vetores");   
+    printf("%38s\n", "Aritmética de Ponteiros");   
     printf("----------------------------------------------------------\n");	
     
     

@@ -27,12 +27,28 @@ int main(int argc, char *argv[])
 		setlocale(LC_ALL, "Portuguese_Brazil"); 
     #endif	
 
+	int vec[10] = {5, 8, 9}, *ptr_vec = NULL;
+	char str[10] ="teste";
 	
     printf("----------------------------------------------------------\n");	                    /* Cabeçaalho */
     printf("%38s\n", "Ponteiros e Vetores");   
     printf("----------------------------------------------------------\n");	
     
-    
+    ptr_vec = vec;
+  
+	//printf("Vec: %X\n", vec);
+	printf("Vec: %d\n", *ptr_vec);
+	
+	int idx = 2;
+	printf("Vec[%d]: %d\n", idx, vec[idx]);
+	
+	*(ptr_vec + 2) = 15;
+	//printf("Vec: %d\n", *ptr_vec);
+
+	
+	printf("Vec[%d]: %d\n", idx, vec[idx]);
+	
+    //printf("Vec: %s\n", str);
     printf("----------------------------------------------------------\n");	         	        /* Rodapé */
     
     

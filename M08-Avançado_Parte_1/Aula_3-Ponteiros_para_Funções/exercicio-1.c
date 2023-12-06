@@ -35,11 +35,8 @@ Dica: utilize a função atof() para converter string para double.
 /* ----- Função Principal ----- */
 int main(int argc, char *argv[])
 {
-									
     setlocale(LC_CTYPE, "Portuguese");
 
-
-    float R, V, I; 
     register int i, j;
 	
     printf("----------------------------------------------\n");	                        /* Cabeçaalho */
@@ -49,11 +46,11 @@ int main(int argc, char *argv[])
     printf(" Resistores: ");
     for(i=2; i < argc; i+=2)
     {
-        R = atof(argv[i]) / atof(argv[i+1]);
-        
-        printf("%.2f", R);
+        printf("%.2f", atof(argv[i]) / atof(argv[i+1]));
         if(i >= 2 && i < argc - 2) printf(" | ");
-    }
+
+    } /* end for */
+
     printf(" Ohms\n");
 
     printf("----------------------------------------------\n");         	        /* Rodapé */

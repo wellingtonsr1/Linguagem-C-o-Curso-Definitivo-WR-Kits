@@ -1,9 +1,9 @@
 /* =================================================================================================
-	Módulo 
-	Aula 
-	Descrição: 
+	Módulo 8
+	Aula 3
+	Descrição: Exercício 2
 	Autor: Wellington
-	Data: 
+	Data: 06/12/2023
 	Atualização: --
 ================================================================================================== */
 
@@ -20,20 +20,21 @@ int disp_numbers(int n);
 int main(int argc, char *argv[])
 {
 									
-    setlocale(LC_ALL, "Portuguese");  
+    setlocale(LC_ALL, "Portuguese_Brazil");  
 
-	int val = 5;
+    int val = 5;
 	
     printf("----------------------------------------------\n");	                     
-    printf("%35s\n", "Exercicio 2");   
+    printf("%25s\n", "Exercicio 2");   
     printf("----------------------------------------------\n");	
     
-   	disp_numbers(val);
+    disp_numbers(val);
     
+    putchar('\n');
     printf("----------------------------------------------\n");  
 	
 
-    system("PAUSE");               							         /* Faz uma parada na execução do programa */
+    system("PAUSE");               							         /* Faz uma parada na execução do programa */ 
 		
     return 0;		        							             /* Retorna '0' se tudo ocorrer bem na execução */
 	
@@ -51,28 +52,14 @@ int disp_numbers(int n)
 		printf("%d ", cnt);
 		cnt++;
 		disp_numbers(n - 1);
-	}
-	putchar('\n');
+
+	} /* end else */
 	return 0;
-} /* end fatorial */
+
+} /* end disp_numbers */
 
 /*
 
-int cont(int n)
-{
-		
-		
-	if (n == 0) return 0;
-	
-	else
-	{
-		printf("%d, ",ii);
-		n--;
-		i++;
-		cont(n);	
-	}
-
-	return 0;
 	
 n = 5
 

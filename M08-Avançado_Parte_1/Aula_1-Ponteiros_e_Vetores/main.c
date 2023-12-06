@@ -1,28 +1,67 @@
-/* =================================================================================================
-	
-	Descrição: 
-	Autor: Wellington
-	Data: 07/11/2023
-	Atualização: --
-	
-================================================================================================== */
+/* ============================================================================
 
-/* Bibliotecas */
+    Linguagem C, o curso definitivo
+    Módulo 8 Aula 1
+    Ponteiros e Vetores
+    
+    Autor: Dr. Eng. Wagner Rambo
+    Data:  Junho de 2021
+
+============================================================================ */
+
+
+/* ========================================================================= */
+/* --- Bibliotecas --- */
 #include <stdio.h>
 #include <stdlib.h>
 
 
-/* Função Principal */
-int main(int argc, char *argv[]) {
-	
-	
-	
-	system("PAUSE");				/* Faz uma parada na execução do programa */
-		
-	return 0;					/* Retorna '0' se tudo  ocorrer bem na execução */
-	
-}  /* end main */
+/* ========================================================================= */
+/* --- Função Principal --- */
+main()
+{
+  char  str[31] = "Linguagem C";
+  char  *ptr;
+  register int i;
+  
+  
+  ptr = str;
+  
+  printf("%s\n", str);
+  
+  for(i=0;i<11;i++)
+   *(ptr+i) = 0x30 + i;
+  
+  printf("%s\n", str);
+  
+  
+
+  
+  
+  
+  system("PAUSE");	                             /* pausa execução (Pressione qualquer tecla para continuar . . .) */
+  return 0;                                      /* retorna 0, se main for executada corretamente */
+  
+} /* end main */
 
 
-
-
+/* ============================================================================  
+                                                              
+                                       _                      
+                                      / \                     
+                                     |oo >                    
+                                     _\=/_                    
+                    ___         #   /  _  \   #               
+                   /<> \         \\//|/.\|\\//                
+                 _|_____|_        \/  \_/  \/                 
+                | | === | |          |\ /|                    
+                |_|  0  |_|          \_ _/                    
+                 ||  0  ||           | | |                    
+                 ||__*__||           | | |                    
+                |* \___/ *|          []|[]                    
+                /=\ /=\ /=\          | | |                    
+________________[_]_[_]_[_]_________/_]_[_\_______________________________
+                                                              
+                                                              
+============================================================================ */
+/* --- Final do Programa --- */

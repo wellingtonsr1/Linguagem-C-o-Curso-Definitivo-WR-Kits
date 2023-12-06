@@ -30,6 +30,8 @@ int main(int argc, char *argv[])
     
    	disp_numbers(val);
     
+    putchar('\n');
+    
     printf("----------------------------------------------\n");  
 	
 
@@ -52,8 +54,8 @@ int disp_numbers(int n)
 		cnt++;
 		disp_numbers(n - 1);
 	}
-	putchar('\n');
 	return 0;
+	
 } /* end fatorial */
 
 /*

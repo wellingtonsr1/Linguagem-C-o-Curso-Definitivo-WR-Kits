@@ -19,7 +19,9 @@
 /* ----- Função Principal ----- */
 int main(int argc, char *argv[])
 {									
-    setlocale(LC_ALL, "Portuguese_Brazil");
+    #if _WIN32 
+		setlocale(LC_ALL, "Portuguese_Brazil"); 
+    #endif	
 
     register int i, j;
 	
@@ -46,7 +48,10 @@ int main(int argc, char *argv[])
 	printf("----------------------------------------------\n");         	              /* Rodapé */
     putchar('\n');
     
-	system("PAUSE");
+	#if _WIN32
+    	system("PAUSE"); 
+    #endif
+    
     return 0;		        							                              /* Retorna '0' se tudo ocorrer bem na execução */
 	
 }  /* end main */

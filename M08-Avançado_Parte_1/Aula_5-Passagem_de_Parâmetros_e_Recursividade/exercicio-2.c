@@ -7,6 +7,7 @@
 	Atualização: --
 ================================================================================================== */
 
+
 /* Bibliotecas */
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,7 +18,9 @@ int disp_numbers(int n);
 /* Função Principal */
 int main(int argc, char *argv[])
 {								
-    setlocale(LC_ALL, "Portuguese_Brazil");  	
+    #if _WIN32 
+		setlocale(LC_ALL, "Portuguese_Brazil"); 
+    #endif		
 
     int val = 5;
 	
@@ -30,7 +33,9 @@ int main(int argc, char *argv[])
     putchar('\n');
     printf("----------------------------------------------\n");  
 	
-    system("PAUSE");               							         /* Faz uma parada na execução do programa */ 
+    #if _WIN32
+    	system("PAUSE"); 
+    #endif              							         /* Faz uma parada na execução do programa */ 
 		
     return 0;		        							                 /* Retorna '0' se tudo ocorrer bem na execução */
 	

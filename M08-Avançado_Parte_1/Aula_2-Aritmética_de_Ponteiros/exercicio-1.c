@@ -24,7 +24,7 @@ Para mostrar a pilha, os endereços e dados devem ser apresentados no formato hex
 /* ================================================================================================== */
 /* ----- Protótipo das funções ----- */
 void add();
-void pop();
+int pop();
 void push();
 void display_stack();
 
@@ -101,9 +101,9 @@ void add()
 	
 } /* end add */
 
-void pop()
+int pop()
 {
-	
+	return 0;	
 } /* end pop */
 
 void push()

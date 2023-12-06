@@ -57,15 +57,17 @@ int main(int argc, char *argv[])
     {
     	printf("Entre com o valor: ");
     	scanf(" %c", &values[lvls]);
+    	
     	lvls += 1;
+    	
 	    for(i=lvls - 1; i >= 0; i--)
 	    {
-	    	printf("\n         ----------------\n");
-	    	printf("Level %2d |      %c       | addr %X", i + 1, values[i], &values[i]);
+	    	printf("\n          ----------------\n");
+	    	printf("Level: %2d |      %c       | addr: %X", i + 1, values[i], &values[i]);
 	    	
 		} /* end for */
 		
-	    printf("\n         ----------------\n");
+	    printf("\n          ----------------\n");
 	    
 	    //printf("Level: ");
 	    //scanf("%d", &lvl);

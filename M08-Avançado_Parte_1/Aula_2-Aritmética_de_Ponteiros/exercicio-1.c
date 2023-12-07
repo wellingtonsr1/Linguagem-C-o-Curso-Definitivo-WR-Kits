@@ -26,7 +26,7 @@ Para mostrar a pilha, os endereços e dados devem ser apresentados no formato hex
 /* ----- Protótipo das funções ----- */
 void add();
 void pop();
-void push(int data);
+void push(char data);
 void display_stack();
 void exit_();
 void clear_display();
@@ -34,11 +34,12 @@ void pause();
 
 /* ================================================================================================== */
 /* ----- Constantes ----- */
-#define LVLS 4
+#define LVLS 16
 
 /* ================================================================================================== */
 /* ----- Variáveis Globais ----- */
-int stack[LVLS], *ptr_stack = NULL, cnt = 0;
+char stack[LVLS], *ptr_stack_1 = NULL, *ptr_stack_2 = NULL;
+int cnt = 0;
 
 /* ================================================================================================== */
 /* ----- Função Principal ----- */
@@ -50,8 +51,10 @@ int main(int argc, char *argv[])
     #endif		
 
     int opcao;
-    ptr_stack = stack;
-    int data;
+	
+    ptr_stack_1 = stack;
+    ptr_stack_2 = stack;
+    
     
     for(;;)
     {   
@@ -103,21 +106,25 @@ int main(int argc, char *argv[])
 /* ----- Recebe os valores ----- */
 void add()
 {
-    int data;
+    char data;
   
   	do
     {
         clear_display();
+        
         puts("----------------------------------------------");	                     
-        printf("%25s", "Add\n");
+        printf("%22s\n", "Add");
         puts("----------------------------------------------");	                     
         printf("Enter the value (0 to return): ");
-        scanf("%d", &data);
+        /*fflush(stdin);
+        data = getchar();*/
+        scanf(" %c", &data);
         
-        if(!data) return; 
         
-        if(cnt == LVLS) 
- 			printf("\n%25s\n", "Stack overflow");
+		if(data == '0') return; 
+        
+        if(ptr_stack_1 == (ptr_stack_2 + LVLS)) 					/* aqui também testei o cnt == LVLS */
+ 			printf("\n%26s\n", "Stack overflow");
 		else
 		{
         	push(data);
@@ -140,13 +147,13 @@ void pop()
 {
     clear_display();
   
-  	if(cnt == 0) 
+  	if(ptr_stack_1 == ptr_stack_2) 										/* aqui também testei o cnt == 0 */
 		printf("\n%25s\n", "Empty stack");
 	else
 	{
 		cnt--;
-		*ptr_stack = '\0';
-		ptr_stack--;
+		*ptr_stack_1 = '\0';
+		ptr_stack_1--;
 	    
 		printf("\n%25s\n", "Removed.");	
 		
@@ -160,10 +167,10 @@ void pop()
 
 /* ================================================================================================== */
 /* ----- Adicona na pilha ----- */
-void push(int data)
+void push(char data)
 {  
-    *ptr_stack = data;     
-    ptr_stack++;
+    *ptr_stack_1 = data;     
+    ptr_stack_1++;
     cnt++; 
 	 
 } /* end push */
@@ -174,21 +181,21 @@ void push(int data)
 void display_stack()
 {
     clear_display();
+    
     puts("----------------------------------------------");	                     
-    printf("%25s", "Display\n");
+    printf("%25s\n", "Display");
     puts("----------------------------------------------");	                     
     
     register int i;    
     
-    if(cnt == 0) 
-		printf("\n%25s\n", "Empty stack");
+    if(ptr_stack_1 == ptr_stack_2) 
+		printf("\n%26s\n", "Empty stack");
 	else
-	{
-		 //for(i=0; i < cnt; i++)	
+	{	
 	    for(i=cnt - 1; i >= 0; i--)
 	    {
 	        printf("\n%27s\n", "----------------");
-			printf(" Level: %2d |      %2d      | addr: %X", i + 1, stack[i], &stack[i]);
+			printf(" Level: %X  |      %c       |  addr: %X", i, stack[i], &stack[i]);
 	    
 	    } /* end for */
 	    printf("\n%27s\n", "----------------");

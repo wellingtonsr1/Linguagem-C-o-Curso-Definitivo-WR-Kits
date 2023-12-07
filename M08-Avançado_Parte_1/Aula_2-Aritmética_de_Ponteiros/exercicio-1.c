@@ -19,107 +19,203 @@ Para mostrar a pilha, os endereços e dados devem ser apresentados no formato hex
 /* ----- Bibliotecas ----- */
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 
 /* ================================================================================================== */
 /* ----- Protótipo das funções ----- */
 void add();
 int pop();
-void push();
+void push(int data);
 void display_stack();
-
+void exit_();
+void clear_display();
+void pause();
 
 /* ================================================================================================== */
 /* ----- Constantes ----- */
-#define LVLS 5
+#define LVL 16
 
 /* ================================================================================================== */
 /* ----- Variáveis Globais ----- */
-
-
+int stack[LVL];
+int *ptr_stack = NULL;
+int cnt = 0;
 
 /* ================================================================================================== */
 /* ----- Função Principal ----- */
 int main(int argc, char *argv[])
 {
-									
-   
-									
+			    									
     #if _WIN32 
-		setlocale(LC_ALL, "Portuguese_Brazil"); 
+        setlocale(LC_ALL, "Portuguese_Brazil"); 
     #endif		
 
-	int i, j, lvls=0, lvl=0;
-	unsigned char values[16];
-	
-    printf("----------------------------------------------\n");	                     
-    printf("%25s\n", "Exercicio 1");   
-    printf("----------------------------------------------\n");	
-    
-    //for(i=0; i < LVLS; i++)
-    //{
-    	
-	//} /* end for */
-    	
+    int opcao;
+    ptr_stack = stack;
+    int data;
     for(;;)
-    {
-    	printf("Entre com o valor: ");
-    	scanf(" %c", &values[lvls]);
-    	
-    	lvls += 1;
-    	
-	    for(i=lvls - 1; i >= 0; i--)
-	    {
-	    	printf("\n          ----------------\n");
-	    	printf("Level: %2d |      %c       | addr: %X", i + 1, values[i], &values[i]);
-	    	
-		} /* end for */
+    {   
+        clear_display();
+	
+        printf("----------------------------------------------\n");	                     
+        printf("%25s\n", "Stack");   
+        printf("----------------------------------------------\n");	
+        printf(" 1 - Adicionar na pilha.\n");
+        printf(" 2 - Remover da pilha.\n");
+        printf(" 3 - Exibir a pilha.\n");
+        printf(" 0 - Sair.\n");
+    	printf(" >>> ");
+    	scanf("%d", &opcao);
+        
+        switch(opcao)
+        {
+            case 1:
+                add();
+                /*printf("Dado: ");
+                scanf("%d", &data);
+                push(data);*/
+                break;    
+            case 2:
+                pop();
+                break;
+            case 3:
+                display_stack();
+                break;
+            case 0:
+                exit_();
+                break;
+            default:
+                printf("\nOpcao invalida!\n");
+                pause();
+        }	
+        printf("\n----------------------------------------------\n");  
+	    
+    } /* end loop for */
 		
-	    printf("\n          ----------------\n");
-	    
-	    //printf("Level: ");
-	    //scanf("%d", &lvl);
-	    
-	    lvls -= lvl;
-	    
-	    putchar('\n');
-	    
-	    printf("----------------------------------------------\n");  
-	    
-	} /* end loop for */
-	
-	
     #if _WIN32
     	system("PAUSE"); 
-    #endif              							                                                       /* Faz uma parada na execução do programa */ 
-		
-    return 0;		        							                                                   /* Retorna '0' se tudo ocorrer bem na execução */
-
+    #endif                                                                     /* Faz uma parada na execução do programa */ 
+    
+    return 0;                                                   /* Retorna '0' se tudo ocorrer bem na execução */
 	
 }  /* end main */
 
 
 /* ================================================================================================== */
 /* -----Desenvolvimento das funções ----- */
+
+
+/* ================================================================================================== */
+/* ----- Recebe os valores ----- */
 void add()
 {
-	
+    int data;
+    //static int idx=0;
+    
+    do
+    {
+        clear_display();
+        puts("----------------------------------------------");	                     
+        printf("%25s", "Adicionar\n");
+        puts("----------------------------------------------");	                     
+    
+        printf("Entre com o valor (0 para voltar.): ");
+        scanf("%d", &data);
+        if(data != 0) 
+        {
+            push(data);
+            printf("\nAdicionado.\n");	
+            pause();
+        }
+    }while(data != 0);	
+
 } /* end add */
 
+
+/* ================================================================================================== */
+/* ----- Remove da pilha ----- */
 int pop()
 {
-	return 0;	
+    clear_display();
+    puts("----------------------------------------------");	                     
+    printf("%25s", "Remover\n");
+    puts("----------------------------------------------");	                     
+	
+    return 0;	
+
 } /* end pop */
 
-void push()
+
+/* ================================================================================================== */
+/* ----- Adicona na pilha ----- */
+void push(int data)
 {
-	
+    //clear_display();
+    
+    cnt++;    
+    *ptr_stack = data;
+    //display_stack(cnt);       
+
+    ptr_stack++;
 } /* end push */
 
+
+/* ================================================================================================== */
+/* ----- Exibe a pilha ----- */
 void display_stack()
 {
+    clear_display();
+    puts("----------------------------------------------");	                     
+    printf("%25s", "Exibir\n");
+    puts("----------------------------------------------");	                     
+    
+    int i;    
+     	
+    for(i=cnt - 1; i >= 0; i--)
+    {
+        printf("\n          ----------------\n");
+	printf("Level: %2d |      %2d      | addr: %X", i + 1, stack[i], &stack[i]);
+    
+    } /* end for */
+    printf("\n          ----------------\n");
+    
+    pause();
+
+} /* end display_stack */
+
+
+/* ================================================================================================== */
+/* ----- Encerra o programa ----- */
+void exit_()
+{
+    printf("\nEncerrando o programa...\n");	                     
+    exit(0);                   
 	
-} /* end dispplaay_stack */
+} /* end _exit */
+
+
+/* ================================================================================================== */
+/* ----- Limpa a tela ----- */
+void clear_display()
+{
+    #if __linux__
+        system("clear");
+    #elif _WIN32 
+        system("cls");
+    #endif	
+
+} /* end clear_display */
+
+
+/* ================================================================================================== */
+/* ----- Pausa a tela ----- */
+void pause()
+{
+    printf("\nPressione <ENTER> para continuar. ");
+    getchar();
+    getchar();
+
+} /* end pause */
 
 /* ================================================================================================== */
 /* ----- Fim do programa ----- */

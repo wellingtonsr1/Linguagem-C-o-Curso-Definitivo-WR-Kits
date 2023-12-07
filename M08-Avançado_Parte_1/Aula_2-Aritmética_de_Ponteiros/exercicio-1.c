@@ -20,11 +20,12 @@ Para mostrar a pilha, os endereços e dados devem ser apresentados no formato hex
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <locale.h>
 
 /* ================================================================================================== */
 /* ----- Protótipo das funções ----- */
 void add();
-int pop();
+void pop();
 void push(int data);
 void display_stack();
 void exit_();
@@ -33,13 +34,11 @@ void pause();
 
 /* ================================================================================================== */
 /* ----- Constantes ----- */
-#define LVL 16
+#define LVLS 4
 
 /* ================================================================================================== */
 /* ----- Variáveis Globais ----- */
-int stack[LVL];
-int *ptr_stack = NULL;
-int cnt = 0;
+int stack[LVLS], *ptr_stack = NULL, cnt = 0;
 
 /* ================================================================================================== */
 /* ----- Função Principal ----- */
@@ -53,6 +52,7 @@ int main(int argc, char *argv[])
     int opcao;
     ptr_stack = stack;
     int data;
+    
     for(;;)
     {   
         clear_display();
@@ -60,10 +60,10 @@ int main(int argc, char *argv[])
         printf("----------------------------------------------\n");	                     
         printf("%25s\n", "Stack");   
         printf("----------------------------------------------\n");	
-        printf(" 1 - Adicionar na pilha.\n");
-        printf(" 2 - Remover da pilha.\n");
-        printf(" 3 - Exibir a pilha.\n");
-        printf(" 0 - Sair.\n");
+        printf(" 1 - Add to stack.\n");
+        printf(" 2 - Remove from stack.\n");
+        printf(" 3 - Display th stack.\n");
+        printf(" 0 - Exit.\n");
     	printf(" >>> ");
     	scanf("%d", &opcao);
         
@@ -71,9 +71,6 @@ int main(int argc, char *argv[])
         {
             case 1:
                 add();
-                /*printf("Dado: ");
-                scanf("%d", &data);
-                push(data);*/
                 break;    
             case 2:
                 pop();
@@ -85,7 +82,7 @@ int main(int argc, char *argv[])
                 exit_();
                 break;
             default:
-                printf("\nOpcao invalida!\n");
+                printf("\nOption invalid!\n");
                 pause();
         }	
         printf("\n----------------------------------------------\n");  
@@ -102,44 +99,61 @@ int main(int argc, char *argv[])
 /* ================================================================================================== */
 /* -----Desenvolvimento das funções ----- */
 
-
 /* ================================================================================================== */
 /* ----- Recebe os valores ----- */
 void add()
 {
     int data;
-    //static int idx=0;
-    
-    do
+  
+  	do
     {
         clear_display();
         puts("----------------------------------------------");	                     
-        printf("%25s", "Adicionar\n");
+        printf("%25s", "Add\n");
         puts("----------------------------------------------");	                     
-        printf("Entre com o valor (0 para voltar.): ");
+        printf("Enter the value (0 to return): ");
         scanf("%d", &data);
         
-        if(!data) break; 
+        if(!data) return; 
         
-        push(data);
-        printf("\nAdicionado.\n");	
-        pause();
-        
-    }while(1);	
+        if(cnt == LVLS) 
+ 			printf("\n%25s\n", "Stack overflow");
+		else
+		{
+        	push(data);
+        	printf("\n%25s\n", "Added.");
+				
+    	} /* end else */
+    	
+    	puts("----------------------------------------------");	    
+    	pause();
+    	
+    }while(1); /* end do..while */
+	
 
 } /* end add */
 
 
 /* ================================================================================================== */
 /* ----- Remove da pilha ----- */
-int pop()
+void pop()
 {
     clear_display();
-    puts("----------------------------------------------");	                     
-    printf("%25s", "Remover\n");
-    puts("----------------------------------------------");	                     
+  
+  	if(cnt == 0) 
+		printf("\n%25s\n", "Empty stack");
+	else
+	{
+		cnt--;
+		*ptr_stack = '\0';
+		ptr_stack--;
+	    
+		printf("\n%25s\n", "Removed.");	
+		
+	} /* end else */
 	
-    return 0;	
+	puts("----------------------------------------------");
+	pause();	
 
 } /* end pop */
 
@@ -147,14 +161,11 @@ int pop()
 /* ================================================================================================== */
 /* ----- Adicona na pilha ----- */
 void push(int data)
-{
-    //clear_display();
-    
-    cnt++;    
-    *ptr_stack = data;
-    //display_stack(cnt);       
-
+{  
+    *ptr_stack = data;     
     ptr_stack++;
+    cnt++; 
+	 
 } /* end push */
 
 
@@ -164,19 +175,27 @@ void display_stack()
 {
     clear_display();
     puts("----------------------------------------------");	                     
-    printf("%25s", "Exibir\n");
+    printf("%25s", "Display\n");
     puts("----------------------------------------------");	                     
     
     register int i;    
-     	
-    for(i=cnt - 1; i >= 0; i--)
-    {
-        printf("\n          ----------------\n");
-	printf("Level: %2d |      %2d      | addr: %X", i + 1, stack[i], &stack[i]);
     
-    } /* end for */
-    printf("\n          ----------------\n");
-    
+    if(cnt == 0) 
+		printf("\n%25s\n", "Empty stack");
+	else
+	{
+		 //for(i=0; i < cnt; i++)	
+	    for(i=cnt - 1; i >= 0; i--)
+	    {
+	        printf("\n%27s\n", "----------------");
+			printf(" Level: %2d |      %2d      | addr: %X", i + 1, stack[i], &stack[i]);
+	    
+	    } /* end for */
+	    printf("\n%27s\n", "----------------");
+	    
+	} /* end else */
+	
+	puts("----------------------------------------------");	
     pause();
 
 } /* end display_stack */
@@ -186,7 +205,7 @@ void display_stack()
 /* ----- Encerra o programa ----- */
 void exit_()
 {
-    printf("\nEncerrando o programa...\n");	                     
+    printf("\n%35s\n", "Closing the program...");	                     
     exit(0);                   
 	
 } /* end _exit */
@@ -210,7 +229,7 @@ void clear_display()
 void pause()
 {
     #if __linux__
-        printf("\nPressione <ENTER> para continuar. ");
+        printf("\nPress <ENTER> to continue. ");
         getchar();
         getchar();
     #elif _WIN32 

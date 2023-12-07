@@ -31,10 +31,7 @@ int main(int argc, char *argv[])
     disp_numbers(val);
     
     putchar('\n');
-<<<<<<< HEAD:M08-Avançado_Parte_1/Aula_3-Ponteiros_para_Funções/exercicio-2.c
-=======
-    
->>>>>>> 099852941e2bcf04d93fed0209fd2af4ba64fc33:M08-Avançado_Parte_1/Aula_3-Ponteiros_para_Funções/exrcicio-2.c
+
     printf("----------------------------------------------\n");  
 	
 
@@ -56,18 +53,12 @@ int disp_numbers(int n)
 		printf("%d ", cnt);
 		cnt++;
 		disp_numbers(n - 1);
-<<<<<<< HEAD:M08-Avançado_Parte_1/Aula_3-Ponteiros_para_Funções/exercicio-2.c
 
 	} /* end else */
 	return 0;
 
 } /* end disp_numbers */
-=======
-	}
-	return 0;
-	
-} /* end fatorial */
->>>>>>> 099852941e2bcf04d93fed0209fd2af4ba64fc33:M08-Avançado_Parte_1/Aula_3-Ponteiros_para_Funções/exrcicio-2.c
+
 
 /*
 

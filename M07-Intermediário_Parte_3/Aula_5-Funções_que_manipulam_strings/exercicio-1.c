@@ -141,12 +141,11 @@ void help()
 
 voi my_exit()
 {
-<<<<<<< HEAD
+
 	puts("Encerrando o programa...");
 	exit(1);
-=======
-	exit;
->>>>>>> 86e6cdf96ab96a5935e83eb9dfe5536f5f79514c
+
+
 	
 } /* end my_exit */
 
@@ -156,10 +155,7 @@ void runsound()
 	
 } /* end runsound */
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 86e6cdf96ab96a5935e83eb9dfe5536f5f79514c
 
 
 /* ================================================================================================== */

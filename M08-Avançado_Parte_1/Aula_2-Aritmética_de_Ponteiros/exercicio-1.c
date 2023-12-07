@@ -92,9 +92,7 @@ int main(int argc, char *argv[])
 	    
     } /* end loop for */
 		
-    #if _WIN32
-    	system("PAUSE"); 
-    #endif                                                                     /* Faz uma parada na execução do programa */ 
+    pause();                                                          /* Faz uma parada na execução do programa */ 
     
     return 0;                                                   /* Retorna '0' se tudo ocorrer bem na execução */
 	
@@ -118,16 +116,16 @@ void add()
         puts("----------------------------------------------");	                     
         printf("%25s", "Adicionar\n");
         puts("----------------------------------------------");	                     
-    
         printf("Entre com o valor (0 para voltar.): ");
         scanf("%d", &data);
-        if(data != 0) 
-        {
-            push(data);
-            printf("\nAdicionado.\n");	
-            pause();
-        }
-    }while(data != 0);	
+        
+        if(!data) break; 
+        
+        push(data);
+        printf("\nAdicionado.\n");	
+        pause();
+        
+    }while(1);	
 
 } /* end add */
 
@@ -169,7 +167,7 @@ void display_stack()
     printf("%25s", "Exibir\n");
     puts("----------------------------------------------");	                     
     
-    int i;    
+    register int i;    
      	
     for(i=cnt - 1; i >= 0; i--)
     {
@@ -211,9 +209,13 @@ void clear_display()
 /* ----- Pausa a tela ----- */
 void pause()
 {
-    printf("\nPressione <ENTER> para continuar. ");
-    getchar();
-    getchar();
+    #if __linux__
+        printf("\nPressione <ENTER> para continuar. ");
+        getchar();
+        getchar();
+    #elif _WIN32 
+        system("PAUSE");
+    #endif	
 
 } /* end pause */
 

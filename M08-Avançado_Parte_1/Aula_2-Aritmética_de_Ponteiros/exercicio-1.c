@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
                 exit_();
                 break;
             default:
-                printf("\nOption invalid!\n");
+                printf("\nInvalid option!\n");
                 pause();
         }	
         printf("\n----------------------------------------------\n");  

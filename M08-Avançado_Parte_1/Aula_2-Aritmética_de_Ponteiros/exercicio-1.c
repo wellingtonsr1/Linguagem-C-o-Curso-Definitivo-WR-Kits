@@ -38,7 +38,7 @@ void pause();
 
 /* ================================================================================================== */
 /* ----- Variáveis Globais ----- */
-char stack[LVLS], *ptr_stack_1 = NULL, *ptr_stack_2 = NULL;
+char stack[LVLS], *stack_1_ptr = NULL, *stack_2_ptr = NULL;
 int cnt = 0;
 
 /* ================================================================================================== */
@@ -52,8 +52,8 @@ int main(int argc, char *argv[])
 
     int opcao;
 	
-    ptr_stack_1 = stack;
-    ptr_stack_2 = stack;
+    stack_1_ptr = stack;
+    stack_2_ptr = stack;
     
     
     for(;;)
@@ -82,7 +82,8 @@ int main(int argc, char *argv[])
                 display_stack();
                 break;
             case 0:
-                exit_();
+                printf("\n%35s\n", "Closing the program...");	                     
+                exit(0);
                 break;
             default:
                 printf("\nInvalid option!\n");
@@ -107,8 +108,8 @@ int main(int argc, char *argv[])
 void add()
 {
     char data;
-  
-  	do
+    long int t; 
+    do
     {
         clear_display();
         
@@ -120,21 +121,21 @@ void add()
         data = getchar();*/
         scanf(" %c", &data);
         
+	if(data == '0') return; 
         
-		if(data == '0') return; 
-        
-        if(ptr_stack_1 == (ptr_stack_2 + LVLS)) 					/* aqui também testei o cnt == LVLS */
- 			printf("\n%26s\n", "Stack overflow");
-		else
-		{
-        	push(data);
-        	printf("\n%25s\n", "Added.");
+        if(stack_1_ptr == (stack_2_ptr + LVLS)) 					/* aqui também testei o cnt == LVLS */
+ 	    printf("\n%26s\n", "Stack overflow");
+	else
+	{
+            push(data);
+            printf("\n%25s\n", "Added.");
 				
     	} /* end else */
     	
-    	puts("----------------------------------------------");	    
-    	pause();
-    	
+        /*	puts("----------------------------------------------");	    
+        pause(); */
+        for(t=0; t<1E8; t++);       
+	
     }while(1); /* end do..while */
 	
 
@@ -146,31 +147,34 @@ void add()
 void pop()
 {
     clear_display();
+    long int t;
   
-  	if(ptr_stack_1 == ptr_stack_2) 										/* aqui também testei o cnt == 0 */
-		printf("\n%25s\n", "Empty stack");
-	else
-	{
-		cnt--;
-		*ptr_stack_1 = '\0';
-		ptr_stack_1--;
+    if(stack_1_ptr == stack_2_ptr) 										/* aqui também testei o cnt == 0 */
+	printf("\n%25s\n", "Empty stack");
+    else
+    {
+        cnt--;
+	*stack_1_ptr = '\0';
+	stack_1_ptr--;
 	    
-		printf("\n%25s\n", "Removed.");	
+	printf("\n%25s\n", "Removed.");	
 		
-	} /* end else */
+    } /* end else */
 	
-	puts("----------------------------------------------");
-	pause();	
+    puts("----------------------------------------------");
+    /*pause(); */	
 
+    for(t=0; t<1E8; t++); 
+      	
 } /* end pop */
 
 
 /* ================================================================================================== */
-/* ----- Adicona na pilha ----- */
+/* ----- Adiciona na pilha ----- */
 void push(char data)
 {  
-    *ptr_stack_1 = data;     
-    ptr_stack_1++;
+    *stack_1_ptr = data;     
+    stack_1_ptr++;
     cnt++; 
 	 
 } /* end push */
@@ -188,34 +192,24 @@ void display_stack()
     
     register int i;    
     
-    if(ptr_stack_1 == ptr_stack_2) 
-		printf("\n%26s\n", "Empty stack");
-	else
-	{	
-	    for(i=cnt - 1; i >= 0; i--)
-	    {
-	        printf("\n%27s\n", "----------------");
-			printf(" Level: %X  |      %c       |  addr: %X", i, stack[i], &stack[i]);
+    if(stack_1_ptr == stack_2_ptr) 
+        printf("\n%26s\n", "Empty stack");
+    else
+    {	
+        for(i=cnt - 1; i >= 0; i--)
+        {
+            printf("\n%27s\n", "----------------");
+            printf(" Level: %X  |      %c       |  addr: %X",i , *(stack_1_ptr - (cnt - i)), stack_1_ptr - (cnt - i));
 	    
-	    } /* end for */
-	    printf("\n%27s\n", "----------------");
+	} /* end for */
+	printf("\n%27s\n", "----------------");
 	    
-	} /* end else */
+    } /* end else */
 	
-	puts("----------------------------------------------");	
+    puts("----------------------------------------------");	
     pause();
 
 } /* end display_stack */
-
-
-/* ================================================================================================== */
-/* ----- Encerra o programa ----- */
-void exit_()
-{
-    printf("\n%35s\n", "Closing the program...");	                     
-    exit(0);                   
-	
-} /* end _exit */
 
 
 /* ================================================================================================== */

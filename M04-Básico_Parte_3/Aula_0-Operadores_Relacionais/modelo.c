@@ -1,10 +1,10 @@
 /* =================================================================================================
-	Módulo 
+	MÃ³dulo 
 	Aula 
-	Descrição: 
+	DescriÃ§Ã£o: 
 	Autor: Wellington
 	Data: 
-	Atualização: --
+	AtualizaÃ§Ã£o: --
 ================================================================================================== */
 
 
@@ -15,26 +15,26 @@
 #include <locale.h> 
 
 
-/* Função Principal */
+/* FunÃ§Ã£o Principal */
 int main(int argc, char *argv[])
 {
 									
     /* setlocale(LC_CTYPE, "Portuguese"); */ 
 
 	
-    printf("----------------------------------------------\n");	                        /* Cabeçaalho */
-    printf("                             \n");   
+    printf("----------------------------------------------\n");	                        /* CabeÃ§aalho */
+    printf("  Ã©                            \n");   
     printf("----------------------------------------------\n");	
     
     
     
     
     
-    printf("----------------------------------------------\n");         	        /* Rodapé */
+    printf("----------------------------------------------\n");         	        /* RodapÃ© */
     
     
-    system("PAUSE");               							/* Faz uma parada na execução do programa */
+    system("PAUSE");               							/* Faz uma parada na execuÃ§Ã£o do programa */
 		
-    return 0;		        							/* Retorna '0' se tudo ocorrer bem na execução */
+    return 0;		        							/* Retorna '0' se tudo ocorrer bem na execuÃ§Ã£o */
 	
 }  /* end main */

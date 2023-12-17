@@ -1,10 +1,10 @@
 /* =================================================================================================
-	Módulo 4, Parte 3
+	MÃ³dulo 4, Parte 3
 	Aula 0
-	Descrição: operadores relacionais
+	DescriÃ§Ã£o: operadores relacionais
 	Autor: Wellington
 	Data: 09/11/2023
-	Atualização: --
+	AtualizaÃ§Ã£o: --
 ================================================================================================== */
 
 
@@ -13,12 +13,12 @@
 #include <stdlib.h>
 
 
-/* Função Principal */
+/* FunÃ§Ã£o Principal */
 int main(int argc, char *argv[]) 
 {
 
-    printf("----------------------------------------------\n");	        /* Cabeçaalho */
-    printf("		Testes relacionais         			  \n");
+    printf("----------------------------------------------\n");	        /* CabeÃ§aalho */
+    printf(" Ã© Ã§ Ã£		Testes relacionais         			  \n");
     printf("----------------------------------------------\n");	
     
     int opA = 1,
@@ -33,10 +33,10 @@ int main(int argc, char *argv[])
     printf("%d != %d = %d\n", opA, opB, opA != opB);
     
     
-    printf("----------------------------------------------\n");	        /* Rodapé */
+    printf("----------------------------------------------\n");	        /* RodapÃ© */
     
-	system("PAUSE"); 				        							/* Faz uma parada na execução do programa */
+	system("PAUSE"); 				        							/* Faz uma parada na execuÃ§Ã£o do programa */
 		
-	return 0;															/* Retorna '0' se tudo ocorrer bem na execução */
+	return 0;															/* Retorna '0' se tudo ocorrer bem na execuÃ§Ã£o */
 	
 }  /* end main */

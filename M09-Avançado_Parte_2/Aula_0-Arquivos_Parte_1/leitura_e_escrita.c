@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     }
     else
     {
-        fputs("Esse Ã© um teste de acentuaÃ§Ã£o!", arq);
+        fputs("Esse é um teste de acentuação!", arq);
         fclose(arq);
     }
     
@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
     {    
         while((ch = fgetc(arq)) != EOF) 
             printf("%c", ch);
+            fprintf(stdout, "Olá\n");
 
         fclose(arq);
     }

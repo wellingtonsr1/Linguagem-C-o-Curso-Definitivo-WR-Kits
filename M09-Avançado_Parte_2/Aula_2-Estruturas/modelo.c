@@ -1,10 +1,10 @@
 /* =================================================================================================
-	Módulo 
+	Mï¿½dulo 
 	Aula 
-	Descrição: 
+	Descriï¿½ï¿½o: 
 	Autor: Wellington
 	Data: 
-	Atualização: --
+	Atualizaï¿½ï¿½o: --
 ================================================================================================== */
 
 
@@ -15,7 +15,7 @@
 #include <locale.h> 
 
 
-/* Função Principal */
+/* Funï¿½ï¿½o Principal */
 int main(int argc, char *argv[])
 {
 									
@@ -24,21 +24,21 @@ int main(int argc, char *argv[])
     #endif 
 
 	
-    printf("----------------------------------------------\n");	                        /* Cabeçaalho */
+    printf("----------------------------------------------\n");	                        /* Cabeï¿½aalho */
     printf("                             \n");   
     printf("----------------------------------------------\n");	
     
     
-   teste 2 
+  
     
     
-    printf("----------------------------------------------\n");         	        /* Rodapé */
+    printf("----------------------------------------------\n");         	        /* Rodapï¿½ */
     
     
     #if _WIN32
         system("PAUSE"); 
-    #endif             							/* Faz uma parada na execução do programa */
+    #endif             							/* Faz uma parada na execuï¿½ï¿½o do programa */
 		
-    return 0;		        							/* Retorna '0' se tudo ocorrer bem na execução */
+    return 0;		        							/* Retorna '0' se tudo ocorrer bem na execuï¿½ï¿½o */
 	
 }  /* end main */
